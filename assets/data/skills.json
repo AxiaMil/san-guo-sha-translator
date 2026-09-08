@@ -4,7 +4,7 @@
     "name_cn": "仁德",
     "name_en": "Benevolence",
     "description_cn": "出牌阶段，你可以将任意张手牌交给其他角色，然后你本阶段以此法给出第二张牌或更多时，你回复1点体力。",
-    "description_en": "During your Play Phase, you may give any number of hand cards to other characters. Each time you give out your 2nd or subsequent card this way during this phase, recover 1 HP."
+    "description_en": "During your Play Phase, you may give hand cards to other characters. Once you have given at least 2 cards this way in this phase, recover 1 HP. You can recover HP this way only once per phase."
   },
   "skill_rally_the_vanguard": {
     "skill_type": "lord",
@@ -32,7 +32,7 @@
     "name_cn": "观星",
     "name_en": "Read the Stars",
     "description_cn": "准备阶段，你可以观看牌堆顶的X张牌（X为存活角色数且至多为5），然后以任意顺序置于牌堆顶或牌堆底。",
-    "description_en": "During your Preparation Phase, you may look at the top X cards of the Draw Pile (X = number of surviving characters, max 5), then place them on the top or bottom of the Draw Pile in any order."
+    "description_en": "During your Preparation Phase, you may look at the top X cards of the Draw Pile. X is the number of surviving characters, up to 5. Put those cards on the top or bottom of the Draw Pile in any order."
   },
   "skill_empty_fort": {
     "skill_type": "locked",
@@ -46,14 +46,14 @@
     "name_cn": "龙胆",
     "name_en": "Dragon's Courage",
     "description_cn": "你可以将一张【杀】当【闪】、【闪】当【杀】使用或打出。",
-    "description_en": "You may use or play a [Kill] as [Dodge], or a [Dodge] as [Kill]."
+    "description_en": "You may use or play a [Kill] as a [Dodge], or a [Dodge] as a [Kill]."
   },
   "skill_repair_armor": {
     "skill_type": "active",
     "name_cn": "缮甲",
     "name_en": "Repair Armor",
     "description_cn": "出牌阶段开始时，你可以摸三张牌，然后弃置X张牌（X为3减去你于本局游戏内失去过的装备区里的牌数，至少为0）。若你未以此法弃置：基本牌，你本阶段使用【杀】的次数上限+1；锦囊牌，你本阶段使用牌无距离限制；非装备牌，你可以视为使用一张不计入次数限制的【杀】。",
-    "description_en": "At the start of your Play Phase, you may draw 3 cards, then discard X cards (X = 3 minus the number of cards you have lost from your Equipment Zone this game, minimum 0). If you did not discard a card of the corresponding type by this method: Basic Card — your [Kill] usage limit this phase +1; Tool Card — your card use this phase ignores Distance restrictions; non-Equipment Card — you may treat this as using a [Kill] that does not count toward your usage limit."
+    "description_en": "At the start of your Play Phase, you may draw 3 cards, then discard X cards. X is 3 minus the number of cards you have lost from your Equipment Zone this game, with a minimum of 0.\nApply each benefit whose condition is met:\n• No Basic Card discarded: increase your [Kill] usage limit by 1 this phase.\n• No Tool Card discarded: your card use has no Distance restriction this phase.\n• No non-Equipment Card discarded: you may be treated as using a [Kill] that does not count toward your usage limit."
   },
   "skill_iron_cavalry": {
     "skill_type": "active",
@@ -67,7 +67,7 @@
     "name_cn": "马术",
     "name_en": "Horsemanship",
     "description_cn": "锁定技，你计算与其他角色的距离-1。",
-    "description_en": "Locked Skill: When you calculate the Distance to another character, -1."
+    "description_en": "Locked Skill: Subtract 1 when calculating your Distance to another character."
   },
   "skill_gathered_wisdom": {
     "skill_type": "active",
@@ -95,7 +95,7 @@
     "name_cn": "救援",
     "name_en": "Rescue",
     "description_cn": "主公技，锁定技，其他吴势力角色对你使用【桃】的回复值+1。",
-    "description_en": "Lord Skill, Locked Skill: When another Wu faction character uses [Peach] on you, the HP recovered +1.",
+    "description_en": "Lord Skill, Locked Skill: When another Wu character uses [Peach] on you, increase the HP recovered by 1.",
     "skill_type_secondary": "locked"
   },
   "skill_surprise_raid": {
@@ -131,7 +131,7 @@
     "name_cn": "反间",
     "name_en": "Counter-Spy",
     "description_cn": "出牌阶段限一次，你可以令一名其他角色选择一种花色，令其获得并展示你的一张手牌，若此牌花色与其选择的花色不同，你对其造成1点伤害。",
-    "description_en": "Once per Play Phase: you may have another character choose a suit, then they gain and show 1 of your hand cards. If the card's suit differs from the suit they chose, you deal 1 damage to them."
+    "description_en": "Once per Play Phase, you may have another character choose a suit, then gain and show 1 of your hand cards. If that card has a different suit from the one they chose, deal 1 damage to them."
   },
   "skill_peerless_beauty": {
     "skill_type": "active",
@@ -187,7 +187,7 @@
     "name_cn": "鬼才",
     "name_en": "Demonic Wit",
     "description_cn": "当一张判定牌生效前，你可以用一张手牌代替之。",
-    "description_en": "Before a Judgment Card takes effect, you may substitute it with a hand card."
+    "description_en": "Before a Judgment Card takes effect, you may substitute it with 1 hand card. The original Judgment Card is discarded."
   },
   "skill_unyielding": {
     "skill_type": "active",
@@ -201,14 +201,14 @@
     "name_cn": "突袭",
     "name_en": "Sudden Raid",
     "description_cn": "摸牌阶段，你可以少摸任意张牌并获得等量的其他角色各一张手牌。",
-    "description_en": "Draw Phase: You may draw any number fewer cards. If you do, gain 1 hand card each from that many other characters."
+    "description_en": "During your Draw Phase, you may draw fewer cards. For each card you forgo, gain 1 hand card from a different other character."
   },
   "skill_bare_chested": {
     "skill_type": "active",
     "name_cn": "裸衣",
     "name_en": "Bare-Chested",
     "description_cn": "摸牌阶段，你可以少摸一张牌，然后你本回合使用【杀】或【决斗】造成的伤害+1。",
-    "description_en": "Draw Phase: You may draw 1 fewer card. If you do, the damage dealt by your [Kill] or [Duel] this turn +1."
+    "description_en": "During your Draw Phase, you may draw 1 fewer card. If you do, your [Kill] and [Duel] deal 1 additional damage this turn."
   },
   "skill_heavens_envy": {
     "skill_type": "active",
@@ -257,7 +257,7 @@
     "name_cn": "无双",
     "name_en": "Peerless",
     "description_cn": "锁定技，你使用的【杀】需两张【闪】才能抵消；与你【决斗】的角色每次需打出两张【杀】。",
-    "description_en": "Locked Skill: A [Kill] you use needs 2 [Dodge]s to Negate. Each time a character in a [Duel] with you needs to play a [Kill], they need to play 2 [Kill]s instead of 1."
+    "description_en": "Locked Skill: A [Kill] you use needs 2 [Dodge] cards to Negate it.\nIn a [Duel] with you, the other character needs to play 2 [Kill] cards each time instead of 1."
   },
   "skill_eclipse_the_moon": {
     "skill_type": "active",
@@ -285,7 +285,7 @@
     "name_cn": "结姻",
     "name_en": "Political Marriage",
     "description_cn": "出牌阶段限一次，你可以弃置两张手牌，令你与一名已受伤的男性角色各回复1点体力。",
-    "description_en": "Once per Play Phase: you may discard 2 hand cards. You and 1 Wounded male character each recover 1 HP."
+    "description_en": "Once per Play Phase, you may discard 2 hand cards. If you do, you and 1 Wounded male character each recover 1 HP."
   },
   "skill_show_of_arms": {
     "skill_type": "locked",
@@ -299,7 +299,7 @@
     "name_cn": "妄尊",
     "name_en": "Vainglorious",
     "description_cn": "主公的准备阶段，你可以摸一张牌，然后令其本回合手牌上限-1。",
-    "description_en": "During the Lord's Preparation Phase, you may draw 1 card, then the Lord's Hand Limit this turn -1."
+    "description_en": "During the Lord’s Preparation Phase, you may draw 1 card. Then reduce the Lord’s Hand Limit by 1 for the current turn."
   },
   "skill_shared_ailment": {
     "skill_type": "locked",
@@ -376,7 +376,7 @@
     "name_cn": "屯田",
     "name_en": "Field Farming",
     "description_cn": "当你于回合外失去牌后，你可以判定，当非红桃判定牌生效后，你将此牌置于你的武将牌上，称为「田」。你计算与其他角色的距离-X（X为你「田」的数量）。",
-    "description_en": "After you lose cards outside your turn, you may perform a Judgment. After the Judgment Card takes effect, if it is not Hearts, place it on your General Card as a 「Field」 token. Your calculated Distance to other characters -X (X = number of your 「Field」 tokens)."
+    "description_en": "After you lose cards outside your turn, you may perform a Judgment. After a non-Hearts Judgment Card takes effect, place it on your General Card as a 「Field」.\nSubtract X when calculating your Distance to other characters, where X is the number of your 「Fields」."
   },
   "skill_breach_the_pass": {
     "skill_type": "awakening",
@@ -425,7 +425,7 @@
     "name_cn": "镇骨",
     "name_en": "Steady Resolve",
     "description_cn": "结束阶段，你可以选择一名其他角色，本回合结束时和其下回合结束时，其将手牌调整至与你手牌数相同（至多摸至五张）。",
-    "description_en": "End Phase: you may choose another character. At the end of this turn and at the end of that character's next turn, that character adjusts their hand count to match yours (drawing up to a maximum of 5 cards, or discarding as needed)."
+    "description_en": "During your End Phase, you may choose another character. At the end of this turn and at the end of that character’s next turn, they draw or discard until their hand size matches yours. If drawing, they can only draw until they have 5 hand cards."
   },
   "skill_claim_glory": {
     "skill_type": "active",
@@ -439,7 +439,7 @@
     "name_cn": "鸿举",
     "name_en": "Grand Rise",
     "description_cn": "觉醒技，准备阶段，若「荣」的数量不小于3，你用任意手牌替换等量的「荣」，减少1点体力上限并获得〖清侧〗。",
-    "description_en": "Awakening Skill: Preparation Phase, if you have at least 3 「Glory」 tokens, replace any number of them with an equal number of hand cards, reduce your Max HP by 1, then gain 〖Clear the Flanks〗."
+    "description_en": "Awakening Skill: During your Preparation Phase, if you have at least 3 「Glory」 cards, exchange any number of hand cards for an equal number of your 「Glory」 cards (keep the replaced cards in your hand). Reduce your Max HP by 1, then gain 〖Clear the Flanks〗."
   },
   "skill_clear_the_flanks": {
     "skill_type": "active",
@@ -4794,7 +4794,7 @@
     "name_cn": "嚣翻",
     "name_en": "Wild Boast",
     "description_cn": "当你需要使用牌时，你可以观看牌堆底的X+1张牌，然后可以使用其中你需要的牌并弃置你前X个区域里的牌：1.判定区；2.装备区；3.手牌区。（X为本回合使用过牌的类型数）",
-    "description_en": "When you need to use a card, look at the bottom X+1 cards from the Draw Pile (X = card types used this turn), then use any needed card from among them and discard X cards from your zones in order: 1. Judgment Zone; 2. Equipment Zone; 3. Hand."
+    "description_en": "When you need to use a card, you may look at the bottom X + 1 cards of the Draw Pile. You may then use a needed card from among them and discard all cards in the first X of these zones, in order:\n1. Judgment Zone\n2. Equipment Zone\n3. Hand\nX is the number of card types used this turn."
   },
   "skill_tactless_misstep": {
     "skill_type": "locked",
@@ -6819,7 +6819,7 @@
     "name_cn": "雄幕",
     "name_en": "Grand Curtain",
     "description_cn": "每轮开始时，你可以将手牌摸至体力上限，然后将任意张牌洗入牌堆，从牌堆或弃牌堆中获得等量的点数为8的牌（这些牌本轮不计入你的手牌上限）。当你每回合第一次受到伤害时，若你的手牌数不大于体力值，此伤害-1。",
-    "description_en": "At the start of each round, you may draw cards until your hand equals your Max HP, then shuffle any number of cards into the Draw Pile and gain an equal number of rank-8 cards from the Draw Pile or Discard Pile (these cards do not count toward your Hand Limit this round). The first time you take damage each turn, if your hand card count is no greater than your HP Value, that damage -1."
+    "description_en": "At the start of each round, you may draw until your hand size equals your Max HP. Then shuffle any number of cards into the Draw Pile and gain an equal number of rank-8 cards from the Draw Pile or Discard Pile. These rank-8 cards do not count toward your Hand Limit this round.\nThe first time you take damage each turn, if your hand size is no greater than your HP Value, reduce that damage by 1."
   },
   "skill_display_of_talent": {
     "skill_type": "active",

@@ -1,0 +1,45 @@
+{
+  "revision": "2026-09-08",
+  "skills": [
+    "skill_benevolence",
+    "skill_horsemanship",
+    "skill_rescue",
+    "skill_sudden_raid",
+    "skill_bare_chested",
+    "skill_vainglorious",
+    "skill_field_farming",
+    "skill_steady_resolve",
+    "skill_grand_rise",
+    "skill_wild_boast",
+    "skill_grand_curtain",
+    "skill_repair_armor",
+    "skill_read_the_stars",
+    "skill_dragons_courage",
+    "skill_demonic_wit",
+    "skill_peerless",
+    "skill_counter_spy",
+    "skill_political_marriage"
+  ],
+  "cards": [
+    "basic_kill",
+    "basic_fire_kill",
+    "basic_thunder_kill",
+    "basic_dodge",
+    "basic_peach",
+    "basic_wine"
+  ],
+  "unresolved": {
+    "skill_burn_the_heart": {
+      "name_en": "Burn the Heart",
+      "name_cn": "焚心"
+    },
+    "skill_sp_loyal_discernment": {
+      "name_en": "Loyal Discernment",
+      "name_cn": "忠鉴"
+    },
+    "skill_sp_gifted_insight": {
+      "name_en": "Gifted Insight",
+      "name_cn": "才识"
+    }
+  }
+}

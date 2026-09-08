@@ -1,3 +1,20 @@
+# Interface and translation verification — 2026-09-08
+
+- Production build and TypeScript: passed.
+- 23 JavaScript tests passed, including 16 new translation, source-gap, alias, and rulebook regressions.
+- 67 Python recognition/API tests passed with the deployed Python 3.14 dependency versions.
+- Eight standalone Dart OCR checks passed. Total: 98 automated checks.
+- `npm audit --omit=dev`: zero reported vulnerabilities.
+- Neutral light/dark palettes checked on a 390 × 844 phone viewport. Theme selection persists after reload. The main text/accent/button contrast pairs range from 5.19:1 to 16.46:1.
+- Axe audits: scanner and reader report zero violations and no incomplete checks. Rulebook reports zero violations; the partially clipped final chip in the horizontal filter strip requires manual contrast inspection (its shared text tokens pass).
+- Browser flows: upload → strong Guan Yu artwork match; English/bilingual/Chinese controls and larger text; bookmark persistence; linked Kill card → Back to Liu Bei; card editions; rule search inside examples.
+- Production-preview service worker activated. With browser networking disabled, reloaded the app and fetched all 704 cached cards and 151 rule entries; an uncached network request failed as expected. Saved cards survived reload.
+- A second build installed as a waiting service worker and displayed Update & reload, rather than silently replacing the running application.
+
+Known data gaps and the precise scope of the translation pass are documented in [translation-review.md](translation-review.md). Offline caching is browser-managed and artwork is limited to 120 visited images. Photo recognition requires a connection. Full Flutter device testing and real printed-card lighting accuracy remain outside these checks.
+
+---
+
 # Verification — 2026-09-08
 
 - Production frontend build: passed (`npm run build`).

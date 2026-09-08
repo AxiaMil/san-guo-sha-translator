@@ -4,10 +4,14 @@ export type Skill = {
   description_cn: string;
   description_en: string;
   skill_type?: string;
+  skill_type_secondary?: string;
+  translation_reviewed?: boolean;
+  translation_missing?: boolean;
 };
 export type Card = {
   id: string;
   printed_id: string;
+  standard_id?: string;
   name_cn: string;
   name_en: string;
   kind: "general" | "card";
@@ -21,6 +25,7 @@ export type Card = {
   faq: { q_en: string; a_en: string; q_cn: string; a_cn: string }[];
   image: string | null;
   aliases?: string[];
+  translation_reviewed?: boolean;
 };
 export type Candidate = {
   id: string;

@@ -6,7 +6,10 @@ A camera-first San Guo Sha companion with English translations, built on [Akari-
 
 - **Scan:** rear camera or photo upload, crop and rotate, artwork recognition, and Chinese OCR fallback.
 - **Library:** 704 generals and playing cards; search English, simplified/traditional Chinese, skills, or printed IDs.
-- **At the table:** bilingual skills, effects, FAQs, searchable rules, and bookmarks saved on your device.
+- **At the table:** English/bilingual/Chinese reading, larger text, linked card references, edition selection, searchable rules and examples, and bookmarks saved on your device.
+- **Appearance:** neutral white and charcoal themes with subtle blue accents; Light, Dark, or System preferences persist locally.
+- **Offline reading:** the production app caches card text, rules, and up to 120 viewed artwork images. Photo matching needs a connection.
+- **Translation review:** 18 shared skills and six basic card effects revised; known missing source skills are shown explicitly. See [review notes](docs/translation-review.md).
 - **Recognition:** 729 source artworks (727 unique), including skins. CLAHE lighting correction, ORB local feature retrieval, and RANSAC perspective checks. Identical artwork with different faction rules returns both choices.
 - **Privacy:** photos are resized on the device, processed in memory by the artwork endpoint, and never saved by the application. Text OCR runs in the browser. No account or AI API key is required.
 
@@ -37,7 +40,7 @@ node scripts/build-catalog.mjs
 uv run python scripts/build-references.py
 ```
 
-`npm run build` regenerates the web catalog, images, rulebook, and Chinese normalization map directly from the Flutter assets. The compressed reference index is committed so Vercel does not need to regenerate it on every deploy. Do not change the OpenCV version without rerunning recognition tests. The selected wheel fits Vercel's Python function size limit.
+`npm run build` regenerates the web catalog, images, rulebook, and Chinese normalization map directly from the Flutter assets, then creates a versioned offline cache. The compressed reference index is committed so Vercel does not need to regenerate it on every deploy. Do not change the OpenCV version without rerunning recognition tests. The selected wheel fits Vercel's Python function size limit.
 
 ## Deploy
 

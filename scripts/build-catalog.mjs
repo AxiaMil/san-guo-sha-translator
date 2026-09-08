@@ -2,7 +2,29 @@ import fs from "node:fs";
 const read = (p) =>
   JSON.parse(fs.readFileSync(p, "utf8").replace(/^\uFEFF/, ""));
 const skills = read("assets/data/skills.json");
+const review = read("assets/data/translation-review.json");
 const cards = [];
+const missing = [];
+function resolveSkill(skill, cardId) {
+  if (typeof skill !== "string") return skill;
+  if (skills[skill])
+    return {
+      ...skills[skill],
+      translation_reviewed: review.skills.includes(skill),
+    };
+  if (!review.unresolved[skill])
+    throw new Error(
+      `Unknown skill ${skill} on ${cardId}; do not silently omit it.`,
+    );
+  missing.push({ card: cardId, skill });
+  return {
+    ...review.unresolved[skill],
+    description_en:
+      "This edition’s skill text is missing from the source library. Check the printed card before playing; another edition may work differently.",
+    description_cn: "源资料缺少此版本的技能文本，请以实体卡牌为准。",
+    translation_missing: true,
+  };
+}
 for (const file of fs
   .readdirSync("assets/data/generals")
   .filter((f) => f.endsWith(".json") && f !== "skin.json")) {
@@ -10,9 +32,7 @@ for (const file of fs
     cards.push({
       ...card,
       kind: "general",
-      skills: (card.skills || [])
-        .map((s) => (typeof s === "string" ? skills[s] : s))
-        .filter(Boolean),
+      skills: (card.skills || []).map((s) => resolveSkill(s, card.id)),
       image: `/images/generals/${card.id}.webp`,
     });
 }
@@ -23,18 +43,29 @@ for (const file of fs
     cards.push({
       ...card,
       kind: "card",
+      translation_reviewed: review.cards.includes(card.id),
       skills: [],
       image: `/images/library/${card.id}.webp`,
     });
 }
+const aliases = {
+  basic_kill: ["sha", "slash"],
+  basic_dodge: ["shan", "jink"],
+  basic_peach: ["tao"],
+  basic_wine: ["jiu", "analeptic"],
+  basic_fire_kill: ["huo sha", "fire slash"],
+  basic_thunder_kill: ["lei sha", "thunder slash"],
+};
 const ids = new Set();
 for (const card of cards) {
+  card.aliases = [...(card.aliases || []), ...(aliases[card.id] || [])];
   card.printed_id = card.id;
   if (ids.has(card.id)) card.id = `${card.id}--${card.faction || ids.size}`;
   ids.add(card.id);
   if (!fs.existsSync(`assets${card.image}`)) card.image = null;
 }
 fs.mkdirSync("site/public", { recursive: true });
+console.log(`Source gaps displayed explicitly: ${missing.length}`);
 fs.writeFileSync("site/public/catalog.json", JSON.stringify(cards));
 fs.writeFileSync(
   "site/public/rules.json",

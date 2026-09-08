@@ -44,6 +44,18 @@ export default function Scanner({
     request = useRef<AbortController | null>(null),
     mounted = useRef(true),
     cameraPending = useRef(false);
+  const resultsRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (result) {
+      resultsRef.current?.scrollIntoView({
+        behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "instant"
+          : "smooth",
+        block: "start",
+      });
+      resultsRef.current?.focus({ preventScroll: true });
+    }
+  }, [result]);
   function stopCamera() {
     stream.current?.getTracks().forEach((t) => t.stop());
     stream.current = null;
@@ -238,7 +250,9 @@ export default function Scanner({
     }
   }
   return (
-    <section className="scanner">
+    <section
+      className={`scanner ${photo ? "has-photo" : live ? "is-live" : "is-ready"}`}
+    >
       <input
         ref={upload}
         type="file"
@@ -263,27 +277,27 @@ export default function Scanner({
         }}
       />
       <div className="section-kicker">
-        <span className="live-dot" /> YOUR TABLESIDE COMPANION{" "}
+        <span className="live-dot" /> THE CARDS, IN YOUR LANGUAGE{" "}
         <span className="edition">三国杀</span>
       </div>
       <div className="scan-heading">
         <h1>
-          Read the card.
+          Less guessing.
           <br />
-          <em>Make your move.</em>
+          <em>More playing.</em>
         </h1>
         <p>
-          Point your camera at a card. <br />
-          Find the general. Understand every skill.
+          Scan a card to find its English translation. Your next move starts
+          here.
         </p>
       </div>
       {!photo && !live && (
         <div className="scan-stage">
           <div className="stage-top">
             <span>
-              <ScanLine size={15} /> CARD RECOGNITION
+              <ScanLine size={15} /> MATCH THE ARTWORK
             </span>
-            <span>01 — SCAN</span>
+            <span>01 PHOTO → 02 MATCH → 03 READ</span>
           </div>
           <div className="card-scene" aria-hidden="true">
             <span className="scene-orbit" />
@@ -452,7 +466,12 @@ export default function Scanner({
         </div>
       )}
       {result && (
-        <section className="results" aria-live="polite">
+        <section
+          className="results"
+          aria-live="polite"
+          ref={resultsRef}
+          tabIndex={-1}
+        >
           <div className="section-title">
             <h2>
               {result.candidates.length
@@ -516,7 +535,7 @@ export default function Scanner({
         <>
           <div className="privacy">
             <ShieldCheck size={14} />
-            <span>No sign-in. Photos processed, never saved.</span>
+            <span>No account needed. Photos aren’t stored.</span>
           </div>
           <div className="tips">
             <div>

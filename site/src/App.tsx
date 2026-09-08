@@ -1,21 +1,34 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   ScanLine,
   BookOpen,
   Bookmark,
   Search,
   ArrowRight,
-  ArrowLeft,
   X,
-  Heart,
-  Shield,
-  ChevronDown,
   WifiOff,
   RefreshCw,
+  Sun,
+  Moon,
+  Monitor,
+  Check,
+  Library,
+  SlidersHorizontal,
 } from "lucide-react";
 import Scanner from "./Scanner";
-import { searchCards, normalize } from "./matching";
-import type { Card, Rule } from "./types";
+import { useOfflineUpdate } from "./offline";
+import CardReader from "./CardReader";
+import Rulebook from "./Rulebook";
+import { searchCards } from "./matching";
+import { preference, savePreference } from "./reading";
+import type { Card } from "./types";
+type Tab = "scan" | "library" | "saved" | "rules";
+const navigation = [
+  { id: "scan", name: "Scan", icon: ScanLine },
+  { id: "library", name: "Library", icon: Library },
+  { id: "saved", name: "Saved", icon: Bookmark },
+  { id: "rules", name: "Rules", icon: BookOpen },
+] as const;
 function stored(key: string): string[] {
   try {
     const data = JSON.parse(localStorage.getItem(key) || "[]");
@@ -24,66 +37,37 @@ function stored(key: string): string[] {
     return [];
   }
 }
-function persist(key: string, value: string[]) {
-  try {
-    localStorage.setItem(key, JSON.stringify(value));
-  } catch {
-    /* Browsing still works when storage is unavailable. */
-  }
-}
-function RuleBlocks({ blocks }: { blocks: unknown[] }) {
-  return (
-    <>
-      {blocks.map((b, i) => {
-        if (typeof b === "string") return <p key={i}>{b}</p>;
-        if (!b || typeof b !== "object") return null;
-        const obj = b as Record<string, unknown>;
-        return (
-          <div className="rule-block" key={i}>
-            {typeof obj.en === "string" && <p>{obj.en}</p>}
-            {typeof obj.title_en === "string" && (
-              <strong>{obj.title_en}</strong>
-            )}
-            {Object.entries(obj)
-              .filter(
-                ([key, value]) => Array.isArray(value) && !key.endsWith("_cn"),
-              )
-              .map(([key, value]) => (
-                <RuleBlocks key={key} blocks={value as unknown[]} />
-              ))}
-          </div>
-        );
-      })}
-    </>
-  );
-}
 export default function App() {
+  const installUpdate = useOfflineUpdate();
   const [cards, setCards] = useState<Card[]>([]),
     [loading, setLoading] = useState(true),
     [loadError, setLoadError] = useState(false),
-    [tab, setTab] = useState<"scan" | "library" | "saved">("scan"),
+    [tab, setTab] = useState<Tab>("scan"),
     [query, setQuery] = useState(""),
+    [quickQuery, setQuickQuery] = useState(""),
     [kind, setKind] = useState("All cards"),
     [faction, setFaction] = useState("All factions"),
+    [expansion, setExpansion] = useState("All editions"),
+    [sort, setSort] = useState("Recommended"),
+    [filtersOpen, setFiltersOpen] = useState(false),
     [limit, setLimit] = useState(36),
     [selected, setSelected] = useState<Card | null>(null),
     [saved, setSaved] = useState(() => stored("sha-saved")),
     [recent, setRecent] = useState(() => stored("sha-recent")),
-    [showChinese, setShowChinese] = useState(false),
-    [rules, setRules] = useState<Rule[]>([]),
-    [rulesOpen, setRulesOpen] = useState(false),
-    [ruleQuery, setRuleQuery] = useState(""),
-    [ruleError, setRuleError] = useState(false),
-    [offline, setOffline] = useState(!navigator.onLine);
-  const dialog = useRef<HTMLDialogElement>(null),
-    ruleDialog = useRef<HTMLDialogElement>(null);
+    [offline, setOffline] = useState(!navigator.onLine),
+    [toast, setToast] = useState<{ text: string; previous: string[] } | null>(
+      null,
+    ),
+    [theme, setTheme] = useState(() =>
+      preference("sha-theme", ["Light", "Dark", "System"], "System"),
+    );
   async function load() {
     setLoading(true);
     setLoadError(false);
     try {
-      const response = await fetch("/catalog.json");
-      if (!response.ok) throw Error();
-      setCards(await response.json());
+      const r = await fetch("/catalog.json");
+      if (!r.ok) throw Error();
+      setCards(await r.json());
     } catch {
       setLoadError(true);
     } finally {
@@ -92,100 +76,157 @@ export default function App() {
   }
   useEffect(() => {
     void load();
-    const online = () => setOffline(!navigator.onLine);
-    window.addEventListener("online", online);
-    window.addEventListener("offline", online);
+    const changed = () => setOffline(!navigator.onLine);
+    window.addEventListener("online", changed);
+    window.addEventListener("offline", changed);
     return () => {
-      window.removeEventListener("online", online);
-      window.removeEventListener("offline", online);
+      window.removeEventListener("online", changed);
+      window.removeEventListener("offline", changed);
     };
   }, []);
   useEffect(() => {
+    const media = matchMedia("(prefers-color-scheme: dark)");
+    const apply = () => {
+      document.documentElement.dataset.theme =
+        theme === "System"
+          ? media.matches
+            ? "dark"
+            : "light"
+          : theme.toLowerCase();
+      document
+        .querySelector('meta[name="theme-color"]')
+        ?.setAttribute(
+          "content",
+          document.documentElement.dataset.theme === "dark"
+            ? "#141416"
+            : "#fafafa",
+        );
+    };
+    apply();
+    savePreference("sha-theme", theme);
+    media.addEventListener("change", apply);
+    return () => media.removeEventListener("change", apply);
+  }, [theme]);
+  useEffect(() => {
     const changed = () => {
-      const id = new URLSearchParams(location.hash.slice(1)).get("card");
-      setSelected(cards.find((c) => c.id === id) || null);
+      const p = new URLSearchParams(location.hash.slice(1));
+      setSelected(cards.find((c) => c.id === p.get("card")) || null);
+      const next = p.get("tab");
+      setTab(navigation.some((n) => n.id === next) ? (next as Tab) : "scan");
     };
     changed();
+    window.addEventListener("popstate", changed);
     window.addEventListener("hashchange", changed);
-    return () => window.removeEventListener("hashchange", changed);
+    return () => {
+      window.removeEventListener("popstate", changed);
+      window.removeEventListener("hashchange", changed);
+    };
   }, [cards]);
   useEffect(() => {
-    if (selected) {
-      dialog.current?.showModal();
-      setShowChinese(false);
-    } else dialog.current?.close();
-  }, [selected]);
-  useEffect(() => {
-    if (rulesOpen) ruleDialog.current?.showModal();
-    else ruleDialog.current?.close();
-  }, [rulesOpen]);
-  useEffect(() => {
     setLimit(36);
-  }, [query, kind, faction, tab]);
+  }, [query, kind, faction, expansion, sort, tab]);
+  useEffect(() => {
+    if (!toast) return;
+    const timer = setTimeout(() => setToast(null), 5000);
+    return () => clearTimeout(timer);
+  }, [toast]);
   function openCard(card: Card) {
+    history.pushState(
+      { shaCard: true },
+      "",
+      `#${new URLSearchParams({ tab, card: card.id })}`,
+    );
     setSelected(card);
-    location.hash = new URLSearchParams({ card: card.id }).toString();
     const next = [card.id, ...recent.filter((id) => id !== card.id)].slice(
       0,
       8,
     );
     setRecent(next);
-    persist("sha-recent", next);
+    savePreference("sha-recent", JSON.stringify(next));
   }
   function closeCard() {
-    setSelected(null);
-    history.replaceState(null, "", location.pathname + location.search);
+    if (history.state?.shaCard) history.back();
+    else {
+      history.replaceState(null, "", `#tab=${tab}`);
+      setSelected(null);
+    }
   }
   function toggleSaved(id: string) {
     const next = saved.includes(id)
       ? saved.filter((x) => x !== id)
       : [id, ...saved];
+    setToast({
+      text: next.includes(id)
+        ? "Card saved to your collection"
+        : "Card removed from saved",
+      previous: saved,
+    });
     setSaved(next);
-    persist("sha-saved", next);
+    savePreference("sha-saved", JSON.stringify(next));
   }
-  function navigate(next: typeof tab) {
+  function navigate(next: Tab) {
+    if (next !== tab) history.pushState(null, "", `#tab=${next}`);
     setTab(next);
+    setSelected(null);
+    window.scrollTo({
+      top: 0,
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
+    });
+  }
+  function clearFilters() {
     setQuery("");
     setKind("All cards");
     setFaction("All factions");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setExpansion("All editions");
   }
-  async function openRules() {
-    setRulesOpen(true);
-    if (rules.length) return;
-    setRuleError(false);
-    try {
-      const res = await fetch("/rules.json");
-      if (!res.ok) throw Error();
-      setRules(await res.json());
-    } catch {
-      setRuleError(true);
-    }
-  }
-  const filtered = useMemo(
-    () =>
-      searchCards(
-        cards.filter(
-          (c) =>
-            (tab !== "saved" || saved.includes(c.id)) &&
-            (kind === "All cards" ||
-              c.kind === (kind === "Generals" ? "general" : "card")) &&
-            (faction === "All factions" || c.faction === faction),
-        ),
-        query,
+  const filtered = useMemo(() => {
+    const result = searchCards(
+      cards.filter(
+        (c) =>
+          (tab !== "saved" || saved.includes(c.id)) &&
+          (kind === "All cards" ||
+            c.kind === (kind === "Generals" ? "general" : "card")) &&
+          (faction === "All factions" || c.faction === faction) &&
+          (expansion === "All editions" ||
+            (c.expansion || "Playing cards") === expansion),
       ),
-    [cards, tab, saved, kind, faction, query],
-  );
+      query,
+    );
+    if (sort === "Name A–Z")
+      result.sort((a, b) => a.name_en.localeCompare(b.name_en));
+    if (sort === "Card ID")
+      result.sort((a, b) => a.printed_id.localeCompare(b.printed_id));
+    if (!query && sort === "Recommended")
+      result.sort(
+        (a, b) =>
+          Number(b.expansion === "Standard") -
+          Number(a.expansion === "Standard"),
+      );
+    return result;
+  }, [cards, tab, saved, kind, faction, expansion, sort, query]);
   const recentCards = recent
     .map((id) => cards.find((c) => c.id === id))
     .filter((c): c is Card => !!c);
-  const ruleMatches = rules.filter((r) =>
-    normalize(
-      [r.term_en, r.term_cn, r.definition_en, r.definition_cn].join(" "),
-    ).includes(normalize(ruleQuery)),
-  );
+  const hasFilters =
+    !!query ||
+    kind !== "All cards" ||
+    faction !== "All factions" ||
+    expansion !== "All editions";
   return (
     <>
+      <a
+        className="skip-link"
+        href="#main"
+        onClick={(e) => {
+          e.preventDefault();
+          document.getElementById("main")?.focus();
+          document.getElementById("main")?.scrollIntoView();
+        }}
+      >
+        Skip to content
+      </a>
       <header className="app-header">
         <button
           className="brand"
@@ -194,39 +235,66 @@ export default function App() {
         >
           <span className="brand-seal">殺</span>
           <span>
-            SHA<small>SAN GUO SHA COMPANION</small>
+            SHA<small>YOUR TABLESIDE COMPANION</small>
           </span>
         </button>
-        <button className="rules-button" onClick={() => void openRules()}>
-          <BookOpen size={17} />
-          <span>How to play</span>
-          <ArrowRight size={15} />
-        </button>
+        <details
+          className="theme-picker"
+          onKeyDown={(e) => {
+            if (e.key === "Escape") e.currentTarget.open = false;
+          }}
+        >
+          <summary aria-label="Appearance">
+            <Sun size={19} className="light-icon" />
+            <Moon size={19} className="dark-icon" />
+            <span>Appearance</span>
+          </summary>
+          <div className="theme-menu">
+            <span className="menu-caption">MAKE YOURSELF AT HOME</span>
+            {(
+              [
+                { value: "Light", icon: Sun },
+                { value: "Dark", icon: Moon },
+                { value: "System", icon: Monitor },
+              ] as const
+            ).map(({ value, icon: Icon }) => (
+              <button
+                key={value}
+                aria-pressed={theme === value}
+                onClick={(e) => {
+                  setTheme(value);
+                  e.currentTarget.closest("details")?.removeAttribute("open");
+                }}
+              >
+                <Icon size={18} />
+                {value}
+                {theme === value && <Check size={16} />}
+              </button>
+            ))}
+          </div>
+        </details>
       </header>
-      <main className="app-layout">
+      <main className="app-layout" id="main" tabIndex={-1}>
         <aside className="desktop-nav">
           <div className="nav-caption">AT THE TABLE</div>
-          {(["scan", "library", "saved"] as const).map((item) => (
+          {navigation.map(({ id, name, icon: Icon }) => (
             <button
-              key={item}
-              className={tab === item ? "active" : ""}
-              onClick={() => navigate(item)}
+              key={id}
+              aria-current={tab === id ? "page" : undefined}
+              className={tab === id ? "active" : ""}
+              onClick={() => navigate(id)}
             >
-              {item === "scan" ? (
-                <ScanLine size={20} />
-              ) : item === "library" ? (
-                <BookOpen size={20} />
-              ) : (
-                <Bookmark size={20} />
-              )}
+              <Icon size={20} />
               <span>
-                {item === "scan"
+                {name === "Scan"
                   ? "Scan a card"
-                  : item === "library"
+                  : name === "Library"
                     ? "Card library"
-                    : "Saved cards"}
+                    : name === "Saved"
+                      ? "Saved cards"
+                      : "How to play"}
               </span>
-              {item === "saved" && saved.length > 0 && (
+              {id === "saved" && !!saved.length && (
                 <small>{saved.length}</small>
               )}
             </button>
@@ -236,20 +304,31 @@ export default function App() {
             <p>
               Know your cards.
               <br />
-              Know your next move.
+              Enjoy the game.
             </p>
             <small>A fan-made companion.</small>
           </div>
         </aside>
         <div className="main-content">
+          {installUpdate && (
+            <div className="update-notice" role="status">
+              <span>A fresh edition of the companion is ready.</span>
+              <button onClick={installUpdate}>
+                Update & reload <RefreshCw size={15} />
+              </button>
+            </div>
+          )}
           {offline && (
             <div className="notice">
-              <WifiOff size={17} /> You’re offline. Loaded cards are available;
-              photo matching needs a connection.
+              <WifiOff size={18} />
+              <span>
+                You’re offline. Cached cards and rules are available. Photo
+                matching needs a connection.
+              </span>
             </div>
           )}
           {loading ? (
-            <div className="loading-state">
+            <div className="loading-state" role="status">
               <span className="brand-seal">殺</span>
               <p>Opening the card library…</p>
             </div>
@@ -261,207 +340,300 @@ export default function App() {
                 <RefreshCw size={18} /> Try again
               </button>
             </div>
-          ) : tab === "scan" ? (
-            <>
-              <Scanner
-                cards={cards}
-                onOpen={openCard}
-                onBrowse={() => navigate("library")}
-              />
-              <section className="quick-library">
-                <div className="section-title">
-                  <h2>
-                    {recentCards.length
-                      ? "Recently viewed"
-                      : "Meet the classics"}
-                  </h2>
-                  <button
-                    className="text-link"
-                    onClick={() => navigate("library")}
-                  >
-                    View library <ArrowRight size={15} />
-                  </button>
-                </div>
-                <div className="recent-list">
-                  {(recentCards.length
-                    ? recentCards
-                    : cards.filter((c) =>
-                        ["SHU001", "SHU002", "WEI001"].includes(c.id),
-                      )
-                  )
-                    .slice(0, 3)
-                    .map((c) => (
-                      <button
-                        key={c.id}
-                        className="recent-card"
-                        onClick={() => openCard(c)}
-                      >
-                        <img src={c.image || ""} alt="" />
-                        <span>
-                          <strong>{c.name_en}</strong>
-                          <small>
-                            {c.name_cn} · {c.faction}
-                          </small>
-                        </span>
-                        <ArrowRight size={16} />
-                      </button>
-                    ))}
-                </div>
-              </section>
-            </>
           ) : (
-            <section className="library">
-              <div className="section-kicker">
-                {tab === "saved"
-                  ? "YOUR PERSONAL DECK"
-                  : "THE COMPLETE COLLECTION"}
-                <span className="edition">藏</span>
-              </div>
-              <h1>
-                {tab === "saved"
-                  ? "Keep your favorites close."
-                  : "Find your next move."}
-              </h1>
-              <p className="library-intro">
-                {tab === "saved"
-                  ? "Your saved cards, ready for the next game."
-                  : `${cards.length} cards. Every faction. English translations at a glance.`}
-              </p>
-              <div className="search-field">
-                <Search size={20} />
-                <input
-                  aria-label="Search cards"
-                  placeholder="Name, Chinese text, skill, or card ID"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-                {query && (
-                  <button
-                    aria-label="Clear search"
-                    onClick={() => setQuery("")}
-                  >
-                    <X size={18} />
-                  </button>
+            <>
+              <div hidden={tab !== "scan"}>
+                {tab === "scan" && (
+                  <>
+                    <Scanner
+                      cards={cards}
+                      onOpen={openCard}
+                      onBrowse={() => {
+                        clearFilters();
+                        navigate("library");
+                      }}
+                    />
+                    <form
+                      className="quick-search"
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        clearFilters();
+                        setQuery(quickQuery);
+                        navigate("library");
+                      }}
+                    >
+                      <label htmlFor="quick-search">
+                        Already know the name?
+                      </label>
+                      <div className="search-field">
+                        <Search size={19} />
+                        <input
+                          id="quick-search"
+                          placeholder="Try Guan Yu, 关羽, or SHU002"
+                          value={quickQuery}
+                          onChange={(e) => setQuickQuery(e.target.value)}
+                        />
+                        <button aria-label="Find a card" type="submit">
+                          <ArrowRight size={20} />
+                        </button>
+                      </div>
+                    </form>
+                    <section className="quick-library">
+                      <div className="section-title">
+                        <h2>
+                          {recentCards.length
+                            ? "Pick up where you left off"
+                            : "Meet the classics"}
+                        </h2>
+                        <button
+                          className="text-link"
+                          onClick={() => navigate("library")}
+                        >
+                          View all <ArrowRight size={16} />
+                        </button>
+                      </div>
+                      <div className="recent-list">
+                        {(recentCards.length
+                          ? recentCards
+                          : cards.filter((c) =>
+                              ["SHU001", "SHU002", "WEI001"].includes(c.id),
+                            )
+                        )
+                          .slice(0, 3)
+                          .map((c) => (
+                            <button
+                              key={c.id}
+                              className="recent-card"
+                              onClick={() => openCard(c)}
+                            >
+                              <img src={c.image || ""} alt="" />
+                              <span>
+                                <strong>{c.name_en}</strong>
+                                <small>
+                                  {c.name_cn} · {c.faction || c.category_en}
+                                </small>
+                              </span>
+                              <ArrowRight size={17} />
+                            </button>
+                          ))}
+                      </div>
+                    </section>
+                  </>
                 )}
               </div>
-              <div className="library-filters">
-                <div className="segmented">
-                  {["All cards", "Generals", "Playing cards"].map((k) => (
-                    <button
-                      key={k}
-                      aria-pressed={kind === k}
-                      className={kind === k ? "selected" : ""}
-                      onClick={() => setKind(k)}
-                    >
-                      {k}
-                    </button>
-                  ))}
-                </div>
-                <label className="faction-select">
-                  <select
-                    aria-label="Filter by faction"
-                    value={faction}
-                    onChange={(e) => setFaction(e.target.value)}
-                  >
-                    {[
-                      "All factions",
-                      ...new Set(
-                        cards
-                          .map((c) => c.faction)
-                          .filter((f): f is string => !!f),
-                      ),
-                    ].map((f) => (
-                      <option key={f}>{f}</option>
-                    ))}
-                  </select>
-                  <ChevronDown size={14} />
-                </label>
-              </div>
-              <div className="result-count">
-                {filtered.length} {filtered.length === 1 ? "card" : "cards"}
-                {query && ` matching “${query}”`}
-              </div>
-              {filtered.length ? (
-                <>
-                  <div className="card-grid">
-                    {filtered.slice(0, limit).map((c) => (
-                      <article key={c.id} className="catalog-card">
-                        <button
-                          className="card-open"
-                          onClick={() => openCard(c)}
-                        >
-                          <div className="card-art">
-                            <img
-                              src={c.image || ""}
-                              alt={`${c.name_en} card`}
-                              loading="lazy"
-                            />
-                          </div>
-                          <small>
-                            {c.faction || c.category_en}{" "}
-                            <span>· {c.expansion || "Playing card"}</span>
-                          </small>
-                          <h2>{c.name_en}</h2>
-                          <p>{c.name_cn}</p>
-                        </button>
-                        <button
-                          className={`save-small ${saved.includes(c.id) ? "is-saved" : ""}`}
-                          aria-label={`${saved.includes(c.id) ? "Unsave" : "Save"} ${c.name_en}`}
-                          onClick={() => toggleSaved(c.id)}
-                        >
-                          <Bookmark
-                            size={17}
-                            fill={
-                              saved.includes(c.id) ? "currentColor" : "none"
-                            }
-                          />
-                        </button>
-                      </article>
-                    ))}
+              {tab === "rules" && <Rulebook />}
+              {(tab === "library" || tab === "saved") && (
+                <section className="library">
+                  <div className="section-kicker">
+                    {tab === "saved"
+                      ? "YOUR OWN LITTLE COLLECTION"
+                      : `${cards.length} CARDS. ONE PLACE TO FIND THEM.`}
                   </div>
-                  {limit < filtered.length && (
-                    <button
-                      className="button secondary load-more"
-                      onClick={() => setLimit((l) => l + 36)}
-                    >
-                      Show more cards <ChevronDown size={17} />
-                    </button>
-                  )}
-                </>
-              ) : (
-                <div className="empty-state">
-                  <Bookmark size={32} />
-                  <h2>
-                    {tab === "saved" && !saved.length
-                      ? "Your deck starts here"
-                      : "No cards found"}
-                  </h2>
-                  <p>
-                    {tab === "saved" && !saved.length
-                      ? "Tap the bookmark on any card to keep it here."
-                      : "Try a shorter name or choose a different filter."}
+                  <h1>
+                    {tab === "saved"
+                      ? "Your table favorites."
+                      : "Find your next move."}
+                  </h1>
+                  <p className="library-intro">
+                    {tab === "saved"
+                      ? "The cards you want close, ready when you need them."
+                      : "Search in English or Chinese. Look up a name, skill, or card ID."}
                   </p>
-                  <button
-                    className="text-link"
-                    onClick={() => {
-                      if (tab === "saved") navigate("library");
-                      else {
-                        setQuery("");
-                        setKind("All cards");
-                        setFaction("All factions");
-                      }
-                    }}
-                  >
-                    {tab === "saved" ? "Explore the library" : "Clear filters"}{" "}
-                    <ArrowRight size={16} />
-                  </button>
-                </div>
+                  <div className="search-field">
+                    <Search size={20} />
+                    <input
+                      aria-label="Search cards"
+                      placeholder="Name, Chinese text, skill, or card ID"
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                    />
+                    {query && (
+                      <button
+                        aria-label="Clear search"
+                        onClick={() => setQuery("")}
+                      >
+                        <X size={18} />
+                      </button>
+                    )}
+                  </div>
+                  <div className="library-filters">
+                    <div className="segmented">
+                      {["All cards", "Generals", "Playing cards"].map((k) => (
+                        <button
+                          key={k}
+                          aria-pressed={kind === k}
+                          className={kind === k ? "selected" : ""}
+                          onClick={() => {
+                            setKind(k);
+                            if (k === "Playing cards")
+                              setFaction("All factions");
+                          }}
+                        >
+                          {k}
+                        </button>
+                      ))}
+                    </div>
+                    <button
+                      className="filter-toggle"
+                      onClick={() => setFiltersOpen(!filtersOpen)}
+                      aria-expanded={filtersOpen}
+                    >
+                      <SlidersHorizontal size={18} /> Filters
+                      {(faction !== "All factions" ||
+                        expansion !== "All editions") && <i />}
+                    </button>
+                  </div>
+                  {filtersOpen && (
+                    <div className="filter-panel">
+                      <label>
+                        Faction
+                        <select
+                          aria-label="Filter by faction"
+                          value={faction}
+                          onChange={(e) => setFaction(e.target.value)}
+                        >
+                          {[
+                            "All factions",
+                            ...new Set(
+                              cards
+                                .map((c) => c.faction)
+                                .filter((f): f is string => !!f),
+                            ),
+                          ].map((f) => (
+                            <option key={f}>{f}</option>
+                          ))}
+                        </select>
+                      </label>
+                      <label>
+                        Edition
+                        <select
+                          aria-label="Filter by edition"
+                          value={expansion}
+                          onChange={(e) => setExpansion(e.target.value)}
+                        >
+                          {[
+                            "All editions",
+                            ...new Set(
+                              cards.map((c) => c.expansion || "Playing cards"),
+                            ),
+                          ].map((f) => (
+                            <option key={f}>{f}</option>
+                          ))}
+                        </select>
+                      </label>
+                      <label>
+                        Order
+                        <select
+                          aria-label="Sort cards"
+                          value={sort}
+                          onChange={(e) => setSort(e.target.value)}
+                        >
+                          {["Recommended", "Name A–Z", "Card ID"].map((f) => (
+                            <option key={f}>{f}</option>
+                          ))}
+                        </select>
+                      </label>
+                    </div>
+                  )}
+                  <div className="result-line">
+                    <p className="result-count" role="status">
+                      {filtered.length}{" "}
+                      {filtered.length === 1 ? "card" : "cards"}
+                      {query && ` matching “${query}”`}
+                    </p>
+                    {hasFilters && (
+                      <button className="text-link" onClick={clearFilters}>
+                        Reset <X size={14} />
+                      </button>
+                    )}
+                  </div>
+                  {filtered.length ? (
+                    <>
+                      <div className="card-grid">
+                        {filtered.slice(0, limit).map((c) => (
+                          <article key={c.id} className="catalog-card">
+                            <button
+                              className="card-open"
+                              onClick={() => openCard(c)}
+                            >
+                              <div className="card-art">
+                                <img
+                                  src={c.image || ""}
+                                  alt={`${c.name_en} card`}
+                                  loading="lazy"
+                                />
+                              </div>
+                              <div className="catalog-caption">
+                                <small>
+                                  {c.faction || c.category_en} ·{" "}
+                                  {c.expansion || "Playing card"}
+                                </small>
+                                <h2>{c.name_en}</h2>
+                                <p>
+                                  {c.name_cn}
+                                  <span>{c.printed_id}</span>
+                                </p>
+                              </div>
+                            </button>
+                            <button
+                              className={`save-small ${saved.includes(c.id) ? "is-saved" : ""}`}
+                              aria-label={`${saved.includes(c.id) ? "Unsave" : "Save"} ${c.name_en}`}
+                              aria-pressed={saved.includes(c.id)}
+                              onClick={() => toggleSaved(c.id)}
+                            >
+                              <Bookmark
+                                size={18}
+                                fill={
+                                  saved.includes(c.id) ? "currentColor" : "none"
+                                }
+                              />
+                            </button>
+                          </article>
+                        ))}
+                      </div>
+                      {limit < filtered.length && (
+                        <button
+                          className="button secondary load-more"
+                          onClick={() => setLimit((l) => l + 36)}
+                        >
+                          Show more cards <ArrowRight size={18} />
+                        </button>
+                      )}
+                    </>
+                  ) : (
+                    <div className="empty-state">
+                      <Bookmark size={32} />
+                      <h2>
+                        {tab === "saved" && !saved.length
+                          ? "Keep a few favorites"
+                          : "No cards found"}
+                      </h2>
+                      <p>
+                        {tab === "saved" && !saved.length
+                          ? "Tap the bookmark on a card to build your collection."
+                          : "Try a shorter name or clear your filters."}
+                      </p>
+                      <button
+                        className="button secondary"
+                        onClick={() => {
+                          clearFilters();
+                          if (tab === "saved") navigate("library");
+                        }}
+                      >
+                        {tab === "saved"
+                          ? "Explore the library"
+                          : "Clear filters"}
+                        <ArrowRight size={17} />
+                      </button>
+                    </div>
+                  )}
+                </section>
               )}
-            </section>
+            </>
           )}
           <footer>
             <span className="footer-seal">殺</span>
-            <p>Read before you slash.</p>
+            <p>A little help. A better game.</p>
             <small>
               Fan-made. Not affiliated with the creators of San Guo Sha.
             </small>
@@ -476,199 +648,44 @@ export default function App() {
         </div>
       </main>
       <nav className="bottom-nav" aria-label="Main navigation">
-        {(["scan", "library", "saved"] as const).map((item) => (
+        {navigation.map(({ id, name, icon: Icon }) => (
           <button
-            key={item}
-            aria-current={tab === item ? "page" : undefined}
-            className={tab === item ? "active" : ""}
-            onClick={() => navigate(item)}
+            key={id}
+            aria-current={tab === id ? "page" : undefined}
+            className={tab === id ? "active" : ""}
+            onClick={() => navigate(id)}
           >
-            {item === "scan" ? (
-              <ScanLine size={22} />
-            ) : item === "library" ? (
-              <BookOpen size={22} />
-            ) : (
-              <Bookmark size={22} />
-            )}
-            <span>
-              {item === "scan"
-                ? "Scan"
-                : item === "library"
-                  ? "Library"
-                  : "Saved"}
+            <span className="nav-icon">
+              <Icon size={21} />
+              {id === "saved" && saved.length > 0 && <i />}
             </span>
+            <span>{name}</span>
           </button>
         ))}
       </nav>
-      <dialog
-        ref={dialog}
-        className="detail-dialog"
-        onCancel={closeCard}
-        onClick={(e) => {
-          if (e.target === e.currentTarget) closeCard();
-        }}
-      >
-        {selected && (
-          <div className="detail-inner">
-            <div className="detail-toolbar">
-              <button
-                className="icon-btn"
-                onClick={closeCard}
-                aria-label="Close card details"
-              >
-                <ArrowLeft size={21} />
-              </button>
-              <span>CARD DETAILS</span>
-              <button
-                className={`icon-btn ${saved.includes(selected.id) ? "is-saved" : ""}`}
-                aria-label={
-                  saved.includes(selected.id) ? "Unsave card" : "Save card"
-                }
-                onClick={() => toggleSaved(selected.id)}
-              >
-                <Bookmark
-                  size={21}
-                  fill={saved.includes(selected.id) ? "currentColor" : "none"}
-                />
-              </button>
-            </div>
-            <div className="detail-hero">
-              <img
-                src={selected.image || ""}
-                alt={`${selected.name_en} card artwork`}
-              />
-              <div>
-                <div className="card-label">
-                  {selected.faction || selected.category_en} ·{" "}
-                  {selected.expansion || "Playing card"}
-                </div>
-                <h1>{selected.name_en}</h1>
-                <p className="chinese-name">{selected.name_cn}</p>
-                {selected.health && (
-                  <span className="health">
-                    <Heart size={16} fill="currentColor" /> {selected.health} HP
-                  </span>
-                )}
-                <small className="printed-id">{selected.printed_id}</small>
-              </div>
-            </div>
-            <div className="translation-heading">
-              <h2>
-                {selected.skills.length ? "Skills & abilities" : "Card effect"}
-              </h2>
-              <button
-                aria-pressed={showChinese}
-                onClick={() => setShowChinese(!showChinese)}
-              >
-                {showChinese ? "Hide Chinese" : "Show Chinese"}
-              </button>
-            </div>
-            {selected.skills.map((s, i) => (
-              <section className="skill" key={i}>
-                <div className="skill-title">
-                  <h3>{s.name_en}</h3>
-                  <span>{s.name_cn}</span>
-                </div>
-                {s.skill_type && (
-                  <small className="skill-type">{s.skill_type}</small>
-                )}
-                <p>{s.description_en}</p>
-                {showChinese && (
-                  <p className="chinese-text">{s.description_cn}</p>
-                )}
-              </section>
-            ))}
-            {selected.effect_en?.map((text, i) => (
-              <section className="skill" key={i}>
-                <p>{text}</p>
-                {showChinese && (
-                  <p className="chinese-text">{selected.effect_cn?.[i]}</p>
-                )}
-              </section>
-            ))}
-            {!selected.skills.length && !selected.effect_en?.length && (
-              <p className="notice">
-                No skill translation is available for this card in the source
-                library.
-              </p>
-            )}
-            {selected.faq?.length > 0 && (
-              <section className="faq">
-                <h2>At the table</h2>
-                {selected.faq.map((f, i) => (
-                  <details key={i}>
-                    <summary>{f.q_en}</summary>
-                    <p>{f.a_en}</p>
-                    {showChinese && (
-                      <p className="chinese-text">
-                        {f.q_cn}
-                        <br />
-                        {f.a_cn}
-                      </p>
-                    )}
-                  </details>
-                ))}
-              </section>
-            )}
-            <div className="detail-foot">
-              <Shield size={15} /> Translations from the community card library.
-            </div>
-          </div>
-        )}
-      </dialog>
-      <dialog
-        ref={ruleDialog}
-        className="rules-dialog"
-        onCancel={() => setRulesOpen(false)}
-      >
-        <div className="detail-toolbar">
-          <span>THE RULEBOOK</span>
+      {toast && !selected && (
+        <div className="toast" role="status">
+          <Check size={18} />
+          <span>{toast.text}</span>
           <button
-            className="icon-btn"
-            aria-label="Close rulebook"
-            onClick={() => setRulesOpen(false)}
+            onClick={() => {
+              setSaved(toast.previous);
+              savePreference("sha-saved", JSON.stringify(toast.previous));
+              setToast(null);
+            }}
           >
-            <X size={21} />
+            Undo
           </button>
         </div>
-        <h1>Know the rules.</h1>
-        <div className="search-field">
-          <Search size={18} />
-          <input
-            aria-label="Search rules"
-            placeholder="Search a rule or game term"
-            value={ruleQuery}
-            onChange={(e) => setRuleQuery(e.target.value)}
-          />
-        </div>
-        {ruleError ? (
-          <p className="notice">
-            Couldn’t load the rulebook.{" "}
-            <button onClick={() => void openRules()}>Try again</button>
-          </p>
-        ) : !rules.length ? (
-          <p>Loading the rulebook…</p>
-        ) : (
-          <>
-            <p className="result-count">{ruleMatches.length} entries</p>
-            {ruleMatches.slice(0, 60).map((r) => (
-              <details className="rule-entry" key={r.id}>
-                <summary>
-                  <span>{r.term_en}</span>
-                  <small>{r.term_cn}</small>
-                </summary>
-                <p>{r.definition_en}</p>
-                <RuleBlocks blocks={r.rules || []} />
-              </details>
-            ))}
-            {ruleMatches.length > 60 && (
-              <p className="result-count">
-                Search to narrow the remaining entries.
-              </p>
-            )}
-          </>
-        )}
-      </dialog>
+      )}
+      <CardReader
+        card={selected}
+        cards={cards}
+        saved={!!selected && saved.includes(selected.id)}
+        onSave={() => selected && toggleSaved(selected.id)}
+        onClose={closeCard}
+        onOpen={openCard}
+      />
     </>
   );
 }

@@ -1,1 +1,16 @@
-{"name":"SHA — San Guo Sha Companion","short_name":"SHA","start_url":"/","display":"standalone","background_color":"#f6f4ef","theme_color":"#f6f4ef","icons":[{"src":"/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]}
+{
+  "name": "SHA \u2014 San Guo Sha Companion",
+  "short_name": "SHA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#315bd5",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
