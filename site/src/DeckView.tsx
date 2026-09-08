@@ -134,6 +134,10 @@ export default function DeckView({
         <Search size={19} />
         <input
           aria-label="Search this deck"
+          type="search"
+          enterKeyHint="search"
+          autoCapitalize="none"
+          autoCorrect="off"
           placeholder="Name in English or Chinese, or a skill"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

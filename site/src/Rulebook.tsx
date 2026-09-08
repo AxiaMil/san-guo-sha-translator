@@ -55,6 +55,10 @@ export default function Rulebook() {
         <Search size={20} />
         <input
           aria-label="Search rules"
+          type="search"
+          enterKeyHint="search"
+          autoCapitalize="none"
+          autoCorrect="off"
           placeholder="Search a term, timing, or example"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

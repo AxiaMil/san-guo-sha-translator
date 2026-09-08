@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   ScanLine,
   BookOpen,
@@ -18,6 +18,7 @@ import {
 import Scanner from "./Scanner";
 import DeckView from "./DeckView";
 import CardArt from "./CardArt";
+import BrandMark from "./BrandMark";
 import { decks, findDeck, type Deck } from "./decks";
 import { useOfflineUpdate } from "./offline";
 import CardReader from "./CardReader";
@@ -42,6 +43,7 @@ function stored(key: string): string[] {
   }
 }
 export default function App() {
+  const themePicker = useRef<HTMLDetailsElement>(null);
   const installUpdate = useOfflineUpdate();
   const [cards, setCards] = useState<Card[]>([]),
     [loading, setLoading] = useState(true),
@@ -141,6 +143,22 @@ export default function App() {
   useEffect(() => {
     setLimit(36);
   }, [query, kind, faction, expansion, sort, tab]);
+  useEffect(() => {
+    const dismiss = (event: Event) => {
+      if (
+        event.target instanceof Node &&
+        !themePicker.current?.contains(event.target)
+      ) {
+        themePicker.current?.removeAttribute("open");
+      }
+    };
+    document.addEventListener("pointerdown", dismiss);
+    document.addEventListener("focusin", dismiss);
+    return () => {
+      document.removeEventListener("pointerdown", dismiss);
+      document.removeEventListener("focusin", dismiss);
+    };
+  }, []);
   useEffect(() => {
     if (!toast) return;
     const timer = setTimeout(() => setToast(null), 5000);
@@ -272,10 +290,11 @@ export default function App() {
           onClick={() => navigate("scan")}
           aria-label="SHA home"
         >
-          <span className="brand-seal">殺</span>
-          <span>SHA</span>
+          <BrandMark />
+          <span className="brand-wordmark">SHA</span>
         </button>
         <details
+          ref={themePicker}
           className="theme-picker"
           onKeyDown={(e) => {
             if (e.key === "Escape") e.currentTarget.open = false;
@@ -355,7 +374,7 @@ export default function App() {
           )}
           {loading ? (
             <div className="loading-state" role="status">
-              <span className="brand-seal">殺</span>
+              <BrandMark />
               <p>Loading cards…</p>
             </div>
           ) : loadError ? (
@@ -422,6 +441,10 @@ export default function App() {
                         <Search size={19} />
                         <input
                           id="quick-search"
+                          type="search"
+                          enterKeyHint="search"
+                          autoCapitalize="none"
+                          autoCorrect="off"
                           placeholder="Name, Chinese text, skill, or card ID"
                           value={quickQuery}
                           onChange={(e) => setQuickQuery(e.target.value)}
@@ -490,6 +513,10 @@ export default function App() {
                     <Search size={20} />
                     <input
                       aria-label="Search cards"
+                      type="search"
+                      enterKeyHint="search"
+                      autoCapitalize="none"
+                      autoCorrect="off"
                       placeholder="Name, Chinese text, skill, or card ID"
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}

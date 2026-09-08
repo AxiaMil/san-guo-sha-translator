@@ -83,6 +83,7 @@ export default function Scanner({
     autoScan = useRef(false);
   const stopLive = useRef<(() => void) | undefined>(undefined);
   const autoText = useRef(false);
+  const photoGeneration = useRef(0);
   const resultsRef = useRef<HTMLElement>(null);
   const versionResultRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -170,6 +171,7 @@ export default function Scanner({
     return stop;
   }, [live]);
   function reset() {
+    photoGeneration.current++;
     autoScan.current = false;
     autoText.current = false;
     request.current?.abort();
@@ -250,6 +252,7 @@ export default function Scanner({
     if (!file) return;
     reset();
     stopCamera();
+    const generation = photoGeneration.current;
     if (file.size > 25 * 1024 * 1024) {
       setError("Choose a photo smaller than 25 MB.");
       return;
@@ -257,11 +260,12 @@ export default function Scanner({
     const url = URL.createObjectURL(file);
     try {
       const image = await loadImage(url);
-      if (!mounted.current) return;
+      if (!mounted.current || photoGeneration.current !== generation) return;
       const resized = canvasOf(image, undefined, 0, 1800);
       autoScan.current = identify;
       setPhoto(resized.toDataURL("image/jpeg", 0.92));
     } catch {
+      if (!mounted.current || photoGeneration.current !== generation) return;
       setError(
         "This image format could not be opened. Try a JPEG, PNG, or WebP photo.",
       );
@@ -420,7 +424,7 @@ export default function Scanner({
         aria-label="Upload card photo"
         className="sr-only"
         onChange={(e) => {
-          void choose(e.target.files?.[0]);
+          void choose(e.target.files?.[0], true);
           e.target.value = "";
         }}
       />

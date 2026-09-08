@@ -3015,3 +3015,24 @@ footer a {
 .camera-text-fallback { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 8px 14px; border-radius: 8px; background: #111d; color: #fff; white-space: nowrap; }
 .camera-text-fallback:disabled { opacity: .5; }
 .scan-next { grid-column: 1 / -1; }
+
+/* Use actual vector bounds, independent of Chinese font baselines. */
+.brand { min-height: 44px; gap: 12px; }
+.brand-seal { display: block; flex: none; width: 38px; height: 42px; border: 0; border-radius: 0; }
+.brand-wordmark { display: block; font-size: 25px; font-weight: 700; letter-spacing: 3px; line-height: 1; }
+input[type="search"] { appearance: none; -webkit-appearance: none; }
+input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+.save-small { width: 44px; height: 44px; }
+@media (max-width: 767px) {
+  .brand-seal { width: 32px; height: 36px; }
+  .brand-wordmark { font-size: 22px; letter-spacing: 2.5px; }
+  .scan-deck-picker select, .deck-filters select, .filter-panel select, .variant-select select, .source-pack-label select,
+  input:not([type="checkbox"]):not([type="file"]), textarea { font-size: 16px; }
+  .scan-deck-picker select { padding-right: 28px; text-overflow: ellipsis; }
+}
+html { scroll-padding-block: 20px 96px; }
+@media (max-width: 360px) {
+  .scan-actions { grid-template-columns: 1fr; }
+  .scan-actions .button { min-height: 48px; }
+}
+.scan-actions .button { justify-content: center; }

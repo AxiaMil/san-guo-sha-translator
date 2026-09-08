@@ -41,3 +41,10 @@ remain with the original artists and respective rights holders; the code license
 does not grant ownership of these illustrations. Video frames are research evidence
 only, never library or recognition reference pixels. Mobile display copies are
 scaled down from these originals, with no enlargement or generated detail.
+
+## Brand mark
+
+The outlined 殺 glyph is rendered from Noto Serif TC Semibold, distributed under
+[SIL OFL 1.1](licenses/noto-serif-OFL.txt). The header and app icon use the same
+centered vector outline, without loading a system font at runtime.
+Source: https://fonts.google.com/noto/specimen/Noto+Serif+TC.

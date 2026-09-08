@@ -37,11 +37,20 @@ export function ruleText(value: unknown, language: "en" | "cn"): string[] {
   return text;
 }
 export function searchRules(rules: Rule[], query: string, category = "All") {
-  const q = normalize(query);
+  const canonical = (text: string) =>
+    text.replace(/\bslash\b/gi, "kill").replace(/\bjink\b/gi, "dodge");
+  const q = normalize(canonical(query));
+  const exactCardTerm = ["kill", "dodge"].includes(q)
+    ? new RegExp(`\\b${q}\\b`, "i")
+    : undefined;
+  const matches = (text: string) =>
+    exactCardTerm
+      ? exactCardTerm.test(canonical(text))
+      : normalize(canonical(text)).includes(q);
   return rules.filter(
     (r) =>
       (category === "All" || r.id.startsWith(category)) &&
-      normalize(
+      matches(
         [
           r.term_en,
           r.term_cn,
@@ -50,7 +59,7 @@ export function searchRules(rules: Rule[], query: string, category = "All") {
           ...ruleText(r.rules, "en"),
           ...ruleText(r.rules, "cn"),
         ].join(" "),
-      ).includes(q),
+      ),
   );
 }
 export const terms = [

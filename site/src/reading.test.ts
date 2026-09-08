@@ -73,6 +73,26 @@ describe("Readable, faithful translations", () => {
   });
 });
 describe("Complete rulebook reading and search", () => {
+  it("does not confuse the card Kill with the word skill", () => {
+    const skill: Rule = {
+      ...rules[0],
+      term_en: "Skill",
+      term_cn: "",
+      definition_en: "A compulsory skill.",
+      definition_cn: "",
+      rules: [],
+    };
+    expect(searchRules([skill], "Slash")).toEqual([]);
+    expect(searchRules([skill], "Kill")).toEqual([]);
+  });
+  it.each([
+    ["Slash", "Kill"],
+    ["Jink", "Dodge"],
+  ])("finds the familiar rules alias %s", (alias, printed) => {
+    const expected = searchRules(rules, printed);
+    expect(expected.length).toBeGreaterThan(0);
+    expect(searchRules(rules, alias)).toEqual(expected);
+  });
   it("does not repeat annotated sentence segments", () => {
     expect(
       ruleText(
