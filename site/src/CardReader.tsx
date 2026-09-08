@@ -115,7 +115,7 @@ export default function CardReader({
             >
               <ArrowLeft size={21} />
             </button>
-            <span>THE CARD READER</span>
+            <span />
             <div className="toolbar-actions">
               <button
                 className="icon-btn"

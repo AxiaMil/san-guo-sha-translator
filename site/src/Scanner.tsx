@@ -8,10 +8,8 @@ import {
   ArrowRight,
   LoaderCircle,
   TextSearch,
-  ShieldCheck,
   Focus,
   Sun,
-  ZoomIn,
 } from "lucide-react";
 import ReactCrop, { type Crop, type PixelCrop } from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
@@ -26,6 +24,7 @@ import {
 } from "./versions";
 import VersionCompare from "./VersionCompare";
 import CardArt from "./CardArt";
+import { recognizeCard } from "./recognition";
 export default function Scanner({
   cards,
   onOpen,
@@ -37,6 +36,8 @@ export default function Scanner({
 }) {
   const [photo, setPhoto] = useState(""),
     [live, setLive] = useState(false),
+    [openingCamera, setOpeningCamera] = useState(false),
+    [cameraReady, setCameraReady] = useState(false),
     [crop, setCrop] = useState<Crop>(),
     [pixelCrop, setPixelCrop] = useState<PixelCrop>(),
     [busy, setBusy] = useState(false),
@@ -62,7 +63,8 @@ export default function Scanner({
     stream = useRef<MediaStream | null>(null),
     request = useRef<AbortController | null>(null),
     mounted = useRef(true),
-    cameraPending = useRef(false);
+    cameraGeneration = useRef(0),
+    autoScan = useRef(false);
   const resultsRef = useRef<HTMLElement>(null);
   const versionResultRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -77,6 +79,9 @@ export default function Scanner({
     }
   }, [result]);
   function stopCamera() {
+    cameraGeneration.current++;
+    setOpeningCamera(false);
+    setCameraReady(false);
     stream.current?.getTracks().forEach((t) => t.stop());
     stream.current = null;
     setLive(false);
@@ -85,6 +90,7 @@ export default function Scanner({
     mounted.current = true;
     return () => {
       mounted.current = false;
+      cameraGeneration.current++;
       stream.current?.getTracks().forEach((t) => t.stop());
       request.current?.abort();
     };
@@ -92,9 +98,7 @@ export default function Scanner({
   useEffect(() => {
     const hidden = () => {
       if (document.hidden) {
-        stream.current?.getTracks().forEach((t) => t.stop());
-        stream.current = null;
-        setLive(false);
+        stopCamera();
       }
     };
     document.addEventListener("visibilitychange", hidden);
@@ -103,13 +107,16 @@ export default function Scanner({
   useEffect(() => {
     if (live && video.current && stream.current) {
       video.current.srcObject = stream.current;
+      const activeStream = stream.current;
       void video.current.play().catch(() => {
+        if (stream.current !== activeStream || !mounted.current) return;
         stopCamera();
-        camera.current?.click();
+        setError("Camera preview unavailable. Use Take a photo below.");
       });
     }
   }, [live]);
   function reset() {
+    autoScan.current = false;
     request.current?.abort();
     setBusy(false);
     setPhoto("");
@@ -121,13 +128,14 @@ export default function Scanner({
     setVersionText("");
   }
   async function openCamera() {
-    if (cameraPending.current) return;
+    if (openingCamera || live) return;
     setError("");
     if (!navigator.mediaDevices?.getUserMedia) {
       camera.current?.click();
       return;
     }
-    cameraPending.current = true;
+    const generation = ++cameraGeneration.current;
+    setOpeningCamera(true);
     try {
       const media = await navigator.mediaDevices.getUserMedia({
         video: {
@@ -137,22 +145,23 @@ export default function Scanner({
         },
         audio: false,
       });
-      if (!mounted.current) {
+      if (!mounted.current || generation !== cameraGeneration.current) {
         media.getTracks().forEach((t) => t.stop());
         return;
       }
       stream.current = media;
       setLive(true);
     } catch {
-      if (mounted.current)
+      if (mounted.current && generation === cameraGeneration.current)
         setError(
           "Camera access is unavailable. Use “Take a photo” or choose an existing image.",
         );
     } finally {
-      cameraPending.current = false;
+      if (mounted.current && generation === cameraGeneration.current)
+        setOpeningCamera(false);
     }
   }
-  async function choose(file?: File) {
+  async function choose(file?: File, identify = false) {
     if (!file) return;
     reset();
     stopCamera();
@@ -165,6 +174,7 @@ export default function Scanner({
       const image = await loadImage(url);
       if (!mounted.current) return;
       const resized = canvasOf(image, undefined, 0, 1800);
+      autoScan.current = identify;
       setPhoto(resized.toDataURL("image/jpeg", 0.92));
     } catch {
       setError(
@@ -176,11 +186,12 @@ export default function Scanner({
   }
   function capture() {
     const v = video.current;
-    if (!v?.videoWidth) return;
+    if (!cameraReady || !v?.videoWidth || !v.videoHeight) return;
     const c = document.createElement("canvas");
     c.width = v.videoWidth;
     c.height = v.videoHeight;
     c.getContext("2d")!.drawImage(v, 0, 0);
+    autoScan.current = true;
     setPhoto(c.toDataURL("image/jpeg", 0.92));
     setCrop(undefined);
     setPixelCrop(undefined);
@@ -209,49 +220,52 @@ export default function Scanner({
       0,
       1400,
     );
-    const timer = window.setTimeout(
+    let timer = window.setTimeout(
       () => controller.abort("timeout"),
       textOnly ? 150000 : 65000,
     );
     try {
-      let next: ScanResult;
-      if (textOnly) {
-        setStatus("Preparing text recognition…");
-        const { readCard } = await import("./ocr");
-        const text = await readCard(
-          canvas,
-          (s) => {
-            if (!controller.signal.aborted) setStatus(s);
-          },
-          controller.signal,
-        );
-        next = {
-          candidates: matchText(cards, text),
-          guidance:
-            "Text can match several editions. Compare the artwork and skills.",
-        };
-        if (!controller.signal.aborted) {
+      const next = await recognizeCard({
+        signal: controller.signal,
+        textOnly,
+        text: async () => {
+          window.clearTimeout(timer);
+          timer = window.setTimeout(() => controller.abort("timeout"), 150000);
+          setStatus("Reading card text…");
+          const { readCard } = await import("./ocr");
+          const text = await readCard(
+            canvas,
+            (s) => {
+              if (!controller.signal.aborted) setStatus(s);
+            },
+            controller.signal,
+          );
+          controller.signal.throwIfAborted();
           setOcrText(text);
           setVersionText(text);
-        }
-      } else {
-        setStatus("Finding the card and matching its artwork…");
-        const response = await fetch("/api/match", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            image: canvas.toDataURL("image/jpeg", 0.88).split(",")[1],
-          }),
-          signal: controller.signal,
-        });
-        const data = await response.json();
-        if (!response.ok)
-          throw new Error(
-            data.error ||
-              "Artwork matching is unavailable. Try text recognition.",
-          );
-        next = data;
-      }
+          return {
+            candidates: matchText(cards, text),
+            guidance:
+              "Compare the printed name and skills to confirm the match.",
+          };
+        },
+        artwork: async () => {
+          setStatus("Matching card artwork…");
+          const response = await fetch("/api/match", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              image: canvas.toDataURL("image/jpeg", 0.88).split(",")[1],
+            }),
+            signal: controller.signal,
+          });
+          if (!response.ok) throw new Error("Artwork matching unavailable.");
+          const data: ScanResult = await response.json();
+          if (!Array.isArray(data.candidates))
+            throw new Error("Invalid match response.");
+          return data;
+        },
+      });
       if (!controller.signal.aborted && mounted.current) setResult(next);
     } catch (e) {
       if (mounted.current) {
@@ -343,71 +357,29 @@ export default function Scanner({
         aria-label="Take a card photo"
         className="sr-only"
         onChange={(e) => {
-          void choose(e.target.files?.[0]);
+          void choose(e.target.files?.[0], true);
           e.target.value = "";
         }}
       />
-      <div className="section-kicker">
-        <span className="live-dot" /> THE CARDS, IN YOUR LANGUAGE{" "}
-        <span className="edition">三国杀</span>
-      </div>
-      <div className="scan-heading">
-        <h1>
-          Less guessing.
-          <br />
-          <em>More playing.</em>
-        </h1>
-        <p>
-          Scan a card to find its English translation. Your next move starts
-          here.
-        </p>
-      </div>
-      {!photo && !live && (
-        <div className="scan-stage">
-          <div className="stage-top">
-            <span>
-              <ScanLine size={15} /> MATCH THE ARTWORK
-            </span>
-            <span>01 PHOTO → 02 MATCH → 03 READ</span>
-          </div>
-          <div className="card-scene" aria-hidden="true">
-            <span className="scene-orbit" />
-            <img
-              className="back-card left-card"
-              src="/images/generals/WEI001.webp"
-              alt=""
-            />
-            <img
-              className="back-card right-card"
-              src="/images/generals/WU001.webp"
-              alt=""
-            />
-            <div className="main-card">
-              <img src="/images/generals/SHU002.webp" alt="" />
-              <i className="corner tl" />
-              <i className="corner tr" />
-              <i className="corner bl" />
-              <i className="corner br" />
-              <span className="scan-beam" />
-            </div>
-            <span className="recognition-tag">
-              <span /> Guan Yu <small>关羽</small>
-              <ShieldCheck size={15} />
-            </span>
-          </div>
-          <div className="stage-bottom">
-            <span>ARTWORK + CHINESE TEXT</span>
-            <span>
-              ENGLISH TRANSLATIONS <ArrowRight size={14} />
-            </span>
-          </div>
-        </div>
-      )}
+      <h1 className="sr-only">Scan a card</h1>
       {live && (
         <div className="camera-stage">
-          <video ref={video} playsInline muted autoPlay />
+          <video
+            ref={video}
+            playsInline
+            muted
+            autoPlay
+            onCanPlay={() => setCameraReady(true)}
+            onWaiting={() => setCameraReady(false)}
+            onError={() => {
+              stopCamera();
+              setError("Camera preview unavailable. Use Take a photo below.");
+            }}
+          />
           <div className="viewfinder" />
-          <p>Fit one card inside the frame</p>
+          <p>
+            {cameraReady ? "Keep the whole card in frame" : "Starting camera…"}
+          </p>
           <button
             className="icon-btn camera-close"
             aria-label="Close camera"
@@ -417,7 +389,8 @@ export default function Scanner({
           </button>
           <button
             className="shutter"
-            aria-label="Capture photo"
+            aria-label="Capture and identify card"
+            disabled={!cameraReady}
             onClick={capture}
           >
             <span />
@@ -463,6 +436,12 @@ export default function Scanner({
               <img
                 ref={img}
                 src={photo}
+                onLoad={() => {
+                  if (autoScan.current) {
+                    autoScan.current = false;
+                    void scan();
+                  }
+                }}
                 alt="Your card photo, drag to select a crop"
               />
             </ReactCrop>
@@ -491,16 +470,18 @@ export default function Scanner({
                 disabled={busy}
                 onClick={() => void scan(true)}
               >
-                <TextSearch size={20} /> Read text instead
+                <TextSearch size={20} /> Read text
               </button>
             </>
           ) : (
             <>
               <button
                 className="button primary"
+                disabled={openingCamera}
                 onClick={() => void openCamera()}
               >
-                <Camera size={21} /> Open camera <ArrowRight size={19} />
+                <Camera size={21} />{" "}
+                {openingCamera ? "Opening…" : "Open camera"}
               </button>
               <button
                 className="button secondary"
@@ -510,6 +491,12 @@ export default function Scanner({
               </button>
             </>
           )}
+        </div>
+      )}
+      {openingCamera && (
+        <div className="progress" role="status">
+          <span>Allow camera access to continue.</span>
+          <button onClick={stopCamera}>Cancel</button>
         </div>
       )}
       {busy && (
@@ -545,9 +532,7 @@ export default function Scanner({
         >
           <div className="section-title">
             <h2>
-              {result.candidates.length
-                ? "Possible matches"
-                : "Let’s try a closer look"}
+              {result.candidates.length ? "Possible matches" : "No match found"}
             </h2>
             <span>
               {result.candidates.length
@@ -597,12 +582,7 @@ export default function Scanner({
           {primaryMatch && (
             <div className="version-check">
               <h3>Which rules version?</h3>
-              <p>
-                Artwork recognition does not confirm a print edition.{" "}
-                {versionPool.length} related{" "}
-                {versionPool.length === 1 ? "version is" : "versions are"}{" "}
-                available here. Compare the name and skills on your card.
-              </p>
+              <p>Compare the printed skills to confirm your version.</p>
               {versionPool.length > 1 && (
                 <>
                   <button
@@ -614,9 +594,7 @@ export default function Scanner({
                     {busy ? "Reading…" : "Read text to check version"}
                   </button>
                   <p className="guide-note">
-                    Include the whole card with its printed name and skill text.
-                    This check reads the full photo, even if you cropped the
-                    artwork.
+                    Reads the full photo, including the printed skills.
                   </p>
                   <details className="manual-version">
                     <summary>Enter or correct the printed text</summary>
@@ -686,24 +664,9 @@ export default function Scanner({
         </section>
       )}
       {!photo && !live && (
-        <>
-          <div className="privacy">
-            <ShieldCheck size={14} />
-            <span>No account needed. Photos aren’t stored.</span>
-          </div>
-          <div className="tips">
-            <div>
-              <Sun size={19} />
-              <strong>A little light helps</strong>
-              <p>Tilt the card to move glare off its artwork.</p>
-            </div>
-            <div>
-              <ZoomIn size={19} />
-              <strong>One card at a time</strong>
-              <p>Keep the edges in frame and hold steady.</p>
-            </div>
-          </div>
-        </>
+        <p className="scan-hint">
+          Keep one card in frame and tilt it to avoid glare.
+        </p>
       )}
     </section>
   );

@@ -39,52 +39,9 @@ export default function Rulebook() {
   );
   return (
     <section className="rulebook">
-      <div className="section-kicker">A LITTLE KNOWLEDGE GOES A LONG WAY</div>
-      <h1>At the table.</h1>
-      <p className="library-intro">
-        A quick refresher, or the exact rule you need.
-      </p>
-      {!query && category === "All" && (
-        <>
-          <section className="turn-guide">
-            <div className="section-title">
-              <h2>Your turn, in six steps</h2>
-              <BookOpen size={19} />
-            </div>
-            <ol>
-              {phases.map(([name, description], i) => (
-                <li key={name}>
-                  <span>{i + 1}</span>
-                  <div>
-                    <strong>{name}</strong>
-                    <p>{description}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <p className="guide-note">
-              A standard-turn guide. Skills, card effects, and game modes can
-              change these rules.
-            </p>
-          </section>
-          <div className="section-title">
-            <h2>Words that matter</h2>
-          </div>
-          <div className="terms-grid">
-            {terms.slice(0, 3).map((t) => (
-              <details key={t.name}>
-                <summary>
-                  {t.name}
-                  <span lang="zh">{t.cn}</span>
-                </summary>
-                <p>{t.text}</p>
-              </details>
-            ))}
-          </div>
-        </>
-      )}
+      <h1 className="sr-only">Rules</h1>
       <div className="section-title rule-search-title">
-        <h2>Explore the rulebook</h2>
+        <h2>Rules</h2>
         <label className="check-label">
           <input
             type="checkbox"
@@ -125,6 +82,46 @@ export default function Rulebook() {
           </button>
         ))}
       </div>
+      {!query && category === "All" && (
+        <details className="rules-guide">
+          <summary>Turn order & key terms</summary>
+          <section className="turn-guide">
+            <div className="section-title">
+              <h2>Turn order</h2>
+              <BookOpen size={19} />
+            </div>
+            <ol>
+              {phases.map(([name, description], i) => (
+                <li key={name}>
+                  <span>{i + 1}</span>
+                  <div>
+                    <strong>{name}</strong>
+                    <p>{description}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <p className="guide-note">
+              A standard-turn guide. Skills, card effects, and game modes can
+              change these rules.
+            </p>
+          </section>
+          <div className="section-title">
+            <h2>Key terms</h2>
+          </div>
+          <div className="terms-grid">
+            {terms.slice(0, 3).map((t) => (
+              <details key={t.name}>
+                <summary>
+                  {t.name}
+                  <span lang="zh">{t.cn}</span>
+                </summary>
+                <p>{t.text}</p>
+              </details>
+            ))}
+          </div>
+        </details>
+      )}
       {error ? (
         <div className="empty-state">
           <h2>Couldn’t open the rulebook</h2>
@@ -133,7 +130,7 @@ export default function Rulebook() {
           </button>
         </div>
       ) : !rules.length ? (
-        <p role="status">Opening the rulebook…</p>
+        <p role="status">Loading rules…</p>
       ) : (
         <>
           <p className="result-count" role="status">

@@ -2878,3 +2878,119 @@ dialog::backdrop {
     flex-wrap: nowrap;
   }
 }
+
+/* Compact utility layout: keep the next action above supporting details. */
+.app-header {
+  min-height: 64px;
+  padding-block: 14px;
+}
+.scanner.is-ready > .scan-actions {
+  order: 0;
+  margin-bottom: 10px;
+}
+.scan-hint {
+  order: 1;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+.scanner.is-ready > .progress,
+.scanner.is-ready > .notice {
+  order: 2;
+}
+.quick-search {
+  margin-top: 24px;
+}
+.quick-search > label {
+  font-size: 14px;
+}
+.deck-library-link {
+  margin: 14px 0;
+}
+.deck-heading h1 {
+  font-family: inherit;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+  margin: 0 0 6px;
+}
+.deck-heading > p {
+  font-size: 13px;
+  margin: 0 0 18px;
+}
+.deck-back {
+  margin-bottom: 18px;
+}
+.deck-actions {
+  margin-bottom: 14px;
+}
+.deck-info,
+.rules-guide {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0 14px;
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.deck-info > summary,
+.rules-guide > summary {
+  cursor: pointer;
+  padding: 12px 0;
+  color: var(--ink);
+}
+.deck-info p {
+  margin: 0 0 12px;
+}
+.rules-guide .turn-guide {
+  margin-top: 8px;
+}
+.rule-search-title {
+  margin-top: 0;
+}
+.rule-search-title h2 {
+  font-size: 18px;
+}
+.shutter:disabled {
+  opacity: 0.4;
+  cursor: wait;
+}
+.camera-stage video {
+  object-fit: contain;
+}
+@media (max-width: 767px) {
+  .app-header {
+    height: 64px;
+  }
+  .main-content {
+    padding-top: 20px;
+  }
+  .brand {
+    font-size: 21px;
+  }
+  .brand-seal {
+    width: 30px;
+    height: 34px;
+    font-size: 26px;
+  }
+  .deck-heading h1 {
+    font-size: 22px;
+  }
+}
+
+footer {
+  padding: 20px 0 0;
+  margin-top: 30px;
+  text-align: left;
+}
+footer small {
+  display: block;
+  font-size: 11px;
+}
+footer a {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+}

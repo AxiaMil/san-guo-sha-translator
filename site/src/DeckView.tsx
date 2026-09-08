@@ -85,32 +85,8 @@ export default function DeckView({
         <ArrowLeft size={17} /> All cards
       </button>
       <div className="deck-heading">
-        <div className="section-kicker">E SERIES · 2026</div>
-        <h1>Your Dark Gold deck.</h1>
-        <p className="deck-chinese" lang="zh">
-          三国杀 · 暗金典藏版
-        </p>
-        <p>
-          The full general checklist, with English references close at hand.
-        </p>
-      </div>
-      <div
-        className="deck-stats"
-        role="group"
-        aria-label="Published box contents"
-      >
-        <div>
-          <strong>139</strong>
-          <span>generals</span>
-        </div>
-        <div>
-          <strong>162</strong>
-          <span>game cards</span>
-        </div>
-        <div>
-          <strong>23</strong>
-          <span>accessories</span>
-        </div>
+        <h1>Dark Gold · E series</h1>
+        <p lang="zh">暗金典藏版 · 2026 · 139 generals</p>
       </div>
       <div className="deck-actions">
         <button
@@ -126,17 +102,14 @@ export default function DeckView({
           <ScanLine size={18} /> Scan a card
         </button>
       </div>
-      <div className="deck-coverage">
-        <span>
-          <strong>{available} of 139</strong> entries have translation
-          references
-        </span>
-        <span>{Object.keys(choices).length} versions checked by you</span>
-      </div>
-      <p className="deck-help">
-        Open a general, compare the Chinese skills, then mark the version that
-        matches your card. Your choices stay on this device.
-      </p>
+      <details className="deck-info">
+        <summary>Deck details · {available}/139 references</summary>
+        <p>Box contents: 139 generals, 162 game cards and 23 accessories.</p>
+        <p>
+          Compare the Chinese skills before marking a version.{" "}
+          {Object.keys(choices).length} versions checked on this device.
+        </p>
+      </details>
       <div className="search-field">
         <Search size={19} />
         <input

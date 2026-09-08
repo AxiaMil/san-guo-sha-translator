@@ -263,9 +263,7 @@ export default function App() {
           aria-label="SHA home"
         >
           <span className="brand-seal">殺</span>
-          <span>
-            SHA<small>YOUR TABLESIDE COMPANION</small>
-          </span>
+          <span>SHA</span>
         </button>
         <details
           className="theme-picker"
@@ -279,7 +277,6 @@ export default function App() {
             <span>Appearance</span>
           </summary>
           <div className="theme-menu">
-            <span className="menu-caption">MAKE YOURSELF AT HOME</span>
             {(
               [
                 { value: "Light", icon: Sun },
@@ -305,7 +302,6 @@ export default function App() {
       </header>
       <main className="app-layout" id="main" tabIndex={-1}>
         <aside className="desktop-nav">
-          <div className="nav-caption">AT THE TABLE</div>
           {navigation.map(({ id, name, icon: Icon }) => (
             <button
               key={id}
@@ -328,20 +324,11 @@ export default function App() {
               )}
             </button>
           ))}
-          <div className="sidebar-note">
-            <span>知己知彼</span>
-            <p>
-              Know your cards.
-              <br />
-              Enjoy the game.
-            </p>
-            <small>A fan-made companion.</small>
-          </div>
         </aside>
         <div className="main-content">
           {installUpdate && (
             <div className="update-notice" role="status">
-              <span>A fresh edition of the companion is ready.</span>
+              <span>Update available.</span>
               <button onClick={installUpdate}>
                 Update & reload <RefreshCw size={15} />
               </button>
@@ -359,7 +346,7 @@ export default function App() {
           {loading ? (
             <div className="loading-state" role="status">
               <span className="brand-seal">殺</span>
-              <p>Opening the card library…</p>
+              <p>Loading cards…</p>
             </div>
           ) : loadError ? (
             <div className="empty-state">
@@ -374,6 +361,14 @@ export default function App() {
               <div hidden={tab !== "scan"}>
                 {tab === "scan" && (
                   <>
+                    <Scanner
+                      cards={cards}
+                      onOpen={openCard}
+                      onBrowse={() => {
+                        clearFilters();
+                        navigate("library");
+                      }}
+                    />
                     {deckPinned && (
                       <button className="my-deck-shortcut" onClick={openDeck}>
                         <BookOpen size={18} />
@@ -383,14 +378,6 @@ export default function App() {
                         <ArrowRight size={18} />
                       </button>
                     )}
-                    <Scanner
-                      cards={cards}
-                      onOpen={openCard}
-                      onBrowse={() => {
-                        clearFilters();
-                        navigate("library");
-                      }}
-                    />
                     <form
                       className="quick-search"
                       onSubmit={(e) => {
@@ -400,14 +387,12 @@ export default function App() {
                         navigate("library");
                       }}
                     >
-                      <label htmlFor="quick-search">
-                        Already know the name?
-                      </label>
+                      <label htmlFor="quick-search">Search cards</label>
                       <div className="search-field">
                         <Search size={19} />
                         <input
                           id="quick-search"
-                          placeholder="Try Guan Yu, 关羽, or SHU002"
+                          placeholder="Name, Chinese text, skill, or card ID"
                           value={quickQuery}
                           onChange={(e) => setQuickQuery(e.target.value)}
                         />
@@ -416,29 +401,19 @@ export default function App() {
                         </button>
                       </div>
                     </form>
-                    <section className="quick-library">
-                      <div className="section-title">
-                        <h2>
-                          {recentCards.length
-                            ? "Pick up where you left off"
-                            : "Meet the classics"}
-                        </h2>
-                        <button
-                          className="text-link"
-                          onClick={() => navigate("library")}
-                        >
-                          View all <ArrowRight size={16} />
-                        </button>
-                      </div>
-                      <div className="recent-list">
-                        {(recentCards.length
-                          ? recentCards
-                          : cards.filter((c) =>
-                              ["SHU001", "SHU002", "WEI001"].includes(c.id),
-                            )
-                        )
-                          .slice(0, 3)
-                          .map((c) => (
+                    {recentCards.length > 0 && (
+                      <section className="quick-library">
+                        <div className="section-title">
+                          <h2>Recent</h2>
+                          <button
+                            className="text-link"
+                            onClick={() => navigate("library")}
+                          >
+                            View all <ArrowRight size={16} />
+                          </button>
+                        </div>
+                        <div className="recent-list">
+                          {recentCards.slice(0, 3).map((c) => (
                             <button
                               key={c.id}
                               className="recent-card"
@@ -454,8 +429,9 @@ export default function App() {
                               <ArrowRight size={17} />
                             </button>
                           ))}
-                      </div>
-                    </section>
+                        </div>
+                      </section>
+                    )}
                   </>
                 )}
               </div>
@@ -472,35 +448,9 @@ export default function App() {
               )}
               {((tab === "library" && !deckOpen) || tab === "saved") && (
                 <section className="library">
-                  <div className="section-kicker">
-                    {tab === "saved"
-                      ? "YOUR OWN LITTLE COLLECTION"
-                      : `${cards.length} CARDS. ONE PLACE TO FIND THEM.`}
-                  </div>
-                  <h1>
-                    {tab === "saved"
-                      ? "Your table favorites."
-                      : "Find your next move."}
+                  <h1 className="sr-only">
+                    {tab === "saved" ? "Saved cards" : "Card library"}
                   </h1>
-                  <p className="library-intro">
-                    {tab === "saved"
-                      ? "The cards you want close, ready when you need them."
-                      : "Search in English or Chinese. Look up a name, skill, or card ID."}
-                  </p>
-                  {tab === "library" && (
-                    <button className="deck-library-link" onClick={openDeck}>
-                      <BookOpen size={22} />
-                      <span>
-                        <strong>
-                          {deckPinned
-                            ? "My deck"
-                            : "Dark Gold Collector’s Edition"}
-                        </strong>
-                        <small>暗金典藏版 · E series · 139 generals</small>
-                      </span>
-                      <ArrowRight size={18} />
-                    </button>
-                  )}
                   <div className="search-field">
                     <Search size={20} />
                     <input
@@ -518,6 +468,20 @@ export default function App() {
                       </button>
                     )}
                   </div>
+                  {tab === "library" && (
+                    <button className="deck-library-link" onClick={openDeck}>
+                      <BookOpen size={22} />
+                      <span>
+                        <strong>
+                          {deckPinned
+                            ? "My deck"
+                            : "Dark Gold Collector’s Edition"}
+                        </strong>
+                        <small>暗金典藏版 · E series · 139 generals</small>
+                      </span>
+                      <ArrowRight size={18} />
+                    </button>
+                  )}
                   <div className="library-filters">
                     <div className="segmented">
                       {["All cards", "Generals", "Playing cards"].map((k) => (
@@ -664,7 +628,7 @@ export default function App() {
                       <Bookmark size={32} />
                       <h2>
                         {tab === "saved" && !saved.length
-                          ? "Keep a few favorites"
+                          ? "No saved cards"
                           : "No cards found"}
                       </h2>
                       <p>
@@ -679,9 +643,7 @@ export default function App() {
                           if (tab === "saved") navigate("library");
                         }}
                       >
-                        {tab === "saved"
-                          ? "Explore the library"
-                          : "Clear filters"}
+                        {tab === "saved" ? "Browse cards" : "Clear filters"}
                         <ArrowRight size={17} />
                       </button>
                     </div>
@@ -691,8 +653,6 @@ export default function App() {
             </>
           )}
           <footer>
-            <span className="footer-seal">殺</span>
-            <p>A little help. A better game.</p>
             <small>
               Fan-made. Not affiliated with the creators of San Guo Sha.
             </small>

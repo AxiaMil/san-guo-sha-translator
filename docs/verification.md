@@ -1,3 +1,16 @@
+# Compact interface and camera flow — 2026-09-08
+
+- Removed promotional headings, decorative scan cards, slogans and repeated instructions. Library and rules search now come first; deck details and turn guidance collapse. Neutral white/charcoal themes remain.
+- Camera capture and native camera-file input automatically identify the card. Capture waits for video readiness; pending permissions can be cancelled; late streams are stopped; failed previews expose a user-triggered native fallback.
+- Artwork matching remains first. Empty artwork results or service errors fall back to browser OCR; cancellation never starts another recognition method. OCR output is reused for version comparison.
+- Production build/TypeScript and 48 JavaScript tests passed, including five recognition-flow regressions and English/Chinese lookup for every text-only general.
+- Browser camera test used a canvas MediaStream with Guan Yu artwork: capture automatically reached the real local API, returned a strong artwork match, and stopped the camera tracks. Denied permission exposed native capture; cancelling a pending request stopped a late-arriving stream without opening video.
+- Native file-capture input with the full-card Liu Bei fixture automatically returned a strong Limit Break artwork match from the real local API. A separately simulated empty artwork response triggered actual browser OCR and ranked Limit Break Liu Bei first.
+- At 390 × 844, dark library, light deck and light scanner Axe audits reported zero violations and no incomplete checks. Deck search is visible above the fold; mobile deck/rules and 1440px scanner checks found no horizontal overflow. Rules search for damage returned 19 entries; Xiahou Lan was searchable in the library.
+- Camera lifecycle was browser-tested with simulated streams and file input, not physical iOS/Android camera hardware. Existing artwork coverage and arbitrary-lighting limitations still apply; no new illustrations were added in this change.
+
+---
+
 # Dark Gold deck reference — 2026-09-08
 
 The E-series Dark Gold Collector’s Edition now has a dedicated route, the publisher’s full 139-general roster, bilingual reference coverage for all entries, and locally remembered rules-version choices. Twenty-one community references were added, bringing the catalog to 725 cards. See [deck coverage and source notes](dark-gold-e-2026.md) for the distinction between roster verification and exact printed wording.
