@@ -24,6 +24,8 @@ export type Card = {
   effect_cn?: string[];
   faq: { q_en: string; a_en: string; q_cn: string; a_cn: string }[];
   image: string | null;
+  thumbnail?: string;
+  preview?: string;
   aliases?: string[];
   artwork_source?: {
     label: string;
@@ -31,6 +33,7 @@ export type Card = {
     dimensions: [number, number];
     deck_id: string;
     verification_url: string;
+    verification_label?: string;
   };
   source_reference?: { label: string; url: string; note: string };
   translation_reviewed?: boolean;

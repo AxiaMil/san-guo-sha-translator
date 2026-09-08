@@ -15,3 +15,29 @@ Factual box counts and the general roster are transcribed from the publisher acc
 ## Dark Gold artwork references
 
 The 21 imported illustrations and their source/file-page links, SHA-256 hashes, native dimensions, and deck-verification timestamps are listed in `assets/data/deck-artwork.json`. Twenty are sourced from BWIKI's Sanguosha and Sanguosha OL original-image files, and Xiahou Lan is sourced from the pinned Noname repository image. Artwork copyrights remain with the original publisher and illustrators; this project does not claim that community-code licenses relicense those illustrations. Images are converted to lossless WebP without enlargement. Video frames and the user's store photo are not published as artwork references.
+
+### Shenmo E-series references (2026)
+
+The 314-entry 神魔乱斗 checklist is transcribed from the two roster images posted
+by 游卡有话说 under <https://www.bilibili.com/video/BV1TWVh6NEf3/> (29 May 2026).
+Source URLs, printed repetitions, and normalized lookup names are retained in
+`assets/data/decks/shenmo-e-2026.json`. Repeated 华佗, 张角 and 诸葛亮 entries are
+not silently deduplicated; the source spelling 王沧 searches the documented 王沦.
+
+The additional 160 rules references use Chinese records from Noname commit
+`2e15429571d27ecf108fa51ab8684cff24ff7413`, under GPL-3.0, with English
+translations in `assets/data/generals/shenmo-references.json`. Each card links its
+source file; each skill retains its source key. The publisher confirms roster
+membership, not equivalence to every line of the community's digital revision.
+Compare physical skill wording before treating a reference as the printed version.
+
+`assets/data/shenmo-artwork.json` records original artwork URLs, native dimensions,
+SHA-256 hashes, and verification scope. 134 larger BWIKI originals were matched to
+named community portraits using geometrically consistent features. 26 retain their
+native community originals. Both exclusive Jiang Wei illustrations were also
+visually compared to the physical cards in the publisher's video. Other entries do
+not claim verification of their precise physical printing. All artwork rights
+remain with the original artists and respective rights holders; the code license
+does not grant ownership of these illustrations. Video frames are research evidence
+only, never library or recognition reference pixels. Mobile display copies are
+scaled down from these originals, with no enlargement or generated detail.

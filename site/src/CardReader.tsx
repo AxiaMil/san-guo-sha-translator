@@ -146,7 +146,7 @@ export default function CardReader({
             </p>
           )}
           <div className="detail-hero">
-            <CardArt card={card} />
+            <CardArt card={card} large />
             <div>
               <div className="card-label">
                 {card.faction || card.category_en} ·{" "}
@@ -210,7 +210,7 @@ export default function CardReader({
                 <>
                   <p>
                     Artwork · {card.artwork_source.dimensions.join(" × ")} ·
-                    Original resolution
+                    Source resolution
                   </p>
                   <a
                     href={card.artwork_source.url}
@@ -225,7 +225,9 @@ export default function CardReader({
                       target="_blank"
                       rel="noreferrer"
                     >
-                      View this card in the deck ↗
+                      {card.artwork_source.verification_label ||
+                        "View this card in the deck"}{" "}
+                      ↗
                     </a>
                   </p>
                 </>

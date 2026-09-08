@@ -15,8 +15,9 @@ import numpy as np
 root = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--source-dir", type=Path)
+parser.add_argument("--manifest", type=Path, default=root / "assets/data/deck-artwork.json")
 args = parser.parse_args()
-manifest = json.loads((root / "assets/data/deck-artwork.json").read_text())
+manifest = json.loads(args.manifest.read_text())
 for item in manifest["artworks"]:
     cached = args.source_dir / item["source_file"] if args.source_dir else None
     if cached and cached.exists():

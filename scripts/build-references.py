@@ -24,11 +24,19 @@ refs += [
 ]
 # Alternate portrait framing is cropped from the same native original. It
 # improves recognition when the printed card shows only part of a full scene.
-artwork = json.loads((root / "assets/data/deck-artwork.json").read_text())
-for art in artwork["artworks"]:
+artworks = [art for file in ["deck-artwork.json", "shenmo-artwork.json"]
+            for art in json.loads((root / "assets/data" / file).read_text())["artworks"]]
+for art in artworks:
     for i, crop in enumerate(art["reference_crops"]):
         refs.append((art["card_id"], f"{art['card_id']}:portrait-{i + 1}",
                      root / "assets/images/generals" / f"{art['card_id']}.webp", crop))
+    # Smaller native views cover cards whose artwork occupies few camera pixels.
+    # Keep the same geometric acceptance thresholds; never manufacture detail.
+    for scale in art.get("reference_scales", []):
+        if not 0 < scale < 1:
+            raise ValueError(f"Invalid reference scale: {art['card_id']}")
+        refs.append((art["card_id"], f"{art['card_id']}:scale-{scale}",
+                     root / "assets/images/generals" / f"{art['card_id']}.webp", {"scale": scale}))
 ids = []
 names = []
 descriptors = []
@@ -42,7 +50,9 @@ for logical, name, file, crop in refs:
     if not file.exists():
         continue
     im = cv2.imread(str(file))
-    if crop:
+    if isinstance(crop, dict):
+        im = cv2.resize(im, None, fx=crop["scale"], fy=crop["scale"], interpolation=cv2.INTER_AREA)
+    elif crop:
         x, y, width, height = crop
         if x < 0 or y < 0 or width < 60 or height < 60 or x + width > im.shape[1] or y + height > im.shape[0]:
             raise ValueError(f"Invalid reference crop: {name}")

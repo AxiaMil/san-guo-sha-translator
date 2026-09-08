@@ -2994,3 +2994,10 @@ footer a {
   margin-top: 10px;
   font-size: 12px;
 }
+
+/* Compact, equally accessible physical-deck navigation. */
+.deck-library-list { display: grid; gap: 10px; margin: 16px 0 22px; }
+.deck-library-list .deck-library-link { margin: 0; }
+.deck-library-link > span { min-width: 0; }
+.scan-deck-picker { display: flex; align-items: center; gap: 12px; margin: 4px 0 18px; color: var(--muted); font-size: 13px; }
+.scan-deck-picker select { flex: 1; min-width: 0; max-width: 100%; padding: 10px 30px 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); font: inherit; min-height: 44px; }

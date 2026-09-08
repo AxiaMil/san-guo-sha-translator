@@ -4,7 +4,9 @@ const read = (p) =>
 const skills = read("assets/data/skills.json");
 const review = read("assets/data/translation-review.json");
 const artwork = new Map(
-  read("assets/data/deck-artwork.json").artworks.map((a) => [a.card_id, a]),
+  ["assets/data/deck-artwork.json", "assets/data/shenmo-artwork.json"].flatMap(
+    (file) => read(file).artworks.map((a) => [a.card_id, a]),
+  ),
 );
 const cards = [];
 const missing = [];
@@ -66,6 +68,15 @@ for (const card of cards) {
   if (ids.has(card.id)) card.id = `${card.id}--${card.faction || ids.size}`;
   ids.add(card.id);
   if (!fs.existsSync(`assets${card.image}`)) card.image = null;
+  if (card.image) {
+    for (const [field, folder] of [
+      ["thumbnail", "thumbnails"],
+      ["preview", "previews"],
+    ]) {
+      const path = card.image.replace("/images/", `/images/${folder}/`);
+      if (fs.existsSync(`assets${path}`)) card[field] = path;
+    }
+  }
   const art = artwork.get(card.id);
   if (art && card.image)
     card.artwork_source = {
@@ -73,7 +84,12 @@ for (const card of cards) {
       url: art.source_page,
       dimensions: art.source_dimensions,
       deck_id: art.verification.deck_id,
-      verification_url: `${art.verification.url}?t=${art.verification.time_seconds}`,
+      verification_url:
+        art.verification.time_seconds !== undefined
+          ? `${art.verification.url}?t=${art.verification.time_seconds}`
+          : art.verification.url,
+      verification_label:
+        art.verification.label || "View this card in the deck",
     };
 }
 fs.mkdirSync("site/public", { recursive: true });

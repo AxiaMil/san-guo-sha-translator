@@ -10,7 +10,8 @@ import {
   ScanLine,
 } from "lucide-react";
 import {
-  darkGoldDeck as deck,
+  deckChoicesKey,
+  type Deck,
   deckCandidates,
   deckSearch,
   validDeckChoices,
@@ -20,6 +21,7 @@ import { savePreference } from "./reading";
 import type { Card } from "./types";
 export default function DeckView({
   cards,
+  deck,
   onOpen,
   onLibrary,
   onScan,
@@ -27,6 +29,7 @@ export default function DeckView({
   onPin,
 }: {
   cards: Card[];
+  deck: Deck;
   onOpen: (card: Card) => void;
   onLibrary: () => void;
   onScan: () => void;
@@ -40,7 +43,8 @@ export default function DeckView({
     try {
       return validDeckChoices(
         cards,
-        JSON.parse(localStorage.getItem("sha-dark-gold-choices") || "{}"),
+        JSON.parse(localStorage.getItem(deckChoicesKey(deck)) || "{}"),
+        deck,
       );
     } catch {
       return {};
@@ -56,7 +60,7 @@ export default function DeckView({
           ]),
         ),
       ),
-    [cards],
+    [cards, deck],
   );
   const available = Object.values(candidatesByEntry).filter(
     (candidates) => candidates.length,
@@ -77,7 +81,7 @@ export default function DeckView({
     if (next[entry] === card) delete next[entry];
     else next[entry] = card;
     setChoices(next);
-    savePreference("sha-dark-gold-choices", JSON.stringify(next));
+    savePreference(deckChoicesKey(deck), JSON.stringify(next));
   }
   return (
     <section className="deck-page">
@@ -85,15 +89,19 @@ export default function DeckView({
         <ArrowLeft size={17} /> All cards
       </button>
       <div className="deck-heading">
-        <h1>Dark Gold · E series</h1>
-        <p lang="zh">暗金典藏版 · 2026 · 139 generals</p>
+        <h1>{deck.short_name || deck.name_en}</h1>
+        <p lang="zh">
+          {deck.name_cn} · {deck.year} · {deck.counts.generals} generals
+        </p>
       </div>
       <div className="deck-actions">
         <button
           className="button primary"
           onClick={onPin}
           aria-pressed={pinned}
-          aria-label={pinned ? "Unpin Dark Gold as my deck" : "Use this deck"}
+          aria-label={
+            pinned ? `Unpin ${deck.name_en} as my deck` : "Use this deck"
+          }
         >
           {pinned ? <Check size={18} /> : <BookOpen size={18} />}{" "}
           {pinned ? "My deck · pinned" : "Use this deck"}
@@ -103,12 +111,24 @@ export default function DeckView({
         </button>
       </div>
       <details className="deck-info">
-        <summary>Deck details · {available}/139 references</summary>
-        <p>Box contents: 139 generals, 162 game cards and 23 accessories.</p>
+        <summary>
+          Deck details · {available}/{deck.counts.generals} references
+        </summary>
+        <p>
+          Box contents: {deck.counts.generals} generals,{" "}
+          {deck.counts.game_cards} game cards and {deck.counts.accessories}{" "}
+          accessories
+          {deck.counts.foil ? `, plus ${deck.counts.foil} foil card` : ""}.
+        </p>
         <p>
           Compare the Chinese skills before marking a version.{" "}
           {Object.keys(choices).length} versions checked on this device.
         </p>
+        {deck.source.mode_url && (
+          <a href={deck.source.mode_url} target="_blank" rel="noreferrer">
+            Special roles · publisher’s mode overview (Chinese) ↗
+          </a>
+        )}
       </details>
       <div className="search-field">
         <Search size={19} />
@@ -127,7 +147,7 @@ export default function DeckView({
             value={groupId}
             onChange={(e) => setGroupId(e.target.value)}
           >
-            <option value="all">All 8 groups</option>
+            <option value="all">All {deck.groups.length} groups</option>
             {deck.groups.map((g) => (
               <option key={g.id} value={g.id}>
                 {g.name_en} · {g.count}
@@ -165,7 +185,12 @@ export default function DeckView({
                 <summary>
                   <span className="deck-entry-art" aria-hidden="true">
                     {first?.image ? (
-                      <img src={first.image} alt="" loading="lazy" />
+                      <img
+                        src={first.thumbnail || first.image}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      />
                     ) : (
                       <Layers size={20} />
                     )}
@@ -230,11 +255,11 @@ export default function DeckView({
                       is kept in your checklist rather than replaced with
                       another version.{" "}
                       <a
-                        href={deck.source.url + "?t=42"}
+                        href={deck.source.url}
                         target="_blank"
                         rel="noreferrer"
                       >
-                        See the publisher’s card list ↗
+                        See the publisher’s deck listing ↗
                       </a>
                     </p>
                   )}
@@ -264,23 +289,29 @@ export default function DeckView({
       <details className="deck-source">
         <summary>About this box &amp; checklist</summary>
         <p>
-          The publisher’s checklist contains 139 general entries across these
-          eight groups. The 162 game cards include repeated copies; their
+          The publisher’s checklist contains {deck.counts.generals} general
+          entries across these {deck.groups.length} groups. The{" "}
+          {deck.counts.game_cards} game cards include repeated copies; their
           individual quantities are not specified by this general checklist.
         </p>
         <p>
           New references use attributed community Chinese skill text with
           English translations. Compare your printed wording before marking a
-          version. The edition’s full artwork set has not been added to the
-          scanner.
+          version. Artwork matching finds illustrations; shared artwork cannot
+          establish the printed rules edition by itself.
         </p>
         <div className="source-links">
           <a href={deck.source.url} target="_blank" rel="noreferrer">
             Publisher’s unboxing ↗
           </a>
-          <a href={deck.source.roster_url} target="_blank" rel="noreferrer">
-            Published general checklist ↗
-          </a>
+          {(deck.source.roster_urls || [deck.source.roster_url]).map(
+            (url, i) => (
+              <a key={url} href={url} target="_blank" rel="noreferrer">
+                General checklist{deck.source.roster_urls ? ` · ${i + 1}` : ""}{" "}
+                ↗
+              </a>
+            ),
+          )}
         </div>
       </details>
     </section>

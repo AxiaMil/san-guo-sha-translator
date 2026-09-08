@@ -18,7 +18,7 @@ import {
 import Scanner from "./Scanner";
 import DeckView from "./DeckView";
 import CardArt from "./CardArt";
-import { darkGoldDeck } from "./decks";
+import { decks, findDeck, type Deck } from "./decks";
 import { useOfflineUpdate } from "./offline";
 import CardReader from "./CardReader";
 import Rulebook from "./Rulebook";
@@ -47,11 +47,16 @@ export default function App() {
     [loading, setLoading] = useState(true),
     [loadError, setLoadError] = useState(false),
     [tab, setTab] = useState<Tab>("scan"),
-    [deckOpen, setDeckOpen] = useState(false),
-    [deckPinned, setDeckPinned] = useState(
-      () =>
-        preference("sha-my-deck", [darkGoldDeck.id, ""], "") ===
-        darkGoldDeck.id,
+    [deckOpen, setDeckOpen] = useState<Deck | undefined>(),
+    [pinnedDeckId, setPinnedDeckId] = useState(() =>
+      preference("sha-my-deck", [...decks.map((d) => d.id), ""], ""),
+    ),
+    [scanDeckId, setScanDeckId] = useState(() =>
+      preference(
+        "sha-scan-deck",
+        [...decks.map((d) => d.id), ""],
+        preference("sha-my-deck", [...decks.map((d) => d.id), ""], ""),
+      ),
     ),
     [query, setQuery] = useState(""),
     [quickQuery, setQuickQuery] = useState(""),
@@ -122,7 +127,7 @@ export default function App() {
       const p = new URLSearchParams(location.hash.slice(1));
       setSelected(cards.find((c) => c.id === p.get("card")) || null);
       const next = p.get("tab");
-      setDeckOpen(next === "library" && p.get("deck") === darkGoldDeck.id);
+      setDeckOpen(next === "library" ? findDeck(p.get("deck")) : undefined);
       setTab(navigation.some((n) => n.id === next) ? (next as Tab) : "scan");
     };
     changed();
@@ -146,7 +151,7 @@ export default function App() {
     history.pushState(
       { shaCard: true },
       "",
-      `#${new URLSearchParams({ tab, ...(deckOpen ? { deck: darkGoldDeck.id } : {}), card: card.id })}`,
+      `#${new URLSearchParams({ tab, ...(deckOpen ? { deck: deckOpen.id } : {}), card: card.id })}`,
     );
     setSelected(card);
     const next = [card.id, ...recent.filter((id) => id !== card.id)].slice(
@@ -162,7 +167,7 @@ export default function App() {
       history.replaceState(
         null,
         "",
-        `#${new URLSearchParams({ tab, ...(deckOpen ? { deck: darkGoldDeck.id } : {}) })}`,
+        `#${new URLSearchParams({ tab, ...(deckOpen ? { deck: deckOpen.id } : {}) })}`,
       );
       setSelected(null);
     }
@@ -182,7 +187,7 @@ export default function App() {
   }
   function navigate(next: Tab) {
     if (next !== tab || deckOpen) history.pushState(null, "", `#tab=${next}`);
-    setDeckOpen(false);
+    setDeckOpen(undefined);
     setTab(next);
     setSelected(null);
     window.scrollTo({
@@ -192,17 +197,22 @@ export default function App() {
         : "smooth",
     });
   }
-  function openDeck() {
-    history.pushState(null, "", `#tab=library&deck=${darkGoldDeck.id}`);
+  const pinnedDeck = findDeck(pinnedDeckId);
+  function openDeck(deck: Deck) {
+    history.pushState(null, "", `#tab=library&deck=${deck.id}`);
     setTab("library");
-    setDeckOpen(true);
+    setDeckOpen(deck);
     setSelected(null);
     window.scrollTo({ top: 0, behavior: "instant" });
   }
-  function pinDeck() {
-    const pinned = !deckPinned;
-    setDeckPinned(pinned);
-    savePreference("sha-my-deck", pinned ? darkGoldDeck.id : "");
+  function pinDeck(deck: Deck) {
+    const id = pinnedDeckId === deck.id ? "" : deck.id;
+    setPinnedDeckId(id);
+    savePreference("sha-my-deck", id);
+  }
+  function selectScanDeck(id: string) {
+    setScanDeckId(id);
+    savePreference("sha-scan-deck", id);
   }
   function clearFilters() {
     setQuery("");
@@ -361,19 +371,39 @@ export default function App() {
               <div hidden={tab !== "scan"}>
                 {tab === "scan" && (
                   <>
+                    <label className="scan-deck-picker">
+                      <span>Deck</span>
+                      <select
+                        aria-label="Scanner deck"
+                        value={scanDeckId}
+                        onChange={(e) => selectScanDeck(e.target.value)}
+                      >
+                        <option value="">All decks</option>
+                        {decks.map((deck) => (
+                          <option key={deck.id} value={deck.id}>
+                            {deck.name_en} · {deck.name_cn}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
                     <Scanner
                       cards={cards}
+                      deck={findDeck(scanDeckId)}
                       onOpen={openCard}
                       onBrowse={() => {
                         clearFilters();
                         navigate("library");
                       }}
                     />
-                    {deckPinned && (
-                      <button className="my-deck-shortcut" onClick={openDeck}>
+                    {pinnedDeck && (
+                      <button
+                        className="my-deck-shortcut"
+                        onClick={() => openDeck(pinnedDeck)}
+                      >
                         <BookOpen size={18} />
                         <span>
-                          My deck <strong>暗金典藏版 · E series</strong>
+                          My deck{" "}
+                          <strong>{pinnedDeck.name_cn} · E series</strong>
                         </span>
                         <ArrowRight size={18} />
                       </button>
@@ -438,12 +468,17 @@ export default function App() {
               {tab === "rules" && <Rulebook />}
               {tab === "library" && deckOpen && (
                 <DeckView
+                  key={deckOpen.id}
+                  deck={deckOpen}
                   cards={cards}
                   onOpen={openCard}
                   onLibrary={() => navigate("library")}
-                  onScan={() => navigate("scan")}
-                  pinned={deckPinned}
-                  onPin={pinDeck}
+                  onScan={() => {
+                    selectScanDeck(deckOpen.id);
+                    navigate("scan");
+                  }}
+                  pinned={pinnedDeckId === deckOpen.id}
+                  onPin={() => pinDeck(deckOpen)}
                 />
               )}
               {((tab === "library" && !deckOpen) || tab === "saved") && (
@@ -469,18 +504,25 @@ export default function App() {
                     )}
                   </div>
                   {tab === "library" && (
-                    <button className="deck-library-link" onClick={openDeck}>
-                      <BookOpen size={22} />
-                      <span>
-                        <strong>
-                          {deckPinned
-                            ? "My deck"
-                            : "Dark Gold Collector’s Edition"}
-                        </strong>
-                        <small>暗金典藏版 · E series · 139 generals</small>
-                      </span>
-                      <ArrowRight size={18} />
-                    </button>
+                    <div className="deck-library-list">
+                      {decks.map((deck) => (
+                        <button
+                          key={deck.id}
+                          className="deck-library-link"
+                          onClick={() => openDeck(deck)}
+                        >
+                          <BookOpen size={19} />
+                          <span>
+                            <strong>{deck.name_en}</strong>
+                            <small>
+                              {deck.name_cn} · {deck.counts.generals} generals
+                              {pinnedDeckId === deck.id ? " · My deck" : ""}
+                            </small>
+                          </span>
+                          <ArrowRight size={18} />
+                        </button>
+                      ))}
+                    </div>
                   )}
                   <div className="library-filters">
                     <div className="segmented">

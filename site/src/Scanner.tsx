@@ -25,12 +25,15 @@ import {
 import VersionCompare from "./VersionCompare";
 import CardArt from "./CardArt";
 import { recognizeCard } from "./recognition";
+import { deckCardIds, type Deck } from "./decks";
 export default function Scanner({
   cards,
+  deck,
   onOpen,
   onBrowse,
 }: {
   cards: Card[];
+  deck?: Deck;
   onOpen: (c: Card) => void;
   onBrowse: () => void;
 }) {
@@ -47,10 +50,13 @@ export default function Scanner({
     [ocrText, setOcrText] = useState(""),
     [versionText, setVersionText] = useState("");
   const primaryMatch = cards.find((c) => c.id === result?.candidates[0]?.id);
-  const versionPool = useMemo(
-    () => (primaryMatch ? familyCards(cards, primaryMatch) : []),
-    [cards, primaryMatch],
-  );
+  const deckIds = useMemo(() => deckCardIds(cards, deck), [cards, deck]);
+  const versionPool = useMemo(() => {
+    const family = primaryMatch ? familyCards(cards, primaryMatch) : [];
+    return [...family].sort(
+      (a, b) => Number(deckIds.has(b.id)) - Number(deckIds.has(a.id)),
+    );
+  }, [cards, primaryMatch, deckIds]);
   const versionRanks = useMemo(
     () => rankVersions(versionPool, versionText),
     [versionPool, versionText],
@@ -573,6 +579,7 @@ export default function Scanner({
                   </strong>
                   <em>
                     {card.expansion || card.category_en} · {card.printed_id}
+                    {deck && deckIds.has(card.id) ? " · In this deck" : ""}
                   </em>
                 </span>
                 <ArrowRight size={19} />
@@ -582,7 +589,10 @@ export default function Scanner({
           {primaryMatch && (
             <div className="version-check">
               <h3>Which rules version?</h3>
-              <p>Compare the printed skills to confirm your version.</p>
+              <p>
+                {deck ? `${deck.name_en} references appear first. ` : ""}Compare
+                the printed skills to confirm your version.
+              </p>
               {versionPool.length > 1 && (
                 <>
                   <button

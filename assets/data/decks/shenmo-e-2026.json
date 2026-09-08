@@ -1,0 +1,2659 @@
+{
+  "id": "shenmo-e-2026",
+  "name_cn": "神魔乱斗",
+  "name_en": "Gods & Demons",
+  "short_name": "Gods & Demons · E series",
+  "series": "E系列",
+  "year": 2026,
+  "counts": {
+    "generals": 314,
+    "game_cards": 162,
+    "accessories": 64,
+    "foil": 1
+  },
+  "source": {
+    "title": "游卡有话说 · E系列神魔乱斗",
+    "url": "https://www.bilibili.com/video/BV1TWVh6NEf3/",
+    "mode_url": "https://www.bilibili.com/video/BV1TWVh6NEf3/?t=100",
+    "roster_url": "https://i0.hdslb.com/bfs/new_dyn/86c88e291bdfa864b17be0f8bd3b1bef3546983841139165.png",
+    "roster_urls": [
+      "https://i0.hdslb.com/bfs/new_dyn/86c88e291bdfa864b17be0f8bd3b1bef3546983841139165.png",
+      "https://i0.hdslb.com/bfs/new_dyn/58184200327a99072df571c96b4d49ef3546983841139165.png"
+    ],
+    "published": "2026-05-29",
+    "checked": "2026-09-08"
+  },
+  "groups": [
+    {
+      "id": "standard",
+      "name_cn": "标准版",
+      "name_en": "Standard",
+      "count": 28,
+      "entries": [
+        {
+          "id": "standard-1",
+          "name_cn": "诸葛亮",
+          "search_name_cn": "诸葛亮",
+          "candidate_ids": [
+            "SHU004"
+          ]
+        },
+        {
+          "id": "standard-2",
+          "name_cn": "周瑜",
+          "search_name_cn": "周瑜",
+          "candidate_ids": [
+            "WU005"
+          ]
+        },
+        {
+          "id": "standard-3",
+          "name_cn": "甄姬",
+          "search_name_cn": "甄姬",
+          "candidate_ids": [
+            "WEI007"
+          ]
+        },
+        {
+          "id": "standard-4",
+          "name_cn": "赵云",
+          "search_name_cn": "赵云",
+          "candidate_ids": [
+            "SHU005"
+          ]
+        },
+        {
+          "id": "standard-5",
+          "name_cn": "张辽",
+          "search_name_cn": "张辽",
+          "candidate_ids": [
+            "WEI004"
+          ]
+        },
+        {
+          "id": "standard-6",
+          "name_cn": "张飞",
+          "search_name_cn": "张飞",
+          "candidate_ids": [
+            "SHU003"
+          ]
+        },
+        {
+          "id": "standard-7",
+          "name_cn": "袁术",
+          "search_name_cn": "袁术",
+          "candidate_ids": [
+            "QUN021--Qun"
+          ]
+        },
+        {
+          "id": "standard-8",
+          "name_cn": "伊籍",
+          "search_name_cn": "伊籍",
+          "candidate_ids": [
+            "SP_SHU051"
+          ]
+        },
+        {
+          "id": "standard-9",
+          "name_cn": "许褚",
+          "search_name_cn": "许褚",
+          "candidate_ids": [
+            "WEI005"
+          ]
+        },
+        {
+          "id": "standard-10",
+          "name_cn": "夏侯惇",
+          "search_name_cn": "夏侯惇",
+          "candidate_ids": [
+            "WEI003"
+          ]
+        },
+        {
+          "id": "standard-11",
+          "name_cn": "孙尚香",
+          "search_name_cn": "孙尚香",
+          "candidate_ids": [
+            "WU008"
+          ]
+        },
+        {
+          "id": "standard-12",
+          "name_cn": "孙权",
+          "search_name_cn": "孙权",
+          "candidate_ids": [
+            "WU001"
+          ]
+        },
+        {
+          "id": "standard-13",
+          "name_cn": "司马懿",
+          "search_name_cn": "司马懿",
+          "candidate_ids": [
+            "WEI002"
+          ]
+        },
+        {
+          "id": "standard-14",
+          "name_cn": "马超",
+          "search_name_cn": "马超",
+          "candidate_ids": [
+            "SHU006"
+          ]
+        },
+        {
+          "id": "standard-15",
+          "name_cn": "吕蒙",
+          "search_name_cn": "吕蒙",
+          "candidate_ids": [
+            "WU003"
+          ]
+        },
+        {
+          "id": "standard-16",
+          "name_cn": "吕布",
+          "search_name_cn": "吕布",
+          "candidate_ids": [
+            "QUN002"
+          ]
+        },
+        {
+          "id": "standard-17",
+          "name_cn": "陆逊",
+          "search_name_cn": "陆逊",
+          "candidate_ids": [
+            "WU007"
+          ]
+        },
+        {
+          "id": "standard-18",
+          "name_cn": "刘备",
+          "search_name_cn": "刘备",
+          "candidate_ids": [
+            "SHU001"
+          ]
+        },
+        {
+          "id": "standard-19",
+          "name_cn": "黄月英",
+          "search_name_cn": "黄月英",
+          "candidate_ids": [
+            "SHU007"
+          ]
+        },
+        {
+          "id": "standard-20",
+          "name_cn": "黄盖",
+          "search_name_cn": "黄盖",
+          "candidate_ids": [
+            "WU004"
+          ]
+        },
+        {
+          "id": "standard-21",
+          "name_cn": "华雄",
+          "search_name_cn": "华雄",
+          "candidate_ids": [
+            "QUN019"
+          ]
+        },
+        {
+          "id": "standard-22",
+          "name_cn": "华佗",
+          "search_name_cn": "华佗",
+          "candidate_ids": [
+            "QUN001"
+          ]
+        },
+        {
+          "id": "standard-23",
+          "name_cn": "郭嘉",
+          "search_name_cn": "郭嘉",
+          "candidate_ids": [
+            "WEI006"
+          ]
+        },
+        {
+          "id": "standard-24",
+          "name_cn": "关羽",
+          "search_name_cn": "关羽",
+          "candidate_ids": [
+            "SHU002"
+          ]
+        },
+        {
+          "id": "standard-25",
+          "name_cn": "甘宁",
+          "search_name_cn": "甘宁",
+          "candidate_ids": [
+            "WU002"
+          ]
+        },
+        {
+          "id": "standard-26",
+          "name_cn": "貂蝉",
+          "search_name_cn": "貂蝉",
+          "candidate_ids": [
+            "QUN003"
+          ]
+        },
+        {
+          "id": "standard-27",
+          "name_cn": "大乔",
+          "search_name_cn": "大乔",
+          "candidate_ids": [
+            "WU006"
+          ]
+        },
+        {
+          "id": "standard-28",
+          "name_cn": "曹操",
+          "search_name_cn": "曹操",
+          "candidate_ids": [
+            "WEI001"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "limit-break",
+      "name_cn": "界限突破",
+      "name_en": "Limit Break",
+      "count": 28,
+      "entries": [
+        {
+          "id": "limit-break-1",
+          "name_cn": "诸葛亮",
+          "search_name_cn": "诸葛亮",
+          "candidate_ids": [
+            "JX_SHU004"
+          ]
+        },
+        {
+          "id": "limit-break-2",
+          "name_cn": "周瑜",
+          "search_name_cn": "周瑜",
+          "candidate_ids": [
+            "JX_WU005"
+          ]
+        },
+        {
+          "id": "limit-break-3",
+          "name_cn": "甄姬",
+          "search_name_cn": "甄姬",
+          "candidate_ids": [
+            "JX_WEI007"
+          ]
+        },
+        {
+          "id": "limit-break-4",
+          "name_cn": "赵云",
+          "search_name_cn": "赵云",
+          "candidate_ids": [
+            "JX_SHU005"
+          ]
+        },
+        {
+          "id": "limit-break-5",
+          "name_cn": "张辽",
+          "search_name_cn": "张辽",
+          "candidate_ids": [
+            "JX_WEI004"
+          ]
+        },
+        {
+          "id": "limit-break-6",
+          "name_cn": "张飞",
+          "search_name_cn": "张飞",
+          "candidate_ids": [
+            "JX_SHU003"
+          ]
+        },
+        {
+          "id": "limit-break-7",
+          "name_cn": "袁术",
+          "search_name_cn": "袁术",
+          "candidate_ids": [
+            "SM_re_yuanshu"
+          ]
+        },
+        {
+          "id": "limit-break-8",
+          "name_cn": "许褚",
+          "search_name_cn": "许褚",
+          "candidate_ids": [
+            "JX_WEI005"
+          ]
+        },
+        {
+          "id": "limit-break-9",
+          "name_cn": "夏侯惇",
+          "search_name_cn": "夏侯惇",
+          "candidate_ids": [
+            "JX_WEI003"
+          ]
+        },
+        {
+          "id": "limit-break-10",
+          "name_cn": "孙尚香",
+          "search_name_cn": "孙尚香",
+          "candidate_ids": [
+            "JX_WU008"
+          ]
+        },
+        {
+          "id": "limit-break-11",
+          "name_cn": "孙权",
+          "search_name_cn": "孙权",
+          "candidate_ids": [
+            "JX_WU001"
+          ]
+        },
+        {
+          "id": "limit-break-12",
+          "name_cn": "司马懿",
+          "search_name_cn": "司马懿",
+          "candidate_ids": [
+            "JX_WEI002"
+          ]
+        },
+        {
+          "id": "limit-break-13",
+          "name_cn": "马超",
+          "search_name_cn": "马超",
+          "candidate_ids": [
+            "JX_SHU006"
+          ]
+        },
+        {
+          "id": "limit-break-14",
+          "name_cn": "吕蒙",
+          "search_name_cn": "吕蒙",
+          "candidate_ids": [
+            "JX_WU003"
+          ]
+        },
+        {
+          "id": "limit-break-15",
+          "name_cn": "吕布",
+          "search_name_cn": "吕布",
+          "candidate_ids": [
+            "JX_QUN002"
+          ]
+        },
+        {
+          "id": "limit-break-16",
+          "name_cn": "陆逊",
+          "search_name_cn": "陆逊",
+          "candidate_ids": [
+            "JX_WU007"
+          ]
+        },
+        {
+          "id": "limit-break-17",
+          "name_cn": "刘备",
+          "search_name_cn": "刘备",
+          "candidate_ids": [
+            "JX_SHU001"
+          ]
+        },
+        {
+          "id": "limit-break-18",
+          "name_cn": "黄月英",
+          "search_name_cn": "黄月英",
+          "candidate_ids": [
+            "JX_SHU007"
+          ]
+        },
+        {
+          "id": "limit-break-19",
+          "name_cn": "黄盖",
+          "search_name_cn": "黄盖",
+          "candidate_ids": [
+            "JX_WU004"
+          ]
+        },
+        {
+          "id": "limit-break-20",
+          "name_cn": "华雄",
+          "search_name_cn": "华雄",
+          "candidate_ids": [
+            "JX_QUN019"
+          ]
+        },
+        {
+          "id": "limit-break-21",
+          "name_cn": "华佗",
+          "search_name_cn": "华佗",
+          "candidate_ids": [
+            "JX_QUN001"
+          ]
+        },
+        {
+          "id": "limit-break-22",
+          "name_cn": "华佗",
+          "search_name_cn": "华佗",
+          "candidate_ids": [
+            "JX_QUN001"
+          ]
+        },
+        {
+          "id": "limit-break-23",
+          "name_cn": "郭嘉",
+          "search_name_cn": "郭嘉",
+          "candidate_ids": [
+            "JX_WEI006"
+          ]
+        },
+        {
+          "id": "limit-break-24",
+          "name_cn": "关羽",
+          "search_name_cn": "关羽",
+          "candidate_ids": [
+            "JX_SHU002"
+          ]
+        },
+        {
+          "id": "limit-break-25",
+          "name_cn": "甘宁",
+          "search_name_cn": "甘宁",
+          "candidate_ids": [
+            "JX_WU002"
+          ]
+        },
+        {
+          "id": "limit-break-26",
+          "name_cn": "貂蝉",
+          "search_name_cn": "貂蝉",
+          "candidate_ids": [
+            "JX_QUN003"
+          ]
+        },
+        {
+          "id": "limit-break-27",
+          "name_cn": "大乔",
+          "search_name_cn": "大乔",
+          "candidate_ids": [
+            "JX_WU006"
+          ]
+        },
+        {
+          "id": "limit-break-28",
+          "name_cn": "曹操",
+          "search_name_cn": "曹操",
+          "candidate_ids": [
+            "JX_WEI001"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ol-myth",
+      "name_cn": "OL界神话",
+      "name_en": "OL Myth · Limit Break",
+      "count": 29,
+      "entries": [
+        {
+          "id": "ol-myth-1",
+          "name_cn": "左慈",
+          "search_name_cn": "左慈",
+          "candidate_ids": [
+            "JX_QUN009"
+          ]
+        },
+        {
+          "id": "ol-myth-2",
+          "name_cn": "祝融",
+          "search_name_cn": "祝融",
+          "candidate_ids": [
+            "JX_SHU015"
+          ]
+        },
+        {
+          "id": "ol-myth-3",
+          "name_cn": "诸葛亮",
+          "search_name_cn": "诸葛亮",
+          "candidate_ids": [
+            "JX_SHU011"
+          ]
+        },
+        {
+          "id": "ol-myth-4",
+          "name_cn": "张昭&张纮",
+          "search_name_cn": "张昭&张纮",
+          "candidate_ids": [
+            "JX_WU015"
+          ]
+        },
+        {
+          "id": "ol-myth-5",
+          "name_cn": "张角",
+          "search_name_cn": "张角",
+          "candidate_ids": [
+            "JX_QUN010"
+          ]
+        },
+        {
+          "id": "ol-myth-6",
+          "name_cn": "张郃",
+          "search_name_cn": "张郃",
+          "candidate_ids": [
+            "JX_WEI009"
+          ]
+        },
+        {
+          "id": "ol-myth-7",
+          "name_cn": "袁绍",
+          "search_name_cn": "袁绍",
+          "candidate_ids": [
+            "JX_QUN004"
+          ]
+        },
+        {
+          "id": "ol-myth-8",
+          "name_cn": "于吉",
+          "search_name_cn": "于吉",
+          "candidate_ids": [
+            "JX_QUN011"
+          ]
+        },
+        {
+          "id": "ol-myth-9",
+          "name_cn": "颜良&文丑",
+          "search_name_cn": "颜良&文丑",
+          "candidate_ids": [
+            "JX_QUN005"
+          ]
+        },
+        {
+          "id": "ol-myth-10",
+          "name_cn": "荀彧",
+          "search_name_cn": "荀彧",
+          "candidate_ids": [
+            "JX_WEI013"
+          ]
+        },
+        {
+          "id": "ol-myth-11",
+          "name_cn": "徐晃",
+          "search_name_cn": "徐晃",
+          "candidate_ids": [
+            "JX_WEI010"
+          ]
+        },
+        {
+          "id": "ol-myth-12",
+          "name_cn": "小乔",
+          "search_name_cn": "小乔",
+          "candidate_ids": [
+            "JX_WU011"
+          ]
+        },
+        {
+          "id": "ol-myth-13",
+          "name_cn": "夏侯渊",
+          "search_name_cn": "夏侯渊",
+          "candidate_ids": [
+            "JX_WEI008"
+          ]
+        },
+        {
+          "id": "ol-myth-14",
+          "name_cn": "魏延",
+          "search_name_cn": "魏延",
+          "candidate_ids": [
+            "JX_SHU009"
+          ]
+        },
+        {
+          "id": "ol-myth-15",
+          "name_cn": "太史慈",
+          "search_name_cn": "太史慈",
+          "candidate_ids": [
+            "JX_WU012"
+          ]
+        },
+        {
+          "id": "ol-myth-16",
+          "name_cn": "孙坚",
+          "search_name_cn": "孙坚",
+          "candidate_ids": [
+            "JX_WU009"
+          ]
+        },
+        {
+          "id": "ol-myth-17",
+          "name_cn": "孙策",
+          "search_name_cn": "孙策",
+          "candidate_ids": [
+            "JX_WU010"
+          ]
+        },
+        {
+          "id": "ol-myth-18",
+          "name_cn": "庞统",
+          "search_name_cn": "庞统",
+          "candidate_ids": [
+            "JX_SHU010"
+          ]
+        },
+        {
+          "id": "ol-myth-19",
+          "name_cn": "庞德",
+          "search_name_cn": "庞德",
+          "candidate_ids": [
+            "JX_QUN008"
+          ]
+        },
+        {
+          "id": "ol-myth-20",
+          "name_cn": "孟获",
+          "search_name_cn": "孟获",
+          "candidate_ids": [
+            "JX_SHU014"
+          ]
+        },
+        {
+          "id": "ol-myth-21",
+          "name_cn": "鲁肃",
+          "search_name_cn": "鲁肃",
+          "candidate_ids": [
+            "JX_WU014"
+          ]
+        },
+        {
+          "id": "ol-myth-22",
+          "name_cn": "刘禅",
+          "search_name_cn": "刘禅",
+          "candidate_ids": [
+            "JX_SHU013"
+          ]
+        },
+        {
+          "id": "ol-myth-23",
+          "name_cn": "姜维",
+          "search_name_cn": "姜维",
+          "candidate_ids": [
+            "JX_SHU012"
+          ]
+        },
+        {
+          "id": "ol-myth-24",
+          "name_cn": "贾诩",
+          "search_name_cn": "贾诩",
+          "candidate_ids": [
+            "JX_QUN007"
+          ]
+        },
+        {
+          "id": "ol-myth-25",
+          "name_cn": "黄忠",
+          "search_name_cn": "黄忠",
+          "candidate_ids": [
+            "JX_SHU008"
+          ]
+        },
+        {
+          "id": "ol-myth-26",
+          "name_cn": "董卓",
+          "search_name_cn": "董卓",
+          "candidate_ids": [
+            "JX_QUN006"
+          ]
+        },
+        {
+          "id": "ol-myth-27",
+          "name_cn": "典韦",
+          "search_name_cn": "典韦",
+          "candidate_ids": [
+            "JX_WEI012"
+          ]
+        },
+        {
+          "id": "ol-myth-28",
+          "name_cn": "邓艾",
+          "search_name_cn": "邓艾",
+          "candidate_ids": [
+            "REF_ol_dengai"
+          ]
+        },
+        {
+          "id": "ol-myth-29",
+          "name_cn": "蔡文姬",
+          "search_name_cn": "蔡文姬",
+          "candidate_ids": [
+            "JX_QUN012"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gods",
+      "name_cn": "神将",
+      "name_en": "Gods",
+      "count": 27,
+      "entries": [
+        {
+          "id": "gods-1",
+          "name_cn": "诸葛亮",
+          "search_name_cn": "诸葛亮",
+          "candidate_ids": [
+            "LE004",
+            "LE004-2"
+          ]
+        },
+        {
+          "id": "gods-2",
+          "name_cn": "周瑜",
+          "search_name_cn": "周瑜",
+          "candidate_ids": [
+            "LE003"
+          ]
+        },
+        {
+          "id": "gods-3",
+          "name_cn": "赵云",
+          "search_name_cn": "赵云",
+          "candidate_ids": [
+            "LE007",
+            "LE007_Beta"
+          ]
+        },
+        {
+          "id": "gods-4",
+          "name_cn": "张辽",
+          "search_name_cn": "张辽",
+          "candidate_ids": [
+            "LE011",
+            "LE011-2",
+            "LE011-3"
+          ]
+        },
+        {
+          "id": "gods-5",
+          "name_cn": "张角",
+          "search_name_cn": "张角",
+          "candidate_ids": [
+            "LE027"
+          ]
+        },
+        {
+          "id": "gods-6",
+          "name_cn": "张角",
+          "search_name_cn": "张角",
+          "candidate_ids": [
+            "SM_zh_shen_zhangjiao"
+          ]
+        },
+        {
+          "id": "gods-7",
+          "name_cn": "张飞",
+          "search_name_cn": "张飞",
+          "candidate_ids": [
+            "LE025"
+          ]
+        },
+        {
+          "id": "gods-8",
+          "name_cn": "荀彧",
+          "search_name_cn": "荀彧",
+          "candidate_ids": [
+            "LE019"
+          ]
+        },
+        {
+          "id": "gods-9",
+          "name_cn": "许褚",
+          "search_name_cn": "许褚",
+          "candidate_ids": [
+            "LE024"
+          ]
+        },
+        {
+          "id": "gods-10",
+          "name_cn": "太史慈",
+          "search_name_cn": "太史慈",
+          "candidate_ids": [
+            "LE022"
+          ]
+        },
+        {
+          "id": "gods-11",
+          "name_cn": "孙策",
+          "search_name_cn": "孙策",
+          "candidate_ids": [
+            "LE021"
+          ]
+        },
+        {
+          "id": "gods-12",
+          "name_cn": "司马懿",
+          "search_name_cn": "司马懿",
+          "candidate_ids": [
+            "LE008"
+          ]
+        },
+        {
+          "id": "gods-13",
+          "name_cn": "马超",
+          "search_name_cn": "马超",
+          "candidate_ids": [
+            "LE023"
+          ]
+        },
+        {
+          "id": "gods-14",
+          "name_cn": "吕蒙",
+          "search_name_cn": "吕蒙",
+          "candidate_ids": [
+            "LE002",
+            "LE002-2"
+          ]
+        },
+        {
+          "id": "gods-15",
+          "name_cn": "吕布",
+          "search_name_cn": "吕布",
+          "candidate_ids": [
+            "LE006",
+            "LE006-2"
+          ]
+        },
+        {
+          "id": "gods-16",
+          "name_cn": "陆逊",
+          "search_name_cn": "陆逊",
+          "candidate_ids": [
+            "LE010"
+          ]
+        },
+        {
+          "id": "gods-17",
+          "name_cn": "鲁肃",
+          "search_name_cn": "鲁肃",
+          "candidate_ids": [
+            "LE017"
+          ]
+        },
+        {
+          "id": "gods-18",
+          "name_cn": "刘备",
+          "search_name_cn": "刘备",
+          "candidate_ids": [
+            "LE009"
+          ]
+        },
+        {
+          "id": "gods-19",
+          "name_cn": "姜维",
+          "search_name_cn": "姜维",
+          "candidate_ids": [
+            "LE030"
+          ]
+        },
+        {
+          "id": "gods-20",
+          "name_cn": "华佗",
+          "search_name_cn": "华佗",
+          "candidate_ids": [
+            "LE014",
+            "LE014-2",
+            "LE014-3"
+          ]
+        },
+        {
+          "id": "gods-21",
+          "name_cn": "郭嘉",
+          "search_name_cn": "郭嘉",
+          "candidate_ids": [
+            "LE020"
+          ]
+        },
+        {
+          "id": "gods-22",
+          "name_cn": "关羽",
+          "search_name_cn": "关羽",
+          "candidate_ids": [
+            "LE001",
+            "LE001-2",
+            "LE001-3",
+            "LE001-4",
+            "LE001-5"
+          ]
+        },
+        {
+          "id": "gods-23",
+          "name_cn": "甘宁",
+          "search_name_cn": "甘宁",
+          "candidate_ids": [
+            "LE012"
+          ]
+        },
+        {
+          "id": "gods-24",
+          "name_cn": "貂蝉",
+          "search_name_cn": "貂蝉",
+          "candidate_ids": [
+            "LE013",
+            "LE013-2"
+          ]
+        },
+        {
+          "id": "gods-25",
+          "name_cn": "典韦",
+          "search_name_cn": "典韦",
+          "candidate_ids": [
+            "LE016",
+            "LE016-2"
+          ]
+        },
+        {
+          "id": "gods-26",
+          "name_cn": "邓艾",
+          "search_name_cn": "邓艾",
+          "candidate_ids": [
+            "LE029"
+          ]
+        },
+        {
+          "id": "gods-27",
+          "name_cn": "曹操",
+          "search_name_cn": "曹操",
+          "candidate_ids": [
+            "LE005"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dragon-blood",
+      "name_cn": "龙血",
+      "name_en": "Dragon Blood",
+      "count": 7,
+      "entries": [
+        {
+          "id": "dragon-blood-1",
+          "name_cn": "文钦",
+          "search_name_cn": "文钦",
+          "candidate_ids": [
+            "SM_lx_wenqin"
+          ]
+        },
+        {
+          "id": "dragon-blood-2",
+          "name_cn": "司马伷",
+          "search_name_cn": "司马伷",
+          "candidate_ids": [
+            "SM_lx_simazhou"
+          ]
+        },
+        {
+          "id": "dragon-blood-3",
+          "name_cn": "司马孚",
+          "search_name_cn": "司马孚",
+          "candidate_ids": [
+            "SM_lx_simafu"
+          ]
+        },
+        {
+          "id": "dragon-blood-4",
+          "name_cn": "李昭&焦伯",
+          "search_name_cn": "李昭&焦伯",
+          "candidate_ids": [
+            "SM_lx_lizhaojiaobo"
+          ]
+        },
+        {
+          "id": "dragon-blood-5",
+          "name_cn": "贾充",
+          "search_name_cn": "贾充",
+          "candidate_ids": [
+            "SM_lx_jiachong"
+          ]
+        },
+        {
+          "id": "dragon-blood-6",
+          "name_cn": "毋丘俭",
+          "search_name_cn": "毌丘俭",
+          "candidate_ids": [
+            "SM_lx_guanqiujian"
+          ]
+        },
+        {
+          "id": "dragon-blood-7",
+          "name_cn": "成济",
+          "search_name_cn": "成济",
+          "candidate_ids": [
+            "SM_lx_chengji"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mobile-fame",
+      "name_cn": "手杀界一将",
+      "name_en": "Mobile · Limit Break Fame",
+      "count": 40,
+      "entries": [
+        {
+          "id": "mobile-fame-1",
+          "name_cn": "朱治",
+          "search_name_cn": "朱治",
+          "candidate_ids": [
+            "SM_re_zhuzhi"
+          ]
+        },
+        {
+          "id": "mobile-fame-2",
+          "name_cn": "朱然",
+          "search_name_cn": "朱然",
+          "candidate_ids": [
+            "JX_WU031"
+          ]
+        },
+        {
+          "id": "mobile-fame-3",
+          "name_cn": "朱桓",
+          "search_name_cn": "朱桓",
+          "candidate_ids": [
+            "SM_re_zhuhuan"
+          ]
+        },
+        {
+          "id": "mobile-fame-4",
+          "name_cn": "周仓",
+          "search_name_cn": "周仓",
+          "candidate_ids": [
+            "SM_re_zhoucang"
+          ]
+        },
+        {
+          "id": "mobile-fame-5",
+          "name_cn": "钟会",
+          "search_name_cn": "钟会",
+          "candidate_ids": [
+            "JX_WEI028"
+          ]
+        },
+        {
+          "id": "mobile-fame-6",
+          "name_cn": "张嶷",
+          "search_name_cn": "张嶷",
+          "candidate_ids": [
+            "SM_re_zhangyi"
+          ]
+        },
+        {
+          "id": "mobile-fame-7",
+          "name_cn": "虞翻",
+          "search_name_cn": "虞翻",
+          "candidate_ids": [
+            "JX_WU030"
+          ]
+        },
+        {
+          "id": "mobile-fame-8",
+          "name_cn": "于禁",
+          "search_name_cn": "于禁",
+          "candidate_ids": [
+            "JX_WEI024"
+          ]
+        },
+        {
+          "id": "mobile-fame-9",
+          "name_cn": "徐盛",
+          "search_name_cn": "徐盛",
+          "candidate_ids": [
+            "JX_WU020"
+          ]
+        },
+        {
+          "id": "mobile-fame-10",
+          "name_cn": "吴懿",
+          "search_name_cn": "吴懿",
+          "candidate_ids": [
+            "SM_re_wuyi"
+          ]
+        },
+        {
+          "id": "mobile-fame-11",
+          "name_cn": "吴国太",
+          "search_name_cn": "吴国太",
+          "candidate_ids": [
+            "JX_WU024"
+          ]
+        },
+        {
+          "id": "mobile-fame-12",
+          "name_cn": "王异",
+          "search_name_cn": "王异",
+          "candidate_ids": [
+            "JX_WEI030"
+          ]
+        },
+        {
+          "id": "mobile-fame-13",
+          "name_cn": "孙休",
+          "search_name_cn": "孙休",
+          "candidate_ids": [
+            "SM_re_sunxiu"
+          ]
+        },
+        {
+          "id": "mobile-fame-14",
+          "name_cn": "孙鲁班",
+          "search_name_cn": "孙鲁班",
+          "candidate_ids": [
+            "SM_re_sunluban"
+          ]
+        },
+        {
+          "id": "mobile-fame-15",
+          "name_cn": "全琮",
+          "search_name_cn": "全琮",
+          "candidate_ids": [
+            "SM_re_quancong"
+          ]
+        },
+        {
+          "id": "mobile-fame-16",
+          "name_cn": "潘璋&马忠",
+          "search_name_cn": "潘璋&马忠",
+          "candidate_ids": [
+            "SM_re_panzhangmazhong"
+          ]
+        },
+        {
+          "id": "mobile-fame-17",
+          "name_cn": "满宠",
+          "search_name_cn": "满宠",
+          "candidate_ids": [
+            "JX_WEI033"
+          ]
+        },
+        {
+          "id": "mobile-fame-18",
+          "name_cn": "马岱",
+          "search_name_cn": "马岱",
+          "candidate_ids": [
+            "JX_SHU019"
+          ]
+        },
+        {
+          "id": "mobile-fame-19",
+          "name_cn": "刘表",
+          "search_name_cn": "刘表",
+          "candidate_ids": [
+            "JX_QUN030"
+          ]
+        },
+        {
+          "id": "mobile-fame-20",
+          "name_cn": "凌统",
+          "search_name_cn": "凌统",
+          "candidate_ids": [
+            "JX_WU021"
+          ]
+        },
+        {
+          "id": "mobile-fame-21",
+          "name_cn": "廖化",
+          "search_name_cn": "廖化",
+          "candidate_ids": [
+            "JX_SHU027"
+          ]
+        },
+        {
+          "id": "mobile-fame-22",
+          "name_cn": "李儒",
+          "search_name_cn": "李儒",
+          "candidate_ids": [
+            "JX_QUN032"
+          ]
+        },
+        {
+          "id": "mobile-fame-23",
+          "name_cn": "沮授",
+          "search_name_cn": "沮授",
+          "candidate_ids": [
+            "JX_QUN034"
+          ]
+        },
+        {
+          "id": "mobile-fame-24",
+          "name_cn": "简雍",
+          "search_name_cn": "简雍",
+          "candidate_ids": [
+            "JX_SHU029"
+          ]
+        },
+        {
+          "id": "mobile-fame-25",
+          "name_cn": "韩当",
+          "search_name_cn": "韩当",
+          "candidate_ids": [
+            "REF_xin_handang"
+          ]
+        },
+        {
+          "id": "mobile-fame-26",
+          "name_cn": "郭淮",
+          "search_name_cn": "郭淮",
+          "candidate_ids": [
+            "JX_WEI032"
+          ]
+        },
+        {
+          "id": "mobile-fame-27",
+          "name_cn": "关兴&张苞",
+          "search_name_cn": "关兴&张苞",
+          "candidate_ids": [
+            "JX_SHU026"
+          ]
+        },
+        {
+          "id": "mobile-fame-28",
+          "name_cn": "顾雍",
+          "search_name_cn": "顾雍",
+          "candidate_ids": [
+            "SM_re_guyong"
+          ]
+        },
+        {
+          "id": "mobile-fame-29",
+          "name_cn": "公孙瓒",
+          "search_name_cn": "公孙瓒",
+          "candidate_ids": [
+            "JX_QUN026"
+          ]
+        },
+        {
+          "id": "mobile-fame-30",
+          "name_cn": "高顺",
+          "search_name_cn": "高顺",
+          "candidate_ids": [
+            "SM_re_gaoshun"
+          ]
+        },
+        {
+          "id": "mobile-fame-31",
+          "name_cn": "伏皇后",
+          "search_name_cn": "伏皇后",
+          "candidate_ids": [
+            "JX_QUN031"
+          ]
+        },
+        {
+          "id": "mobile-fame-32",
+          "name_cn": "法正",
+          "search_name_cn": "法正",
+          "candidate_ids": [
+            "JX_SHU024"
+          ]
+        },
+        {
+          "id": "mobile-fame-33",
+          "name_cn": "程普",
+          "search_name_cn": "程普",
+          "candidate_ids": [
+            "JX_WU027"
+          ]
+        },
+        {
+          "id": "mobile-fame-34",
+          "name_cn": "陈群",
+          "search_name_cn": "陈群",
+          "candidate_ids": [
+            "SM_re_chenqun"
+          ]
+        },
+        {
+          "id": "mobile-fame-35",
+          "name_cn": "曹植",
+          "search_name_cn": "曹植",
+          "candidate_ids": [
+            "JX_WEI026"
+          ]
+        },
+        {
+          "id": "mobile-fame-36",
+          "name_cn": "曹真",
+          "search_name_cn": "曹真",
+          "candidate_ids": [
+            "SM_re_caozhen"
+          ]
+        },
+        {
+          "id": "mobile-fame-37",
+          "name_cn": "曹彰",
+          "search_name_cn": "曹彰",
+          "candidate_ids": [
+            "JX_WEI029"
+          ]
+        },
+        {
+          "id": "mobile-fame-38",
+          "name_cn": "曹休",
+          "search_name_cn": "曹休",
+          "candidate_ids": [
+            "SM_re_caoxiu"
+          ]
+        },
+        {
+          "id": "mobile-fame-39",
+          "name_cn": "蔡夫人",
+          "search_name_cn": "蔡夫人",
+          "candidate_ids": [
+            "JX_QUN033"
+          ]
+        },
+        {
+          "id": "mobile-fame-40",
+          "name_cn": "步练师",
+          "search_name_cn": "步练师",
+          "candidate_ids": [
+            "JX_WU026"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clans",
+      "name_cn": "门阀士族",
+      "name_en": "Clans",
+      "count": 28,
+      "entries": [
+        {
+          "id": "clans-1",
+          "name_cn": "钟毓",
+          "search_name_cn": "钟毓",
+          "candidate_ids": [
+            "SM_clan_zhongyu"
+          ]
+        },
+        {
+          "id": "clans-2",
+          "name_cn": "钟繇",
+          "search_name_cn": "钟繇",
+          "candidate_ids": [
+            "SM_clan_zhongyao"
+          ]
+        },
+        {
+          "id": "clans-3",
+          "name_cn": "钟琰",
+          "search_name_cn": "钟琰",
+          "candidate_ids": [
+            "SM_clan_zhongyan"
+          ]
+        },
+        {
+          "id": "clans-4",
+          "name_cn": "钟会",
+          "search_name_cn": "钟会",
+          "candidate_ids": [
+            "SM_clan_zhonghui"
+          ]
+        },
+        {
+          "id": "clans-5",
+          "name_cn": "杨众",
+          "search_name_cn": "杨众",
+          "candidate_ids": [
+            "SM_clan_yangzhong"
+          ]
+        },
+        {
+          "id": "clans-6",
+          "name_cn": "杨修",
+          "search_name_cn": "杨修",
+          "candidate_ids": [
+            "SM_clan_yangxiu"
+          ]
+        },
+        {
+          "id": "clans-7",
+          "name_cn": "杨赐",
+          "search_name_cn": "杨赐",
+          "candidate_ids": [
+            "SM_clan_yangci"
+          ]
+        },
+        {
+          "id": "clans-8",
+          "name_cn": "杨彪",
+          "search_name_cn": "杨彪",
+          "candidate_ids": [
+            "SM_clan_yangbiao"
+          ]
+        },
+        {
+          "id": "clans-9",
+          "name_cn": "荀攸",
+          "search_name_cn": "荀攸",
+          "candidate_ids": [
+            "SM_clan_xunyou"
+          ]
+        },
+        {
+          "id": "clans-10",
+          "name_cn": "荀淑",
+          "search_name_cn": "荀淑",
+          "candidate_ids": [
+            "SM_clan_xunshu"
+          ]
+        },
+        {
+          "id": "clans-11",
+          "name_cn": "荀谌",
+          "search_name_cn": "荀谌",
+          "candidate_ids": [
+            "SM_clan_xunchen"
+          ]
+        },
+        {
+          "id": "clans-12",
+          "name_cn": "荀粲",
+          "search_name_cn": "荀粲",
+          "candidate_ids": [
+            "SM_clan_xuncan"
+          ]
+        },
+        {
+          "id": "clans-13",
+          "name_cn": "荀采",
+          "search_name_cn": "荀采",
+          "candidate_ids": [
+            "SM_clan_xuncai"
+          ]
+        },
+        {
+          "id": "clans-14",
+          "name_cn": "吴苋",
+          "search_name_cn": "吴苋",
+          "candidate_ids": [
+            "SM_clan_wuxian"
+          ]
+        },
+        {
+          "id": "clans-15",
+          "name_cn": "吴乔",
+          "search_name_cn": "吴乔",
+          "candidate_ids": [
+            "SM_clan_wuqiao"
+          ]
+        },
+        {
+          "id": "clans-16",
+          "name_cn": "吴匡",
+          "search_name_cn": "吴匡",
+          "candidate_ids": [
+            "SM_clan_wukuang"
+          ]
+        },
+        {
+          "id": "clans-17",
+          "name_cn": "吴班",
+          "search_name_cn": "吴班",
+          "candidate_ids": [
+            "SM_clan_wuban"
+          ]
+        },
+        {
+          "id": "clans-18",
+          "name_cn": "王允",
+          "search_name_cn": "王允",
+          "candidate_ids": [
+            "SM_clan_wangyun"
+          ]
+        },
+        {
+          "id": "clans-19",
+          "name_cn": "王沈",
+          "search_name_cn": "王沈",
+          "candidate_ids": [
+            "SM_clan_wangshen"
+          ]
+        },
+        {
+          "id": "clans-20",
+          "name_cn": "王明山",
+          "search_name_cn": "王明山",
+          "candidate_ids": [
+            "SM_clan_wangmingshan"
+          ]
+        },
+        {
+          "id": "clans-21",
+          "name_cn": "王沧",
+          "search_name_cn": "王沦",
+          "candidate_ids": [
+            "SM_clan_wanglun"
+          ]
+        },
+        {
+          "id": "clans-22",
+          "name_cn": "王凌",
+          "search_name_cn": "王凌",
+          "candidate_ids": [
+            "SM_clan_wangling"
+          ]
+        },
+        {
+          "id": "clans-23",
+          "name_cn": "王浑",
+          "search_name_cn": "王浑",
+          "candidate_ids": [
+            "SM_clan_wanghun"
+          ]
+        },
+        {
+          "id": "clans-24",
+          "name_cn": "王广",
+          "search_name_cn": "王广",
+          "candidate_ids": [
+            "SM_clan_wangguang"
+          ]
+        },
+        {
+          "id": "clans-25",
+          "name_cn": "王昶",
+          "search_name_cn": "王昶",
+          "candidate_ids": [
+            "SM_clan_wangchang"
+          ]
+        },
+        {
+          "id": "clans-26",
+          "name_cn": "陆绩",
+          "search_name_cn": "陆绩",
+          "candidate_ids": [
+            "SM_clan_luji"
+          ]
+        },
+        {
+          "id": "clans-27",
+          "name_cn": "韩韶",
+          "search_name_cn": "韩韶",
+          "candidate_ids": [
+            "SM_clan_hanshao"
+          ]
+        },
+        {
+          "id": "clans-28",
+          "name_cn": "韩融",
+          "search_name_cn": "韩融",
+          "candidate_ids": [
+            "SM_clan_hanrong"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ol-strategy",
+      "name_cn": "OL谋",
+      "name_en": "OL Strategy",
+      "count": 21,
+      "entries": [
+        {
+          "id": "ol-strategy-1",
+          "name_cn": "诸葛亮",
+          "search_name_cn": "诸葛亮",
+          "candidate_ids": [
+            "SM_ol_sb_zhugeliang"
+          ]
+        },
+        {
+          "id": "ol-strategy-2",
+          "name_cn": "张绣",
+          "search_name_cn": "张绣",
+          "candidate_ids": [
+            "SM_ol_sb_zhangxiu"
+          ]
+        },
+        {
+          "id": "ol-strategy-3",
+          "name_cn": "袁术",
+          "search_name_cn": "袁术",
+          "candidate_ids": [
+            "SM_ol_sb_yuanshu"
+          ]
+        },
+        {
+          "id": "ol-strategy-4",
+          "name_cn": "袁绍",
+          "search_name_cn": "袁绍",
+          "candidate_ids": [
+            "SM_ol_sb_yuanshao"
+          ]
+        },
+        {
+          "id": "ol-strategy-5",
+          "name_cn": "许攸",
+          "search_name_cn": "许攸",
+          "candidate_ids": [
+            "SM_ol_sb_xuyou"
+          ]
+        },
+        {
+          "id": "ol-strategy-6",
+          "name_cn": "小乔",
+          "search_name_cn": "小乔",
+          "candidate_ids": [
+            "SM_ol_sb_xiaoqiao"
+          ]
+        },
+        {
+          "id": "ol-strategy-7",
+          "name_cn": "戏志才",
+          "search_name_cn": "戏志才",
+          "candidate_ids": [
+            "SM_ol_sb_xizhicai"
+          ]
+        },
+        {
+          "id": "ol-strategy-8",
+          "name_cn": "文丑",
+          "search_name_cn": "文丑",
+          "candidate_ids": [
+            "SM_ol_sb_wenchou"
+          ]
+        },
+        {
+          "id": "ol-strategy-9",
+          "name_cn": "太史慈",
+          "search_name_cn": "太史慈",
+          "candidate_ids": [
+            "SM_ol_sb_taishici"
+          ]
+        },
+        {
+          "id": "ol-strategy-10",
+          "name_cn": "孙坚",
+          "search_name_cn": "孙坚",
+          "candidate_ids": [
+            "SM_ol_sb_sunjian"
+          ]
+        },
+        {
+          "id": "ol-strategy-11",
+          "name_cn": "庞统",
+          "search_name_cn": "庞统",
+          "candidate_ids": [
+            "SM_ol_sb_pangtong"
+          ]
+        },
+        {
+          "id": "ol-strategy-12",
+          "name_cn": "鲁肃",
+          "search_name_cn": "鲁肃",
+          "candidate_ids": [
+            "SM_ol_sb_lusu"
+          ]
+        },
+        {
+          "id": "ol-strategy-13",
+          "name_cn": "卢植",
+          "search_name_cn": "卢植",
+          "candidate_ids": [
+            "SM_ol_sb_yl_luzhi"
+          ]
+        },
+        {
+          "id": "ol-strategy-14",
+          "name_cn": "孔融",
+          "search_name_cn": "孔融",
+          "candidate_ids": [
+            "SM_ol_sb_kongrong"
+          ]
+        },
+        {
+          "id": "ol-strategy-15",
+          "name_cn": "姜维",
+          "search_name_cn": "姜维",
+          "candidate_ids": [
+            "SM_ol_sb_jiangwei"
+          ]
+        },
+        {
+          "id": "ol-strategy-16",
+          "name_cn": "黄月英",
+          "search_name_cn": "黄月英",
+          "candidate_ids": [
+            "SM_ol_sb_huangyueying"
+          ]
+        },
+        {
+          "id": "ol-strategy-17",
+          "name_cn": "华雄",
+          "search_name_cn": "华雄",
+          "candidate_ids": [
+            "SM_ol_sb_huaxiong"
+          ]
+        },
+        {
+          "id": "ol-strategy-18",
+          "name_cn": "关羽",
+          "search_name_cn": "关羽",
+          "candidate_ids": [
+            "SM_ol_sb_guanyu"
+          ]
+        },
+        {
+          "id": "ol-strategy-19",
+          "name_cn": "公孙瓒",
+          "search_name_cn": "公孙瓒",
+          "candidate_ids": [
+            "SM_ol_sb_gongsunzan"
+          ]
+        },
+        {
+          "id": "ol-strategy-20",
+          "name_cn": "董卓",
+          "search_name_cn": "董卓",
+          "candidate_ids": [
+            "SM_ol_sb_dongzhuo"
+          ]
+        },
+        {
+          "id": "ol-strategy-21",
+          "name_cn": "邓艾",
+          "search_name_cn": "邓艾",
+          "candidate_ids": [
+            "SM_ol_sb_dengai"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fame-strategy",
+      "name_cn": "一将成名谋",
+      "name_en": "Fame · Strategy",
+      "count": 28,
+      "entries": [
+        {
+          "id": "fame-strategy-1",
+          "name_cn": "诸葛瑾",
+          "search_name_cn": "诸葛瑾",
+          "candidate_ids": [
+            "SM_dc_sb_zhugejin"
+          ]
+        },
+        {
+          "id": "fame-strategy-2",
+          "name_cn": "周瑜",
+          "search_name_cn": "周瑜",
+          "candidate_ids": [
+            "SM_dc_sb_zhouyu"
+          ]
+        },
+        {
+          "id": "fame-strategy-3",
+          "name_cn": "张绣",
+          "search_name_cn": "张绣",
+          "candidate_ids": [
+            "SM_dc_sb_zhangxiu"
+          ]
+        },
+        {
+          "id": "fame-strategy-4",
+          "name_cn": "荀彧",
+          "search_name_cn": "荀彧",
+          "candidate_ids": [
+            "SM_dc_sb_xunyu"
+          ]
+        },
+        {
+          "id": "fame-strategy-5",
+          "name_cn": "王凌",
+          "search_name_cn": "王凌",
+          "candidate_ids": [
+            "SM_dc_wangling"
+          ]
+        },
+        {
+          "id": "fame-strategy-6",
+          "name_cn": "司马懿",
+          "search_name_cn": "司马懿",
+          "candidate_ids": [
+            "SM_dc_sb_simayi"
+          ]
+        },
+        {
+          "id": "fame-strategy-7",
+          "name_cn": "司马师",
+          "search_name_cn": "司马师",
+          "candidate_ids": [
+            "SM_dc_simashi"
+          ]
+        },
+        {
+          "id": "fame-strategy-8",
+          "name_cn": "吕蒙",
+          "search_name_cn": "吕蒙",
+          "candidate_ids": [
+            "SM_dc_sb_lvmeng"
+          ]
+        },
+        {
+          "id": "fame-strategy-9",
+          "name_cn": "骆统",
+          "search_name_cn": "骆统",
+          "candidate_ids": [
+            "SM_dc_sb_luotong"
+          ]
+        },
+        {
+          "id": "fame-strategy-10",
+          "name_cn": "陆逊",
+          "search_name_cn": "陆逊",
+          "candidate_ids": [
+            "SM_dc_sb_luxun"
+          ]
+        },
+        {
+          "id": "fame-strategy-11",
+          "name_cn": "鲁肃",
+          "search_name_cn": "鲁肃",
+          "candidate_ids": [
+            "SM_dc_sb_lusu"
+          ]
+        },
+        {
+          "id": "fame-strategy-12",
+          "name_cn": "刘协",
+          "search_name_cn": "刘协",
+          "candidate_ids": [
+            "SM_dc_sb_liuxie"
+          ]
+        },
+        {
+          "id": "fame-strategy-13",
+          "name_cn": "沮授",
+          "search_name_cn": "沮授",
+          "candidate_ids": [
+            "SM_dc_sb_jushou"
+          ]
+        },
+        {
+          "id": "fame-strategy-14",
+          "name_cn": "蒋济",
+          "search_name_cn": "蒋济",
+          "candidate_ids": [
+            "SM_dc_jiangji"
+          ]
+        },
+        {
+          "id": "fame-strategy-15",
+          "name_cn": "姜维",
+          "search_name_cn": "姜维",
+          "candidate_ids": [
+            "SM_dc_sb_jiangwei"
+          ]
+        },
+        {
+          "id": "fame-strategy-16",
+          "name_cn": "贾诩",
+          "search_name_cn": "贾诩",
+          "candidate_ids": [
+            "SM_dc_sb_jiaxu"
+          ]
+        },
+        {
+          "id": "fame-strategy-17",
+          "name_cn": "黄权",
+          "search_name_cn": "黄权",
+          "candidate_ids": [
+            "SM_dc_sb_huangquan"
+          ]
+        },
+        {
+          "id": "fame-strategy-18",
+          "name_cn": "黄盖",
+          "search_name_cn": "黄盖",
+          "candidate_ids": [
+            "SM_dc_sb_huanggai"
+          ]
+        },
+        {
+          "id": "fame-strategy-19",
+          "name_cn": "胡烈",
+          "search_name_cn": "胡烈",
+          "candidate_ids": [
+            "SM_dc_sb_hulie"
+          ]
+        },
+        {
+          "id": "fame-strategy-20",
+          "name_cn": "胡车儿",
+          "search_name_cn": "胡车儿",
+          "candidate_ids": [
+            "SM_dc_sb_hucheer"
+          ]
+        },
+        {
+          "id": "fame-strategy-21",
+          "name_cn": "郭嘉",
+          "search_name_cn": "郭嘉",
+          "candidate_ids": [
+            "SM_yj_sb_guojia"
+          ]
+        },
+        {
+          "id": "fame-strategy-22",
+          "name_cn": "关平",
+          "search_name_cn": "关平",
+          "candidate_ids": [
+            "SM_dc_sb_guanping"
+          ]
+        },
+        {
+          "id": "fame-strategy-23",
+          "name_cn": "典韦",
+          "search_name_cn": "典韦",
+          "candidate_ids": [
+            "SM_dc_sb_dianwei"
+          ]
+        },
+        {
+          "id": "fame-strategy-24",
+          "name_cn": "邓艾",
+          "search_name_cn": "邓艾",
+          "candidate_ids": [
+            "SM_dc_sb_dengai"
+          ]
+        },
+        {
+          "id": "fame-strategy-25",
+          "name_cn": "程昱",
+          "search_name_cn": "程昱",
+          "candidate_ids": [
+            "SM_dc_sb_chengyu"
+          ]
+        },
+        {
+          "id": "fame-strategy-26",
+          "name_cn": "陈琳",
+          "search_name_cn": "陈琳",
+          "candidate_ids": [
+            "SM_dc_sb_chenlin"
+          ]
+        },
+        {
+          "id": "fame-strategy-27",
+          "name_cn": "曹爽",
+          "search_name_cn": "曹爽",
+          "candidate_ids": [
+            "SM_dc_caoshuang"
+          ]
+        },
+        {
+          "id": "fame-strategy-28",
+          "name_cn": "曹昂",
+          "search_name_cn": "曹昂",
+          "candidate_ids": [
+            "SM_dc_sb_caoang"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stars",
+      "name_cn": "星河璀璨",
+      "name_en": "Star Collection",
+      "count": 10,
+      "entries": [
+        {
+          "id": "stars-1",
+          "name_cn": "张昭",
+          "search_name_cn": "张昭",
+          "candidate_ids": [
+            "REF_star_zhangzhao"
+          ]
+        },
+        {
+          "id": "stars-2",
+          "name_cn": "张春华",
+          "search_name_cn": "张春华",
+          "candidate_ids": [
+            "REF_star_zhangchunhua"
+          ]
+        },
+        {
+          "id": "stars-3",
+          "name_cn": "袁术",
+          "search_name_cn": "袁术",
+          "candidate_ids": [
+            "REF_star_yuanshu"
+          ]
+        },
+        {
+          "id": "stars-4",
+          "name_cn": "袁绍",
+          "search_name_cn": "袁绍",
+          "candidate_ids": [
+            "REF_star_yuanshao"
+          ]
+        },
+        {
+          "id": "stars-5",
+          "name_cn": "荀彧",
+          "search_name_cn": "荀彧",
+          "candidate_ids": [
+            "REF_star_xunyu"
+          ]
+        },
+        {
+          "id": "stars-6",
+          "name_cn": "孙尚香",
+          "search_name_cn": "孙尚香",
+          "candidate_ids": [
+            "REF_star_sunshangxiang"
+          ]
+        },
+        {
+          "id": "stars-7",
+          "name_cn": "孙坚",
+          "search_name_cn": "孙坚",
+          "candidate_ids": [
+            "REF_star_sunjian"
+          ]
+        },
+        {
+          "id": "stars-8",
+          "name_cn": "法正",
+          "search_name_cn": "法正",
+          "candidate_ids": [
+            "REF_star_fazheng"
+          ]
+        },
+        {
+          "id": "stars-9",
+          "name_cn": "董卓",
+          "search_name_cn": "董卓",
+          "candidate_ids": [
+            "REF_star_dongzhuo"
+          ]
+        },
+        {
+          "id": "stars-10",
+          "name_cn": "曹仁",
+          "search_name_cn": "曹仁",
+          "candidate_ids": [
+            "REF_star_caoren"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exclusive-collection",
+      "name_cn": "限定专属",
+      "name_en": "Exclusive Collection",
+      "count": 14,
+      "entries": [
+        {
+          "id": "exclusive-collection-1",
+          "name_cn": "周夷",
+          "search_name_cn": "周夷",
+          "candidate_ids": [
+            "SM_zhouyi"
+          ]
+        },
+        {
+          "id": "exclusive-collection-2",
+          "name_cn": "赵襄",
+          "search_name_cn": "赵襄",
+          "candidate_ids": [
+            "SP_SHU047"
+          ]
+        },
+        {
+          "id": "exclusive-collection-3",
+          "name_cn": "张琪瑛",
+          "search_name_cn": "张琪瑛",
+          "candidate_ids": [
+            "SP_QUN073"
+          ]
+        },
+        {
+          "id": "exclusive-collection-4",
+          "name_cn": "徐荣",
+          "search_name_cn": "徐荣",
+          "candidate_ids": [
+            "SP_QUN081"
+          ]
+        },
+        {
+          "id": "exclusive-collection-5",
+          "name_cn": "王朗",
+          "search_name_cn": "王朗",
+          "candidate_ids": [
+            "SM_ol_wanglang"
+          ]
+        },
+        {
+          "id": "exclusive-collection-6",
+          "name_cn": "孙翎鸾",
+          "search_name_cn": "孙翎鸾",
+          "candidate_ids": [
+            "SM_sunlingluan"
+          ]
+        },
+        {
+          "id": "exclusive-collection-7",
+          "name_cn": "庞凤衣",
+          "search_name_cn": "庞凤衣",
+          "candidate_ids": [
+            "SM_pangfengyi"
+          ]
+        },
+        {
+          "id": "exclusive-collection-8",
+          "name_cn": "卢弈",
+          "search_name_cn": "卢弈",
+          "candidate_ids": [
+            "SM_luyi"
+          ]
+        },
+        {
+          "id": "exclusive-collection-9",
+          "name_cn": "郭缇萦",
+          "search_name_cn": "郭缇萦",
+          "candidate_ids": [
+            "SP_WEI998"
+          ]
+        },
+        {
+          "id": "exclusive-collection-10",
+          "name_cn": "关索",
+          "search_name_cn": "关索",
+          "candidate_ids": [
+            "REF_guansuo"
+          ]
+        },
+        {
+          "id": "exclusive-collection-11",
+          "name_cn": "曹婴",
+          "search_name_cn": "曹婴",
+          "candidate_ids": [
+            "SP_WEI070"
+          ]
+        },
+        {
+          "id": "exclusive-collection-12",
+          "name_cn": "曹轶",
+          "search_name_cn": "曹轶",
+          "candidate_ids": [
+            "SM_caoyi"
+          ]
+        },
+        {
+          "id": "exclusive-collection-13",
+          "name_cn": "曹纯",
+          "search_name_cn": "曹纯",
+          "candidate_ids": [
+            "SP_WEI061",
+            "WEI061"
+          ]
+        },
+        {
+          "id": "exclusive-collection-14",
+          "name_cn": "鲍三娘",
+          "search_name_cn": "鲍三娘",
+          "candidate_ids": [
+            "SP_SHU070"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mobile-strategy",
+      "name_cn": "手杀谋攻",
+      "name_en": "Mobile Strategy",
+      "count": 52,
+      "entries": [
+        {
+          "id": "mobile-strategy-1",
+          "name_cn": "祝融",
+          "search_name_cn": "祝融",
+          "candidate_ids": [
+            "SM_sb_zhurong"
+          ]
+        },
+        {
+          "id": "mobile-strategy-2",
+          "name_cn": "诸葛亮",
+          "search_name_cn": "诸葛亮",
+          "candidate_ids": [
+            "SM_wu_zhugeliang"
+          ]
+        },
+        {
+          "id": "mobile-strategy-3",
+          "name_cn": "诸葛亮",
+          "search_name_cn": "诸葛亮",
+          "candidate_ids": [
+            "SM_sb_sp_zhugeliang"
+          ]
+        },
+        {
+          "id": "mobile-strategy-4",
+          "name_cn": "诸葛瑾",
+          "search_name_cn": "诸葛瑾",
+          "candidate_ids": [
+            "SM_sb_zhugejin"
+          ]
+        },
+        {
+          "id": "mobile-strategy-5",
+          "name_cn": "周瑜",
+          "search_name_cn": "周瑜",
+          "candidate_ids": [
+            "SM_sb_zhouyu"
+          ]
+        },
+        {
+          "id": "mobile-strategy-6",
+          "name_cn": "甄姬",
+          "search_name_cn": "甄姬",
+          "candidate_ids": [
+            "SM_sb_zhenji"
+          ]
+        },
+        {
+          "id": "mobile-strategy-7",
+          "name_cn": "赵云",
+          "search_name_cn": "赵云",
+          "candidate_ids": [
+            "SM_sb_zhaoyun"
+          ]
+        },
+        {
+          "id": "mobile-strategy-8",
+          "name_cn": "张辽",
+          "search_name_cn": "张辽",
+          "candidate_ids": [
+            "SM_sb_zhangliao"
+          ]
+        },
+        {
+          "id": "mobile-strategy-9",
+          "name_cn": "张角",
+          "search_name_cn": "张角",
+          "candidate_ids": [
+            "SM_sb_zhangjiao"
+          ]
+        },
+        {
+          "id": "mobile-strategy-10",
+          "name_cn": "张飞",
+          "search_name_cn": "张飞",
+          "candidate_ids": [
+            "SM_sb_zhangfei"
+          ]
+        },
+        {
+          "id": "mobile-strategy-11",
+          "name_cn": "袁绍",
+          "search_name_cn": "袁绍",
+          "candidate_ids": [
+            "SM_sb_yuanshao"
+          ]
+        },
+        {
+          "id": "mobile-strategy-12",
+          "name_cn": "于禁",
+          "search_name_cn": "于禁",
+          "candidate_ids": [
+            "SM_sb_yujin"
+          ]
+        },
+        {
+          "id": "mobile-strategy-13",
+          "name_cn": "杨婉",
+          "search_name_cn": "杨婉",
+          "candidate_ids": [
+            "SM_sp_yangwan"
+          ]
+        },
+        {
+          "id": "mobile-strategy-14",
+          "name_cn": "荀彧",
+          "search_name_cn": "荀彧",
+          "candidate_ids": [
+            "SM_sb_xunyu"
+          ]
+        },
+        {
+          "id": "mobile-strategy-15",
+          "name_cn": "徐晃",
+          "search_name_cn": "徐晃",
+          "candidate_ids": [
+            "SM_sb_xuhuang"
+          ]
+        },
+        {
+          "id": "mobile-strategy-16",
+          "name_cn": "小乔",
+          "search_name_cn": "小乔",
+          "candidate_ids": [
+            "SM_sb_xiaoqiao"
+          ]
+        },
+        {
+          "id": "mobile-strategy-17",
+          "name_cn": "夏侯渊",
+          "search_name_cn": "夏侯渊",
+          "candidate_ids": [
+            "SM_sb_xiahouyuan"
+          ]
+        },
+        {
+          "id": "mobile-strategy-18",
+          "name_cn": "夏侯氏",
+          "search_name_cn": "夏侯氏",
+          "candidate_ids": [
+            "SM_sb_xiahoushi"
+          ]
+        },
+        {
+          "id": "mobile-strategy-19",
+          "name_cn": "夏侯惇",
+          "search_name_cn": "夏侯惇",
+          "candidate_ids": [
+            "SM_sb_xiahoudun"
+          ]
+        },
+        {
+          "id": "mobile-strategy-20",
+          "name_cn": "田豫",
+          "search_name_cn": "田豫",
+          "candidate_ids": [
+            "SM_tianyu"
+          ]
+        },
+        {
+          "id": "mobile-strategy-21",
+          "name_cn": "孙尚香",
+          "search_name_cn": "孙尚香",
+          "candidate_ids": [
+            "SM_sb_sunshangxiang"
+          ]
+        },
+        {
+          "id": "mobile-strategy-22",
+          "name_cn": "孙权",
+          "search_name_cn": "孙权",
+          "candidate_ids": [
+            "SM_sb_sunquan"
+          ]
+        },
+        {
+          "id": "mobile-strategy-23",
+          "name_cn": "孙策",
+          "search_name_cn": "孙策",
+          "candidate_ids": [
+            "SM_sb_sunce"
+          ]
+        },
+        {
+          "id": "mobile-strategy-24",
+          "name_cn": "庞统",
+          "search_name_cn": "庞统",
+          "candidate_ids": [
+            "SM_sb_pangtong"
+          ]
+        },
+        {
+          "id": "mobile-strategy-25",
+          "name_cn": "孟获",
+          "search_name_cn": "孟获",
+          "candidate_ids": [
+            "SM_sb_menghuo"
+          ]
+        },
+        {
+          "id": "mobile-strategy-26",
+          "name_cn": "马超",
+          "search_name_cn": "马超",
+          "candidate_ids": [
+            "SM_sb_machao"
+          ]
+        },
+        {
+          "id": "mobile-strategy-27",
+          "name_cn": "吕蒙",
+          "search_name_cn": "吕蒙",
+          "candidate_ids": [
+            "SM_sb_lvmeng"
+          ]
+        },
+        {
+          "id": "mobile-strategy-28",
+          "name_cn": "吕布",
+          "search_name_cn": "吕布",
+          "candidate_ids": [
+            "SM_sb_lvbu"
+          ]
+        },
+        {
+          "id": "mobile-strategy-29",
+          "name_cn": "陆逊",
+          "search_name_cn": "陆逊",
+          "candidate_ids": [
+            "SM_sb_luxun"
+          ]
+        },
+        {
+          "id": "mobile-strategy-30",
+          "name_cn": "卢植",
+          "search_name_cn": "卢植",
+          "candidate_ids": [
+            "SM_sb_yl_luzhi"
+          ]
+        },
+        {
+          "id": "mobile-strategy-31",
+          "name_cn": "刘谌",
+          "search_name_cn": "刘谌",
+          "candidate_ids": [
+            "SM_re_liuchen"
+          ]
+        },
+        {
+          "id": "mobile-strategy-32",
+          "name_cn": "刘备",
+          "search_name_cn": "刘备",
+          "candidate_ids": [
+            "SM_sb_liubei"
+          ]
+        },
+        {
+          "id": "mobile-strategy-33",
+          "name_cn": "姜维",
+          "search_name_cn": "姜维",
+          "candidate_ids": [
+            "SM_sb_jiangwei"
+          ]
+        },
+        {
+          "id": "mobile-strategy-34",
+          "name_cn": "贾诩",
+          "search_name_cn": "贾诩",
+          "candidate_ids": [
+            "SM_sb_jiaxu"
+          ]
+        },
+        {
+          "id": "mobile-strategy-35",
+          "name_cn": "黄忠",
+          "search_name_cn": "黄忠",
+          "candidate_ids": [
+            "SM_sb_huangzhong"
+          ]
+        },
+        {
+          "id": "mobile-strategy-36",
+          "name_cn": "黄月英",
+          "search_name_cn": "黄月英",
+          "candidate_ids": [
+            "SM_sb_huangyueying"
+          ]
+        },
+        {
+          "id": "mobile-strategy-37",
+          "name_cn": "黄盖",
+          "search_name_cn": "黄盖",
+          "candidate_ids": [
+            "SM_sb_huanggai"
+          ]
+        },
+        {
+          "id": "mobile-strategy-38",
+          "name_cn": "华雄",
+          "search_name_cn": "华雄",
+          "candidate_ids": [
+            "SM_sb_huaxiong"
+          ]
+        },
+        {
+          "id": "mobile-strategy-39",
+          "name_cn": "韩当",
+          "search_name_cn": "韩当",
+          "candidate_ids": [
+            "SM_sb_handang"
+          ]
+        },
+        {
+          "id": "mobile-strategy-40",
+          "name_cn": "郭嘉",
+          "search_name_cn": "郭嘉",
+          "candidate_ids": [
+            "SM_sb_guojia"
+          ]
+        },
+        {
+          "id": "mobile-strategy-41",
+          "name_cn": "郭淮",
+          "search_name_cn": "郭淮",
+          "candidate_ids": [
+            "SM_sb_guohuai"
+          ]
+        },
+        {
+          "id": "mobile-strategy-42",
+          "name_cn": "关羽",
+          "search_name_cn": "关羽",
+          "candidate_ids": [
+            "SM_sb_guanyu"
+          ]
+        },
+        {
+          "id": "mobile-strategy-43",
+          "name_cn": "公孙瓒",
+          "search_name_cn": "公孙瓒",
+          "candidate_ids": [
+            "SM_sb_gongsunzan"
+          ]
+        },
+        {
+          "id": "mobile-strategy-44",
+          "name_cn": "高顺",
+          "search_name_cn": "高顺",
+          "candidate_ids": [
+            "SM_sb_gaoshun"
+          ]
+        },
+        {
+          "id": "mobile-strategy-45",
+          "name_cn": "甘宁",
+          "search_name_cn": "甘宁",
+          "candidate_ids": [
+            "SM_sb_ganning"
+          ]
+        },
+        {
+          "id": "mobile-strategy-46",
+          "name_cn": "法正",
+          "search_name_cn": "法正",
+          "candidate_ids": [
+            "SM_sb_fazheng"
+          ]
+        },
+        {
+          "id": "mobile-strategy-47",
+          "name_cn": "貂蝉",
+          "search_name_cn": "貂蝉",
+          "candidate_ids": [
+            "SM_sb_diaochan"
+          ]
+        },
+        {
+          "id": "mobile-strategy-48",
+          "name_cn": "大乔",
+          "search_name_cn": "大乔",
+          "candidate_ids": [
+            "SM_sb_daqiao"
+          ]
+        },
+        {
+          "id": "mobile-strategy-49",
+          "name_cn": "陈宫",
+          "search_name_cn": "陈宫",
+          "candidate_ids": [
+            "SM_sb_chengong"
+          ]
+        },
+        {
+          "id": "mobile-strategy-50",
+          "name_cn": "曹仁",
+          "search_name_cn": "曹仁",
+          "candidate_ids": [
+            "SM_sb_caoren"
+          ]
+        },
+        {
+          "id": "mobile-strategy-51",
+          "name_cn": "曹丕",
+          "search_name_cn": "曹丕",
+          "candidate_ids": [
+            "SM_sb_caopi"
+          ]
+        },
+        {
+          "id": "mobile-strategy-52",
+          "name_cn": "曹操",
+          "search_name_cn": "曹操",
+          "candidate_ids": [
+            "SM_sb_caocao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shenmo-exclusive",
+      "name_cn": "线下专属",
+      "name_en": "Shenmo Exclusives",
+      "count": 2,
+      "entries": [
+        {
+          "id": "shenmo-exclusive-1",
+          "name_cn": "神姜维",
+          "search_name_cn": "神姜维",
+          "candidate_ids": [
+            "SM_ps_shen_jiangwei"
+          ]
+        },
+        {
+          "id": "shenmo-exclusive-2",
+          "name_cn": "魔神姜维",
+          "search_name_cn": "魔神姜维",
+          "candidate_ids": [
+            "SM_ps_devil_jiangwei"
+          ]
+        }
+      ]
+    }
+  ]
+}
