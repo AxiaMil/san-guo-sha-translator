@@ -2,6 +2,7 @@ import { ArrowRight, Check, Layers } from "lucide-react";
 import type { Card } from "./types";
 import { familyCards, versionLabel } from "./versions";
 import VersionSources from "./VersionSources";
+import CardArt from "./CardArt";
 export default function VersionCompare({
   card,
   cards,
@@ -33,7 +34,7 @@ export default function VersionCompare({
             key={v.id}
             onClick={() => onOpen(v)}
           >
-            <img src={v.image || ""} alt="" loading="lazy" />
+            <CardArt card={v} />
             <span>
               <strong>
                 {v.name_cn} <small>{versionLabel(v)}</small>

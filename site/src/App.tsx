@@ -16,6 +16,9 @@ import {
   SlidersHorizontal,
 } from "lucide-react";
 import Scanner from "./Scanner";
+import DeckView from "./DeckView";
+import CardArt from "./CardArt";
+import { darkGoldDeck } from "./decks";
 import { useOfflineUpdate } from "./offline";
 import CardReader from "./CardReader";
 import Rulebook from "./Rulebook";
@@ -44,6 +47,12 @@ export default function App() {
     [loading, setLoading] = useState(true),
     [loadError, setLoadError] = useState(false),
     [tab, setTab] = useState<Tab>("scan"),
+    [deckOpen, setDeckOpen] = useState(false),
+    [deckPinned, setDeckPinned] = useState(
+      () =>
+        preference("sha-my-deck", [darkGoldDeck.id, ""], "") ===
+        darkGoldDeck.id,
+    ),
     [query, setQuery] = useState(""),
     [quickQuery, setQuickQuery] = useState(""),
     [kind, setKind] = useState("All cards"),
@@ -113,6 +122,7 @@ export default function App() {
       const p = new URLSearchParams(location.hash.slice(1));
       setSelected(cards.find((c) => c.id === p.get("card")) || null);
       const next = p.get("tab");
+      setDeckOpen(next === "library" && p.get("deck") === darkGoldDeck.id);
       setTab(navigation.some((n) => n.id === next) ? (next as Tab) : "scan");
     };
     changed();
@@ -136,7 +146,7 @@ export default function App() {
     history.pushState(
       { shaCard: true },
       "",
-      `#${new URLSearchParams({ tab, card: card.id })}`,
+      `#${new URLSearchParams({ tab, ...(deckOpen ? { deck: darkGoldDeck.id } : {}), card: card.id })}`,
     );
     setSelected(card);
     const next = [card.id, ...recent.filter((id) => id !== card.id)].slice(
@@ -149,7 +159,11 @@ export default function App() {
   function closeCard() {
     if (history.state?.shaCard) history.back();
     else {
-      history.replaceState(null, "", `#tab=${tab}`);
+      history.replaceState(
+        null,
+        "",
+        `#${new URLSearchParams({ tab, ...(deckOpen ? { deck: darkGoldDeck.id } : {}) })}`,
+      );
       setSelected(null);
     }
   }
@@ -167,7 +181,8 @@ export default function App() {
     savePreference("sha-saved", JSON.stringify(next));
   }
   function navigate(next: Tab) {
-    if (next !== tab) history.pushState(null, "", `#tab=${next}`);
+    if (next !== tab || deckOpen) history.pushState(null, "", `#tab=${next}`);
+    setDeckOpen(false);
     setTab(next);
     setSelected(null);
     window.scrollTo({
@@ -176,6 +191,18 @@ export default function App() {
         ? "instant"
         : "smooth",
     });
+  }
+  function openDeck() {
+    history.pushState(null, "", `#tab=library&deck=${darkGoldDeck.id}`);
+    setTab("library");
+    setDeckOpen(true);
+    setSelected(null);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+  function pinDeck() {
+    const pinned = !deckPinned;
+    setDeckPinned(pinned);
+    savePreference("sha-my-deck", pinned ? darkGoldDeck.id : "");
   }
   function clearFilters() {
     setQuery("");
@@ -347,6 +374,15 @@ export default function App() {
               <div hidden={tab !== "scan"}>
                 {tab === "scan" && (
                   <>
+                    {deckPinned && (
+                      <button className="my-deck-shortcut" onClick={openDeck}>
+                        <BookOpen size={18} />
+                        <span>
+                          My deck <strong>暗金典藏版 · E series</strong>
+                        </span>
+                        <ArrowRight size={18} />
+                      </button>
+                    )}
                     <Scanner
                       cards={cards}
                       onOpen={openCard}
@@ -408,7 +444,7 @@ export default function App() {
                               className="recent-card"
                               onClick={() => openCard(c)}
                             >
-                              <img src={c.image || ""} alt="" />
+                              <CardArt card={c} />
                               <span>
                                 <strong>{c.name_en}</strong>
                                 <small>
@@ -424,7 +460,17 @@ export default function App() {
                 )}
               </div>
               {tab === "rules" && <Rulebook />}
-              {(tab === "library" || tab === "saved") && (
+              {tab === "library" && deckOpen && (
+                <DeckView
+                  cards={cards}
+                  onOpen={openCard}
+                  onLibrary={() => navigate("library")}
+                  onScan={() => navigate("scan")}
+                  pinned={deckPinned}
+                  onPin={pinDeck}
+                />
+              )}
+              {((tab === "library" && !deckOpen) || tab === "saved") && (
                 <section className="library">
                   <div className="section-kicker">
                     {tab === "saved"
@@ -441,6 +487,20 @@ export default function App() {
                       ? "The cards you want close, ready when you need them."
                       : "Search in English or Chinese. Look up a name, skill, or card ID."}
                   </p>
+                  {tab === "library" && (
+                    <button className="deck-library-link" onClick={openDeck}>
+                      <BookOpen size={22} />
+                      <span>
+                        <strong>
+                          {deckPinned
+                            ? "My deck"
+                            : "Dark Gold Collector’s Edition"}
+                        </strong>
+                        <small>暗金典藏版 · E series · 139 generals</small>
+                      </span>
+                      <ArrowRight size={18} />
+                    </button>
+                  )}
                   <div className="search-field">
                     <Search size={20} />
                     <input
@@ -560,11 +620,7 @@ export default function App() {
                               onClick={() => openCard(c)}
                             >
                               <div className="card-art">
-                                <img
-                                  src={c.image || ""}
-                                  alt={`${c.name_en} card`}
-                                  loading="lazy"
-                                />
+                                <CardArt card={c} />
                               </div>
                               <div className="catalog-caption">
                                 <small>

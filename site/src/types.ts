@@ -25,6 +25,7 @@ export type Card = {
   faq: { q_en: string; a_en: string; q_cn: string; a_cn: string }[];
   image: string | null;
   aliases?: string[];
+  source_reference?: { label: string; url: string; note: string };
   translation_reviewed?: boolean;
 };
 export type Candidate = {

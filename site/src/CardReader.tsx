@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import type { Card } from "./types";
 import VersionCompare from "./VersionCompare";
+import CardArt from "./CardArt";
 import { preference, savePreference, terms, type ReadingMode } from "./reading";
 import { normalize } from "./matching";
 
@@ -145,7 +146,7 @@ export default function CardReader({
             </p>
           )}
           <div className="detail-hero">
-            <img src={card.image || ""} alt={`${card.name_en} card artwork`} />
+            <CardArt card={card} />
             <div>
               <div className="card-label">
                 {card.faction || card.category_en} ·{" "}
@@ -162,7 +163,9 @@ export default function CardReader({
                     {card.health} HP
                   </span>
                 )}
-                <span className="printed-id">Library ID: {card.printed_id}</span>
+                <span className="printed-id">
+                  Library ID: {card.printed_id}
+                </span>
               </div>
             </div>
           </div>
@@ -185,6 +188,19 @@ export default function CardReader({
                 ))}
               </select>
             </label>
+          )}
+          {card.source_reference && (
+            <details className="reader-source">
+              <summary>{card.source_reference.label}</summary>
+              <p>{card.source_reference.note}</p>
+              <a
+                href={card.source_reference.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Chinese source ↗
+              </a>
+            </details>
           )}
           <VersionCompare card={card} cards={cards} onOpen={onOpen} />
           <div className="reader-controls">

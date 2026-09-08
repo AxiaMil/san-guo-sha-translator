@@ -25,6 +25,7 @@ import {
   versionLabel,
 } from "./versions";
 import VersionCompare from "./VersionCompare";
+import CardArt from "./CardArt";
 export default function Scanner({
   cards,
   onOpen,
@@ -573,7 +574,7 @@ export default function Scanner({
                 key={match.id}
                 onClick={() => onOpen(card)}
               >
-                <img src={card.image || ""} alt="" />
+                <CardArt card={card} />
                 <span>
                   <small>
                     {i === 0 && result.strong

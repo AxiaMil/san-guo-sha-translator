@@ -2533,3 +2533,348 @@ dialog::backdrop {
     height: 49px;
   }
 }
+
+/* Deck reference: retain the neutral paper/charcoal palette. */
+.deck-library-link,
+.my-deck-shortcut {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--ink);
+  text-align: left;
+  margin: 0 0 22px;
+}
+.deck-library-link > span,
+.my-deck-shortcut > span {
+  flex: 1;
+  display: grid;
+  gap: 5px;
+}
+.deck-library-link small,
+.my-deck-shortcut span {
+  color: var(--muted);
+  font-size: 12px;
+}
+.my-deck-shortcut strong {
+  color: var(--ink);
+  font-size: 14px;
+}
+.deck-page {
+  padding-top: 12px;
+}
+.deck-back {
+  margin: 0 0 28px;
+}
+.deck-heading h1 {
+  font-family: var(--serif);
+  font-size: clamp(36px, 7vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  margin: 12px 0;
+}
+.deck-heading > p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+.deck-heading .deck-chinese {
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: var(--ink);
+}
+.deck-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-block: 1px solid var(--line);
+  margin: 25px 0;
+  padding: 20px 0;
+}
+.deck-stats > div {
+  display: grid;
+  gap: 6px;
+  text-align: center;
+  border-right: 1px solid var(--line);
+}
+.deck-stats > div:last-child {
+  border: 0;
+}
+.deck-stats strong {
+  font-size: 27px;
+  font-weight: 600;
+}
+.deck-stats span {
+  font-size: 12px;
+  color: var(--muted);
+}
+.deck-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.deck-actions .button {
+  flex: 1;
+  padding-inline: 10px;
+}
+.deck-coverage {
+  display: grid;
+  gap: 7px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.deck-coverage > span + span {
+  color: var(--muted);
+  font-size: 12px;
+}
+.deck-help {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 12px 0 22px;
+}
+.deck-filters {
+  display: flex;
+  align-items: end;
+  gap: 16px;
+  margin: 18px 0;
+  flex-wrap: wrap;
+}
+.deck-filters label {
+  font-size: 12px;
+  color: var(--muted);
+}
+.deck-filters label:first-child {
+  display: grid;
+  gap: 7px;
+  flex: 1;
+  min-width: 170px;
+}
+.deck-filters select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 9px;
+  padding: 8px;
+}
+.deck-missing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  cursor: pointer;
+}
+.deck-missing input {
+  accent-color: var(--accent);
+  width: 18px;
+  height: 18px;
+}
+.deck-group {
+  margin-top: 30px;
+}
+.deck-group h2 {
+  font-size: 19px;
+}
+.deck-group h2 small {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+.deck-entry {
+  border-bottom: 1px solid var(--line);
+}
+.deck-entry > summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  list-style: none;
+  cursor: pointer;
+  min-height: 100px;
+  padding: 15px 0;
+}
+.deck-entry > summary::-webkit-details-marker {
+  display: none;
+}
+.deck-entry-art {
+  flex: none;
+  width: 43px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  color: var(--muted);
+  overflow: hidden;
+}
+.deck-entry-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.deck-entry-name {
+  display: grid;
+  gap: 5px;
+  flex: 1;
+  min-width: 0;
+}
+.deck-entry-name strong {
+  font-size: 16px;
+}
+.deck-entry-name > span {
+  font-size: 13px;
+  color: var(--muted);
+}
+.deck-entry-name small {
+  font-size: 11px;
+  color: var(--muted);
+}
+.deck-entry > summary > svg {
+  color: var(--accent);
+  flex: none;
+}
+.deck-entry[open] > summary > svg {
+  transform: rotate(90deg);
+}
+.deck-entry-content {
+  padding: 0 0 20px;
+}
+.deck-entry-content > p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.deck-reference {
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin: 10px 0;
+}
+.deck-reference strong {
+  font-size: 14px;
+}
+.deck-reference small {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin: 7px 0;
+}
+.deck-reference p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.deck-reference-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.deck-reference-actions .button {
+  padding: 10px 13px;
+  min-height: 44px;
+  font-size: 13px;
+}
+.deck-reference-actions .text-link {
+  font-size: 12px;
+  min-height: 44px;
+}
+.deck-source,
+.reader-source {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 26px 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.deck-source > summary,
+.reader-source > summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.deck-source p,
+.reader-source p {
+  color: var(--muted);
+}
+.deck-source a,
+.reader-source a,
+.deck-entry-content a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+.card-art-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  aspect-ratio: 5/7;
+  width: 100%;
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  overflow: hidden;
+  text-align: center;
+  padding: 8px;
+}
+.card-art-placeholder > span {
+  font-family: var(--serif);
+  font-size: clamp(18px, 4vw, 28px);
+}
+.card-art-placeholder small {
+  font-size: 8px;
+  letter-spacing: 1.2px;
+}
+.detail-hero > .card-art-placeholder {
+  width: 110px;
+  flex: none;
+  border-radius: 6px;
+}
+.version-list .card-art-placeholder {
+  width: 36px;
+  height: 52px;
+  flex: none;
+  padding: 3px;
+}
+.version-list .card-art-placeholder > span {
+  font-size: 10px;
+}
+.version-list .card-art-placeholder small,
+.match-row .card-art-placeholder small,
+.recent-card .card-art-placeholder small {
+  display: none;
+}
+.match-row > .card-art-placeholder {
+  width: 52px;
+  height: 72px;
+  flex: none;
+  border-radius: 5px;
+}
+.match-row .card-art-placeholder > span,
+.recent-card .card-art-placeholder > span {
+  font-size: 12px;
+}
+.recent-card > .card-art-placeholder {
+  width: 40px;
+  height: 56px;
+  flex: none;
+  border-radius: 4px;
+}
+@media (min-width: 760px) {
+  .deck-page {
+    max-width: 720px;
+    margin-inline: auto;
+  }
+  .deck-filters {
+    flex-wrap: nowrap;
+  }
+}

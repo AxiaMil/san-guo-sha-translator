@@ -73,8 +73,9 @@ export default function VersionSources({ card }: { card?: Card }) {
         <p>
           Community records are useful for finding variants across Standard,
           Limit Break, historical, Online, Mobile, and other packs. They are{" "}
-          <strong>source references</strong>; their artwork and translations are
-          not yet in this scanner.
+          <strong>source references</strong>; a source listing does not mean its
+          artwork is indexed or its rules are translated. Some related
+          translations are available in the library.
         </p>
         <div className="source-links">
           <a

@@ -1,0 +1,801 @@
+{
+  "id": "dark-gold-e-2026",
+  "name_cn": "暗金典藏版",
+  "name_en": "Dark Gold Collector’s Edition",
+  "series": "E系列",
+  "year": 2026,
+  "counts": {
+    "generals": 139,
+    "game_cards": 162,
+    "accessories": 23
+  },
+  "source": {
+    "title": "游卡有话说 · E系列暗金典藏版",
+    "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+    "roster_url": "https://i2.hdslb.com/bfs/new_dyn/9f4528ac45d5dc63227a7cc42dd0a69c3546983841139165.png",
+    "published": "2026-06-16",
+    "checked": "2026-09-08"
+  },
+  "groups": [
+    {
+      "id": "limit-break",
+      "name_cn": "界限突破",
+      "name_en": "Limit Break",
+      "count": 29,
+      "entries": [
+        {
+          "id": "limit-break-1",
+          "name_cn": "诸葛亮",
+          "search_name_cn": "诸葛亮"
+        },
+        {
+          "id": "limit-break-2",
+          "name_cn": "周瑜",
+          "search_name_cn": "周瑜"
+        },
+        {
+          "id": "limit-break-3",
+          "name_cn": "甄姬",
+          "search_name_cn": "甄姬"
+        },
+        {
+          "id": "limit-break-4",
+          "name_cn": "赵云",
+          "search_name_cn": "赵云"
+        },
+        {
+          "id": "limit-break-5",
+          "name_cn": "张辽",
+          "search_name_cn": "张辽"
+        },
+        {
+          "id": "limit-break-6",
+          "name_cn": "张飞",
+          "search_name_cn": "张飞"
+        },
+        {
+          "id": "limit-break-7",
+          "name_cn": "许褚",
+          "search_name_cn": "许褚"
+        },
+        {
+          "id": "limit-break-8",
+          "name_cn": "徐庶",
+          "search_name_cn": "徐庶"
+        },
+        {
+          "id": "limit-break-9",
+          "name_cn": "夏侯惇",
+          "search_name_cn": "夏侯惇"
+        },
+        {
+          "id": "limit-break-10",
+          "name_cn": "孙尚香",
+          "search_name_cn": "孙尚香"
+        },
+        {
+          "id": "limit-break-11",
+          "name_cn": "孙权",
+          "search_name_cn": "孙权"
+        },
+        {
+          "id": "limit-break-12",
+          "name_cn": "司马懿",
+          "search_name_cn": "司马懿"
+        },
+        {
+          "id": "limit-break-13",
+          "name_cn": "马超",
+          "search_name_cn": "马超"
+        },
+        {
+          "id": "limit-break-14",
+          "name_cn": "吕蒙",
+          "search_name_cn": "吕蒙"
+        },
+        {
+          "id": "limit-break-15",
+          "name_cn": "吕布",
+          "search_name_cn": "吕布"
+        },
+        {
+          "id": "limit-break-16",
+          "name_cn": "陆逊",
+          "search_name_cn": "陆逊"
+        },
+        {
+          "id": "limit-break-17",
+          "name_cn": "刘备",
+          "search_name_cn": "刘备"
+        },
+        {
+          "id": "limit-break-18",
+          "name_cn": "李典",
+          "search_name_cn": "李典"
+        },
+        {
+          "id": "limit-break-19",
+          "name_cn": "黄月英",
+          "search_name_cn": "黄月英"
+        },
+        {
+          "id": "limit-break-20",
+          "name_cn": "黄盖",
+          "search_name_cn": "黄盖"
+        },
+        {
+          "id": "limit-break-21",
+          "name_cn": "华雄",
+          "search_name_cn": "华雄"
+        },
+        {
+          "id": "limit-break-22",
+          "name_cn": "华佗",
+          "search_name_cn": "华佗"
+        },
+        {
+          "id": "limit-break-23",
+          "name_cn": "郭嘉",
+          "search_name_cn": "郭嘉"
+        },
+        {
+          "id": "limit-break-24",
+          "name_cn": "关羽",
+          "search_name_cn": "关羽"
+        },
+        {
+          "id": "limit-break-25",
+          "name_cn": "公孙瓒",
+          "search_name_cn": "公孙瓒"
+        },
+        {
+          "id": "limit-break-26",
+          "name_cn": "甘宁",
+          "search_name_cn": "甘宁"
+        },
+        {
+          "id": "limit-break-27",
+          "name_cn": "貂蝉",
+          "search_name_cn": "貂蝉"
+        },
+        {
+          "id": "limit-break-28",
+          "name_cn": "大乔",
+          "search_name_cn": "大乔"
+        },
+        {
+          "id": "limit-break-29",
+          "name_cn": "曹操",
+          "search_name_cn": "曹操"
+        }
+      ]
+    },
+    {
+      "id": "myth-break",
+      "name_cn": "界神话",
+      "name_en": "Myth Returns · Limit Break",
+      "count": 29,
+      "entries": [
+        {
+          "id": "myth-break-1",
+          "name_cn": "左慈",
+          "search_name_cn": "左慈"
+        },
+        {
+          "id": "myth-break-2",
+          "name_cn": "祝融",
+          "search_name_cn": "祝融"
+        },
+        {
+          "id": "myth-break-3",
+          "name_cn": "诸葛亮",
+          "search_name_cn": "卧龙诸葛亮"
+        },
+        {
+          "id": "myth-break-4",
+          "name_cn": "张昭&张纮",
+          "search_name_cn": "张昭&张纮"
+        },
+        {
+          "id": "myth-break-5",
+          "name_cn": "张角",
+          "search_name_cn": "张角"
+        },
+        {
+          "id": "myth-break-6",
+          "name_cn": "张郃",
+          "search_name_cn": "张郃"
+        },
+        {
+          "id": "myth-break-7",
+          "name_cn": "袁绍",
+          "search_name_cn": "袁绍"
+        },
+        {
+          "id": "myth-break-8",
+          "name_cn": "于吉",
+          "search_name_cn": "于吉"
+        },
+        {
+          "id": "myth-break-9",
+          "name_cn": "颜良&文丑",
+          "search_name_cn": "颜良&文丑"
+        },
+        {
+          "id": "myth-break-10",
+          "name_cn": "荀彧",
+          "search_name_cn": "荀彧"
+        },
+        {
+          "id": "myth-break-11",
+          "name_cn": "徐晃",
+          "search_name_cn": "徐晃"
+        },
+        {
+          "id": "myth-break-12",
+          "name_cn": "小乔",
+          "search_name_cn": "小乔"
+        },
+        {
+          "id": "myth-break-13",
+          "name_cn": "夏侯渊",
+          "search_name_cn": "夏侯渊"
+        },
+        {
+          "id": "myth-break-14",
+          "name_cn": "魏延",
+          "search_name_cn": "魏延"
+        },
+        {
+          "id": "myth-break-15",
+          "name_cn": "太史慈",
+          "search_name_cn": "太史慈"
+        },
+        {
+          "id": "myth-break-16",
+          "name_cn": "孙坚",
+          "search_name_cn": "孙坚"
+        },
+        {
+          "id": "myth-break-17",
+          "name_cn": "孙策",
+          "search_name_cn": "孙策"
+        },
+        {
+          "id": "myth-break-18",
+          "name_cn": "庞统",
+          "search_name_cn": "庞统"
+        },
+        {
+          "id": "myth-break-19",
+          "name_cn": "庞德",
+          "search_name_cn": "庞德"
+        },
+        {
+          "id": "myth-break-20",
+          "name_cn": "孟获",
+          "search_name_cn": "孟获"
+        },
+        {
+          "id": "myth-break-21",
+          "name_cn": "鲁肃",
+          "search_name_cn": "鲁肃"
+        },
+        {
+          "id": "myth-break-22",
+          "name_cn": "刘禅",
+          "search_name_cn": "刘禅"
+        },
+        {
+          "id": "myth-break-23",
+          "name_cn": "姜维",
+          "search_name_cn": "姜维"
+        },
+        {
+          "id": "myth-break-24",
+          "name_cn": "贾诩",
+          "search_name_cn": "贾诩"
+        },
+        {
+          "id": "myth-break-25",
+          "name_cn": "黄忠",
+          "search_name_cn": "黄忠"
+        },
+        {
+          "id": "myth-break-26",
+          "name_cn": "董卓",
+          "search_name_cn": "董卓"
+        },
+        {
+          "id": "myth-break-27",
+          "name_cn": "典韦",
+          "search_name_cn": "典韦"
+        },
+        {
+          "id": "myth-break-28",
+          "name_cn": "邓艾",
+          "search_name_cn": "邓艾",
+          "reference_id": "REF_ol_dengai"
+        },
+        {
+          "id": "myth-break-29",
+          "name_cn": "蔡文姬",
+          "search_name_cn": "蔡文姬"
+        }
+      ]
+    },
+    {
+      "id": "yin-thunder",
+      "name_cn": "阴雷",
+      "name_en": "Yin & Thunder",
+      "count": 16,
+      "entries": [
+        {
+          "id": "yin-thunder-1",
+          "name_cn": "诸葛瞻",
+          "search_name_cn": "诸葛瞻"
+        },
+        {
+          "id": "yin-thunder-2",
+          "name_cn": "周妃",
+          "search_name_cn": "周妃"
+        },
+        {
+          "id": "yin-thunder-3",
+          "name_cn": "张绣",
+          "search_name_cn": "张绣"
+        },
+        {
+          "id": "yin-thunder-4",
+          "name_cn": "袁术",
+          "search_name_cn": "袁术"
+        },
+        {
+          "id": "yin-thunder-5",
+          "name_cn": "严颜",
+          "search_name_cn": "严颜"
+        },
+        {
+          "id": "yin-thunder-6",
+          "name_cn": "许攸",
+          "search_name_cn": "许攸"
+        },
+        {
+          "id": "yin-thunder-7",
+          "name_cn": "王平",
+          "search_name_cn": "王平"
+        },
+        {
+          "id": "yin-thunder-8",
+          "name_cn": "王基",
+          "search_name_cn": "王基"
+        },
+        {
+          "id": "yin-thunder-9",
+          "name_cn": "孙亮",
+          "search_name_cn": "孙亮"
+        },
+        {
+          "id": "yin-thunder-10",
+          "name_cn": "陆抗",
+          "search_name_cn": "陆抗"
+        },
+        {
+          "id": "yin-thunder-11",
+          "name_cn": "陆绩",
+          "search_name_cn": "陆绩"
+        },
+        {
+          "id": "yin-thunder-12",
+          "name_cn": "卢植",
+          "search_name_cn": "卢植"
+        },
+        {
+          "id": "yin-thunder-13",
+          "name_cn": "蒯越&蒯良",
+          "search_name_cn": "蒯越&蒯良"
+        },
+        {
+          "id": "yin-thunder-14",
+          "name_cn": "郝昭",
+          "search_name_cn": "郝昭"
+        },
+        {
+          "id": "yin-thunder-15",
+          "name_cn": "毋丘俭",
+          "search_name_cn": "毌丘俭"
+        },
+        {
+          "id": "yin-thunder-16",
+          "name_cn": "陈到",
+          "search_name_cn": "陈到"
+        }
+      ]
+    },
+    {
+      "id": "gods",
+      "name_cn": "神将",
+      "name_en": "God generals",
+      "count": 14,
+      "entries": [
+        {
+          "id": "gods-1",
+          "name_cn": "钟会",
+          "search_name_cn": "神钟会",
+          "reference_id": "REF_pe_shen_zhonghui"
+        },
+        {
+          "id": "gods-2",
+          "name_cn": "姜维",
+          "search_name_cn": "神姜维"
+        },
+        {
+          "id": "gods-3",
+          "name_cn": "诸葛亮",
+          "search_name_cn": "神诸葛亮"
+        },
+        {
+          "id": "gods-4",
+          "name_cn": "周瑜",
+          "search_name_cn": "神周瑜"
+        },
+        {
+          "id": "gods-5",
+          "name_cn": "赵云",
+          "search_name_cn": "神赵云"
+        },
+        {
+          "id": "gods-6",
+          "name_cn": "张辽",
+          "search_name_cn": "神张辽"
+        },
+        {
+          "id": "gods-7",
+          "name_cn": "司马懿",
+          "search_name_cn": "神司马懿"
+        },
+        {
+          "id": "gods-8",
+          "name_cn": "吕蒙",
+          "search_name_cn": "神吕蒙"
+        },
+        {
+          "id": "gods-9",
+          "name_cn": "吕布",
+          "search_name_cn": "神吕布"
+        },
+        {
+          "id": "gods-10",
+          "name_cn": "陆逊",
+          "search_name_cn": "神陆逊"
+        },
+        {
+          "id": "gods-11",
+          "name_cn": "刘备",
+          "search_name_cn": "神刘备"
+        },
+        {
+          "id": "gods-12",
+          "name_cn": "关羽",
+          "search_name_cn": "神关羽"
+        },
+        {
+          "id": "gods-13",
+          "name_cn": "甘宁",
+          "search_name_cn": "神甘宁"
+        },
+        {
+          "id": "gods-14",
+          "name_cn": "曹操",
+          "search_name_cn": "神曹操"
+        }
+      ]
+    },
+    {
+      "id": "stars",
+      "name_cn": "星河璀璨",
+      "name_en": "Star collection",
+      "count": 14,
+      "entries": [
+        {
+          "id": "stars-1",
+          "name_cn": "张昭",
+          "search_name_cn": "星张昭",
+          "reference_id": "REF_star_zhangzhao"
+        },
+        {
+          "id": "stars-2",
+          "name_cn": "张让",
+          "search_name_cn": "星张让",
+          "reference_id": "REF_star_zhangrang"
+        },
+        {
+          "id": "stars-3",
+          "name_cn": "张春华",
+          "search_name_cn": "星张春华",
+          "reference_id": "REF_star_zhangchunhua"
+        },
+        {
+          "id": "stars-4",
+          "name_cn": "袁术",
+          "search_name_cn": "星袁术",
+          "reference_id": "REF_star_yuanshu"
+        },
+        {
+          "id": "stars-5",
+          "name_cn": "袁绍",
+          "search_name_cn": "星袁绍",
+          "reference_id": "REF_star_yuanshao"
+        },
+        {
+          "id": "stars-6",
+          "name_cn": "荀彧",
+          "search_name_cn": "星荀彧",
+          "reference_id": "REF_star_xunyu"
+        },
+        {
+          "id": "stars-7",
+          "name_cn": "文丑",
+          "search_name_cn": "星文丑",
+          "reference_id": "REF_star_wenchou"
+        },
+        {
+          "id": "stars-8",
+          "name_cn": "太史慈",
+          "search_name_cn": "星太史慈",
+          "reference_id": "REF_star_taishici"
+        },
+        {
+          "id": "stars-9",
+          "name_cn": "孙尚香",
+          "search_name_cn": "星孙尚香",
+          "reference_id": "REF_star_sunshangxiang"
+        },
+        {
+          "id": "stars-10",
+          "name_cn": "孙坚",
+          "search_name_cn": "星孙坚",
+          "reference_id": "REF_star_sunjian"
+        },
+        {
+          "id": "stars-11",
+          "name_cn": "法正",
+          "search_name_cn": "星法正",
+          "reference_id": "REF_star_fazheng"
+        },
+        {
+          "id": "stars-12",
+          "name_cn": "董卓",
+          "search_name_cn": "星董卓",
+          "reference_id": "REF_star_dongzhuo"
+        },
+        {
+          "id": "stars-13",
+          "name_cn": "丁奉",
+          "search_name_cn": "星丁奉",
+          "reference_id": "REF_star_dingfeng"
+        },
+        {
+          "id": "stars-14",
+          "name_cn": "曹仁",
+          "search_name_cn": "星曹仁",
+          "reference_id": "REF_star_caoren"
+        }
+      ]
+    },
+    {
+      "id": "ol-fame",
+      "name_cn": "OL界一将",
+      "name_en": "OL Fame · Limit Break",
+      "count": 21,
+      "entries": [
+        {
+          "id": "ol-fame-1",
+          "name_cn": "张春华",
+          "search_name_cn": "张春华"
+        },
+        {
+          "id": "ol-fame-2",
+          "name_cn": "虞翻",
+          "search_name_cn": "虞翻"
+        },
+        {
+          "id": "ol-fame-3",
+          "name_cn": "徐盛",
+          "search_name_cn": "徐盛"
+        },
+        {
+          "id": "ol-fame-4",
+          "name_cn": "吴国太",
+          "search_name_cn": "吴国太"
+        },
+        {
+          "id": "ol-fame-5",
+          "name_cn": "王异",
+          "search_name_cn": "王异"
+        },
+        {
+          "id": "ol-fame-6",
+          "name_cn": "刘表",
+          "search_name_cn": "刘表"
+        },
+        {
+          "id": "ol-fame-7",
+          "name_cn": "凌统",
+          "search_name_cn": "凌统"
+        },
+        {
+          "id": "ol-fame-8",
+          "name_cn": "廖化",
+          "search_name_cn": "廖化"
+        },
+        {
+          "id": "ol-fame-9",
+          "name_cn": "李儒",
+          "search_name_cn": "李儒"
+        },
+        {
+          "id": "ol-fame-10",
+          "name_cn": "简雍",
+          "search_name_cn": "简雍"
+        },
+        {
+          "id": "ol-fame-11",
+          "name_cn": "韩当",
+          "search_name_cn": "韩当",
+          "reference_id": "REF_xin_handang"
+        },
+        {
+          "id": "ol-fame-12",
+          "name_cn": "关兴&张苞",
+          "search_name_cn": "关兴&张苞"
+        },
+        {
+          "id": "ol-fame-13",
+          "name_cn": "高顺",
+          "search_name_cn": "高顺",
+          "reference_id": "REF_ol_gaoshun"
+        },
+        {
+          "id": "ol-fame-14",
+          "name_cn": "伏皇后",
+          "search_name_cn": "伏皇后"
+        },
+        {
+          "id": "ol-fame-15",
+          "name_cn": "法正",
+          "search_name_cn": "法正"
+        },
+        {
+          "id": "ol-fame-16",
+          "name_cn": "程普",
+          "search_name_cn": "程普"
+        },
+        {
+          "id": "ol-fame-17",
+          "name_cn": "陈宫",
+          "search_name_cn": "陈宫"
+        },
+        {
+          "id": "ol-fame-18",
+          "name_cn": "曹植",
+          "search_name_cn": "曹植"
+        },
+        {
+          "id": "ol-fame-19",
+          "name_cn": "曹彰",
+          "search_name_cn": "曹彰"
+        },
+        {
+          "id": "ol-fame-20",
+          "name_cn": "曹冲",
+          "search_name_cn": "曹冲"
+        },
+        {
+          "id": "ol-fame-21",
+          "name_cn": "蔡夫人",
+          "search_name_cn": "蔡夫人"
+        }
+      ]
+    },
+    {
+      "id": "fortune",
+      "name_cn": "祈福",
+      "name_en": "Fortune",
+      "count": 15,
+      "entries": [
+        {
+          "id": "fortune-1",
+          "name_cn": "周处",
+          "search_name_cn": "周处"
+        },
+        {
+          "id": "fortune-2",
+          "name_cn": "张琪瑛",
+          "search_name_cn": "张琪瑛"
+        },
+        {
+          "id": "fortune-3",
+          "name_cn": "袁谭&袁尚",
+          "search_name_cn": "袁谭&袁尚",
+          "reference_id": "REF_yuantanyuanshang"
+        },
+        {
+          "id": "fortune-4",
+          "name_cn": "薛灵芸",
+          "search_name_cn": "薛灵芸"
+        },
+        {
+          "id": "fortune-5",
+          "name_cn": "徐荣",
+          "search_name_cn": "徐荣"
+        },
+        {
+          "id": "fortune-6",
+          "name_cn": "卧龙&凤雏",
+          "search_name_cn": "卧龙&凤雏"
+        },
+        {
+          "id": "fortune-7",
+          "name_cn": "潘淑",
+          "search_name_cn": "潘淑"
+        },
+        {
+          "id": "fortune-8",
+          "name_cn": "蒋琬",
+          "search_name_cn": "蒋琬"
+        },
+        {
+          "id": "fortune-9",
+          "name_cn": "关索",
+          "search_name_cn": "关索",
+          "reference_id": "REF_guansuo"
+        },
+        {
+          "id": "fortune-10",
+          "name_cn": "费祎",
+          "search_name_cn": "费祎"
+        },
+        {
+          "id": "fortune-11",
+          "name_cn": "曹婴",
+          "search_name_cn": "曹婴"
+        },
+        {
+          "id": "fortune-12",
+          "name_cn": "曹宪&曹华",
+          "search_name_cn": "曹宪&曹华"
+        },
+        {
+          "id": "fortune-13",
+          "name_cn": "曹爽",
+          "search_name_cn": "曹爽"
+        },
+        {
+          "id": "fortune-14",
+          "name_cn": "曹纯",
+          "search_name_cn": "曹纯"
+        },
+        {
+          "id": "fortune-15",
+          "name_cn": "鲍三娘",
+          "search_name_cn": "鲍三娘"
+        }
+      ]
+    },
+    {
+      "id": "exclusive",
+      "name_cn": "线下专属",
+      "name_en": "Box exclusive",
+      "count": 1,
+      "entries": [
+        {
+          "id": "exclusive-1",
+          "name_cn": "夏侯岚",
+          "search_name_cn": "夏侯岚",
+          "reference_id": "REF_pe_xiahoulan"
+        }
+      ]
+    }
+  ]
+}

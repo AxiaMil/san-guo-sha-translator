@@ -1,3 +1,15 @@
+# Dark Gold deck reference — 2026-09-08
+
+The E-series Dark Gold Collector’s Edition now has a dedicated route, the publisher’s full 139-general roster, bilingual reference coverage for all entries, and locally remembered rules-version choices. Twenty-one community references were added, bringing the catalog to 725 cards. See [deck coverage and source notes](dark-gold-e-2026.md) for the distinction between roster verification and exact printed wording.
+
+- Production build and TypeScript passed; 42 JavaScript tests passed.
+- Nine deck regressions cover all group counts, rules-family separation, roster spelling, invalid persisted choices, search, reference provenance, and granted/upgraded skills.
+- Phone browser: pin deck, search Xiahou Lan, choose a reference, read English, return to deck, reload. Pin and version choice persisted; no horizontal overflow.
+- Reader and light-theme deck Axe audits: zero violations and no incomplete checks.
+- No changes to artwork recognition code or the reference index.
+
+---
+
 # Card detection and version selection — 2026-09-08
 
 - Production frontend build and TypeScript passed.

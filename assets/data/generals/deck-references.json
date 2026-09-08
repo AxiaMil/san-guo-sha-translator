@@ -1,0 +1,726 @@
+[
+  {
+    "id": "REF_pe_xiahoulan",
+    "standard_id": "char_xiahoulan",
+    "name_cn": "夏侯岚",
+    "name_en": "Xiahou Lan",
+    "gender": "Female",
+    "faction": "Shu",
+    "health": 3,
+    "expansion": "E-series reference",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/offline/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "迅击",
+        "name_en": "Swift Strike",
+        "description_cn": "每阶段你首次获得牌后，你可以视为使用一张无距离限制且不可被响应的基本牌。",
+        "description_en": "After you gain cards for the first time in each phase, you may be treated as Using a Basic Card with no distance limit that cannot be responded to."
+      },
+      {
+        "name_cn": "双锋",
+        "name_en": "Twin Edges",
+        "description_cn": "回合开始时，你可以令你本回合所有阶段改为出牌/摸牌阶段并获得〖归刃〗/〖义驰〗直到回合结束。",
+        "description_en": "At the start of your turn, you may change all phases of this turn into Play Phases and gain Return the Blade, or change them all into Draw Phases and gain Righteous Ride, until this turn ends."
+      },
+      {
+        "name_cn": "归刃",
+        "name_en": "Return the Blade",
+        "description_cn": "你造成伤害后本阶段使用牌无次数限制，然后你和一名角色各摸一张牌。",
+        "description_en": "After you deal damage, your card Uses have no usage limit for the rest of this phase. Then you and one character each draw one card.",
+        "skill_type": "Granted by Twin Edges"
+      },
+      {
+        "name_cn": "义驰",
+        "name_en": "Righteous Ride",
+        "description_cn": "你执行摸牌阶段后，你可以令一名其他角色回复1点体力。",
+        "description_en": "After you perform a Draw Phase, you may have one other character recover 1 HP.",
+        "skill_type": "Granted by Twin Edges"
+      }
+    ]
+  },
+  {
+    "id": "REF_pe_shen_zhonghui",
+    "standard_id": "char_zhonghui",
+    "name_cn": "神钟会",
+    "name_en": "God Zhong Hui",
+    "gender": "Male",
+    "faction": "God",
+    "health": 4,
+    "expansion": "E-series reference",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/offline/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "凛界",
+        "name_en": "Realm of Dread",
+        "description_cn": "每轮开始时，你可对一名角色造成1点伤害并令其获得1个“凛”。有“凛”的其他角色受到伤害后须弃置一张手牌。若其因此弃置了最后一张手牌，你对其造成1点伤害。",
+        "description_en": "At the start of each round, you may deal 1 damage to one character and give them one Dread token. After another character with Dread takes damage, they must discard one hand card. If this discards their last hand card, you deal 1 damage to them."
+      },
+      {
+        "name_cn": "独仗",
+        "name_en": "Standing Alone",
+        "description_cn": "当你成为黑色牌的唯一目标后，你摸一张牌并获得一个“凛”，你的手牌上限+X（X为你拥有的“凛”的数量）。",
+        "description_en": "After you become the only target of a black card, draw one card and gain one Dread token. Your Hand Limit is increased by X, where X is the number of Dread tokens you have."
+      },
+      {
+        "name_cn": "降祸",
+        "name_en": "Bring Calamity",
+        "description_cn": "觉醒技，回合开始时，若“凛”大于场上角色数，你将所有“凛”置于你的武将牌上，然后你摸X张牌并增加1点体力上限（X为你“凛”的数量），失去〖凛界〗获得〖立世〗。",
+        "description_en": "Awakening skill. At the start of your turn, if the number of Dread tokens exceeds the number of characters in play, move all Dread tokens onto your General Card. Then draw X cards and increase your Max HP by 1, where X is your number of Dread tokens. Lose Realm of Dread and gain Establish Dominion."
+      },
+      {
+        "name_cn": "立世",
+        "name_en": "Establish Dominion",
+        "description_cn": "结束阶段，若你没有“凛”，你受到1点雷电伤害。否则你可移去任意个“凛”并选择等量名角色，这些角色下回合开始前，你可选择一个阶段令其跳过。",
+        "description_en": "During your End Phase, if you have no Dread tokens, take 1 thunder damage. Otherwise, you may remove any number of Dread tokens and choose that many characters. Before each chosen character’s next turn starts, you may choose one phase for them to skip.",
+        "skill_type": "Granted by Bring Calamity"
+      }
+    ]
+  },
+  {
+    "id": "REF_star_zhangzhao",
+    "standard_id": "char_zhangzhao",
+    "name_cn": "星张昭",
+    "name_en": "Star Zhang Zhao",
+    "gender": "Male",
+    "faction": "Wu",
+    "health": 3,
+    "expansion": "Star collection",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp2/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "忠言",
+        "name_en": "Loyal Counsel",
+        "description_cn": "出牌阶段限一次，你可展示牌堆顶三张牌，然后令一名角色将一张手牌与其中一张牌交换。然后若这些牌颜色相同，其回复1点体力或获得场上一张牌。然后若该角色不为你，你执行其未执行的一项。",
+        "description_en": "Once per Play Phase, you may Show the top three cards of the deck, then have one character exchange one hand card with one of them. If the shown cards then have the same color, that character recovers 1 HP or obtains one card in play. If that character is not you, you perform the option they did not perform."
+      },
+      {
+        "name_cn": "经纶",
+        "name_en": "Statecraft",
+        "description_cn": "每回合限一次，当你距离1以内的角色造成伤害后，你可以令其摸X张牌并对其发动〖忠言〗（X为其装备区的牌数）。",
+        "description_en": "Once per turn, after a character within distance 1 of you deals damage, you may have them draw X cards and activate Loyal Counsel on them. X is the number of cards in their Equipment Zone."
+      }
+    ]
+  },
+  {
+    "id": "REF_star_zhangrang",
+    "standard_id": "char_zhangrang",
+    "name_cn": "星张让",
+    "name_en": "Star Zhang Rang",
+    "gender": "Male",
+    "faction": "Qun",
+    "health": 3,
+    "expansion": "Star collection",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp2/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "蠹害",
+        "name_en": "Corruption",
+        "description_cn": "你成为其他角色使用牌的目标后，你可以选择一种花色，然后令其增加此花色的「蠹」标记。该角色的回合结束时，若其手牌中有与「蠹」花色相同的牌，则其失去对应花色数点体力，然后移去这些花色的「蠹」。",
+        "description_en": "After you become a target of a card Used by another character, you may choose a suit and give that character a Corruption mark of that suit. At the end of their turn, if their hand contains cards of marked suits, they Lose HP equal to the number of matching suits, then remove the marks of those suits."
+      },
+      {
+        "name_cn": "令色",
+        "name_en": "Fair Words",
+        "description_cn": "出牌阶段限一次，你可交给一名其他角色一张牌，然后随机获得该角色与此牌类型相同的两张牌，不足两张则视为其对你使用一张【杀】 。若此【杀】造成伤害，则此技能视为未发动过。",
+        "description_en": "Once per Play Phase, you may give one card to another character, then randomly obtain two of their cards of the same category. If they have fewer than two, they are instead treated as Using a [Kill] on you. If that [Kill] deals damage, this activation does not count toward the skill’s usage limit."
+      }
+    ]
+  },
+  {
+    "id": "REF_star_zhangchunhua",
+    "standard_id": "char_zhangchunhua",
+    "name_cn": "星张春华",
+    "name_en": "Star Zhang Chunhua",
+    "gender": "Female",
+    "faction": "Wei",
+    "health": 3,
+    "expansion": "Star collection",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp2/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "梁燕",
+        "name_en": "Swallows at the Eaves",
+        "description_cn": "出牌阶段限一次。你可以选择一名其他角色，你摸/弃置至多两张牌，令其弃置/摸等量的牌。然后若你与其手牌数相同，以此法摸牌的角色跳过其下一个弃牌阶段。",
+        "description_en": "Once per Play Phase, choose another character. You may draw up to two cards and have them discard the same number, or discard up to two cards and have them draw the same number. If you then have equal hand sizes, the character who drew cards skips their next Discard Phase."
+      },
+      {
+        "name_cn": "明慧",
+        "name_en": "Clear Insight",
+        "description_cn": "一名角色的回合结束时，若你的手牌数：最少，你可以视为使用一张无距离限制的【杀】；最多，你可以将手牌弃置至你手牌数不为最多，然后令一名角色回复1点体力。",
+        "description_en": "At the end of any character’s turn, if your hand size is tied for the smallest, you may be treated as Using a [Kill] with no distance limit. If your hand size is tied for the largest, you may discard hand cards until it is no longer the largest, then have one character recover 1 HP."
+      }
+    ]
+  },
+  {
+    "id": "REF_star_yuanshu",
+    "standard_id": "char_yuanshu",
+    "name_cn": "星袁术",
+    "name_en": "Star Yuan Shu",
+    "gender": "Male",
+    "faction": "Qun",
+    "health": 4,
+    "expansion": "Star collection",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp2/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "残玺",
+        "name_en": "Fragments of the Seal",
+        "description_cn": "锁定技。①游戏开始时，你获得场上所有角色的势力对应的“玺角”标记（初始势力中未获得的“玺角”标记改为增加等量的体力上限）。②每轮开始时，你选择一个“玺角”对应势力并选择以下一项：1.妄生：本轮被选择势力角色每回合首次造成的伤害+1且计算与其他角色间的距离-1；2.向死：本轮其他被选择势力角色每回合首次回复体力后失去1点体力且每回合对你使用的第一张牌无效。",
+        "description_en": "Compulsory skill. At game start, gain a Seal Fragment for each faction represented in play. For each initial faction whose fragment you did not gain, increase your Max HP by 1 instead. At each round’s start, choose a faction for which you have a fragment and one effect for this round: Reckless Life — characters of that faction deal +1 damage the first time they deal damage each turn, and reduce their distance to others by 1; Toward Death — other characters of that faction Lose 1 HP after their first HP recovery each turn, and the first card each of them Uses on you each turn is Nullified."
+      },
+      {
+        "name_cn": "圮秩",
+        "name_en": "Broken Order",
+        "description_cn": "锁定技。①一名角色死亡后，若你拥有该角色对应的“玺角”标记且你本轮发动〖残玺〗的势力与其相同，或其是该势力最后一名角色，你失去之，然后摸X张牌并回复1点体力。②结束阶段，你摸X张牌。（X为你本局游戏失去的“玺角”标记数）",
+        "description_en": "Compulsory skill. After a character dies, if you have their faction’s Seal Fragment and either chose that faction for Fragments of the Seal this round or they were its last character in play, lose that fragment, draw X cards, and recover 1 HP. During your End Phase, draw X cards. X is the number of Seal Fragments you have lost this game."
+      },
+      {
+        "name_cn": "冢骨",
+        "name_en": "Bones in the Grave",
+        "description_cn": "主公技，锁定技。摸牌阶段，若游戏轮数大于等于场上的群势力角色数，则你额外摸两张牌，否则你少摸一张牌。",
+        "description_en": "Lord skill. Compulsory. During your Draw Phase, if the round number is at least the number of Qun characters in play, draw two additional cards; otherwise draw one fewer card."
+      }
+    ]
+  },
+  {
+    "id": "REF_star_yuanshao",
+    "standard_id": "char_yuanshao",
+    "name_cn": "星袁绍",
+    "name_en": "Star Yuan Shao",
+    "gender": "Male",
+    "faction": "Qun",
+    "health": 4,
+    "expansion": "Star collection",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp2/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "硝焰",
+        "name_en": "Blazing Powder",
+        "description_cn": "锁定技，游戏开始时，你对所有其他角色各造成1点火属性伤害，然后这些角色可依次交给你一张牌并回复1点体力。",
+        "description_en": "Compulsory skill. At game start, deal 1 fire damage to every other character. Then, in order, each of those characters may give you one card and recover 1 HP."
+      },
+      {
+        "name_cn": "纵势",
+        "name_en": "Overwhelming Force",
+        "description_cn": "出牌阶段，你可以展示一张可展示目标的基本牌或普通锦囊牌，然后你将手牌中所有与此牌花色相同的其他牌当作此牌使用（无距离限制），且此牌至多指定转化牌数的目标。",
+        "description_en": "During your Play Phase, you may Show a Basic Card or Non-Time-Delayed Tool Card for which targets can be selected. Use all other hand cards of that suit as that card, with no distance limit. It may have at most as many targets as the number of cards converted."
+      },
+      {
+        "name_cn": "骄妄",
+        "name_en": "Arrogance",
+        "description_cn": "锁定技，每轮结束时，若本轮没有角色死亡，则你失去1点体力并发动〖硝焰〗。",
+        "description_en": "Compulsory skill. At the end of each round, if no character died during that round, Lose 1 HP and activate Blazing Powder."
+      },
+      {
+        "name_cn": "傲势",
+        "name_en": "Pride of Power",
+        "description_cn": "主公技，其他群势力角色的出牌阶段限一次，其可以交给你一张手牌，然后你可以发动一次〖纵势〗。",
+        "description_en": "Lord skill. Once during another Qun character’s Play Phase, they may give you one hand card. You may then activate Overwhelming Force once."
+      }
+    ]
+  },
+  {
+    "id": "REF_star_wenchou",
+    "standard_id": "char_wenchou",
+    "name_cn": "星文丑",
+    "name_en": "Star Wen Chou",
+    "gender": "Male",
+    "faction": "Qun",
+    "health": 4,
+    "expansion": "Star collection",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp2/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "连战",
+        "name_en": "Successive Battles",
+        "description_cn": "当你使用伤害牌指定唯一目标时，你可以选择一项：①为此牌增加一个目标；②令此牌额外结算一次。若如此做，此牌结算完毕后，若此牌造成伤害的次数：为2，你可以回复1点体力（若你未受伤则改为摸两张牌）；为0，目标角色依次视为对你使用同名牌。",
+        "description_en": "When you Use a damage card and designate its only target, you may add one target or have the card resolve one additional time. If you do, after it finishes resolving: if it dealt damage exactly twice, you may recover 1 HP, or draw two cards instead if uninjured; if it dealt damage zero times, its targets are, in order, treated as Using a card of the same name on you."
+      },
+      {
+        "name_cn": "威名",
+        "name_en": "Fearsome Reputation",
+        "description_cn": "锁定技，体力值小于你或本轮受到过你造成伤害的其他角色对你使用牌时，其随机弃置一张手牌，若所有条件同时满足，则你摸一张牌。",
+        "description_en": "Compulsory skill. When another character Uses a card on you, if their HP Value is lower than yours or they have taken damage from you this round, they randomly discard one hand card. If both conditions hold, you draw one card."
+      }
+    ]
+  },
+  {
+    "id": "REF_star_taishici",
+    "standard_id": "char_taishici",
+    "name_cn": "星太史慈",
+    "name_en": "Star Taishi Ci",
+    "gender": "Male",
+    "faction": "Qun",
+    "health": 4,
+    "expansion": "Star collection",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp2/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "重围",
+        "name_en": "Encirclement",
+        "description_cn": "锁定技，你计算与其他角色的距离+3。当你造成伤害后，此数值-1，减少至0时你回复1点体力并摸体力值张牌，修改〖冲阻〗并失去此技能。",
+        "description_en": "Compulsory skill. Increase your distance to other characters by 3. Each time you deal damage, reduce this increase by 1. When it reaches zero, recover 1 HP, draw cards equal to your HP Value, upgrade Break the Blockade, and lose this skill."
+      },
+      {
+        "name_cn": "冲阻",
+        "name_en": "Break the Blockade",
+        "description_cn": "你使用指定自己为目标的牌结算完成后，可选择一项：1.你使用下一张牌无距离次数限制；2.摸两张牌且此项本回合失效。",
+        "description_en": "After a card you Used with yourself as a target finishes resolving, you may choose: your next card Use ignores distance and usage limits; or draw two cards, after which this second option is unavailable for the rest of this turn."
+      },
+      {
+        "name_cn": "冲阻·改",
+        "name_en": "Break the Blockade · upgraded",
+        "description_cn": "你使用指定自己为目标的牌结算完成后，可选择一项：1.你使用下一张牌无距离次数限制；2.摸两张牌且此项本回合失效；3.你下次使用牌指定目标后，可对其中一个其他角色造成1点伤害。",
+        "description_en": "After a card you Used with yourself as a target finishes resolving, you may choose: your next card Use ignores distance and usage limits; draw two cards, after which this option is unavailable for the rest of this turn; or, after your next card Use designates targets, deal 1 damage to one other character among those targets.",
+        "skill_type": "After Encirclement"
+      }
+    ]
+  },
+  {
+    "id": "REF_star_sunshangxiang",
+    "standard_id": "char_sunshangxiang",
+    "name_cn": "星孙尚香",
+    "name_en": "Star Sun Shangxiang",
+    "gender": "Female",
+    "faction": "Wu",
+    "health": 3,
+    "expansion": "Star collection",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp2/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "飒影",
+        "name_en": "Dashing Shadow",
+        "description_cn": "每轮每种牌名限一次，你需要使用【杀】或【闪】时，你可以使用一张装备牌，视为使用之；你需要使用【桃】或【酒】时，你可以收回装备区里的一张牌，视为使用之。",
+        "description_en": "Once per card name per round: when you need to Use a [Kill] or [Dodge], you may Use an Equipment Card and be treated as Using the required card; when you need to Use a [Peach] or [Wine], you may return one card from your Equipment Zone to your hand and be treated as Using the required card."
+      },
+      {
+        "name_cn": "骄豪",
+        "name_en": "Bold Spirit",
+        "description_cn": "出牌阶段限一次，你可以与一名装备区牌数不大于你的角色拼点，然后你可令赢的角色获得拼点牌或令其使用一张【杀】。",
+        "description_en": "Once per Play Phase, you may Point Duel with a character who has no more cards in their Equipment Zone than you. Then you may have the winner obtain the Point Duel cards or Use a [Kill]."
+      }
+    ]
+  },
+  {
+    "id": "REF_star_sunjian",
+    "standard_id": "char_sunjian",
+    "name_cn": "星孙坚",
+    "name_en": "Star Sun Jian",
+    "gender": "Male",
+    "faction": "Qun",
+    "health": 4,
+    "expansion": "Star collection",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp2/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "锐军",
+        "name_en": "Elite Advance",
+        "description_cn": "当你于出牌阶段首次使用牌指定其他角色为目标后，你可以选择其中一名目标角色并摸X张牌（X为你已损失的体力值+1）。直到此阶段结束，除其外的其他角色均不在你的攻击范围内，你对其使用牌无距离限制，且当你对其造成非首次伤害时，此伤害值改为Y（Y为你此阶段上次对其造成的伤害值+1，至多为5）。",
+        "description_en": "After the first card you Use during your Play Phase designates another character as a target, you may choose one such target and draw X cards, where X is your lost HP + 1. Until this phase ends, all other characters except that target are outside your Attack Range, and your card Uses on that target ignore distance limits. Each time after the first that you deal damage to that target this phase, change the damage to the previous damage amount you dealt to them this phase + 1, capped at 5."
+      },
+      {
+        "name_cn": "刚毅",
+        "name_en": "Fortitude",
+        "description_cn": "锁定技。①你的回合内，若你本回合没有造成过伤害，你不能使用【桃】。②当你处于濒死状态时，以你为目标的【桃】或【酒】的回复值+1。",
+        "description_en": "Compulsory skill. During your turn, you cannot Use [Peach] until you have dealt damage that turn. While you are Dying, a [Peach] or [Wine] targeting you recovers 1 additional HP."
+      }
+    ]
+  },
+  {
+    "id": "REF_star_fazheng",
+    "standard_id": "char_fazheng",
+    "name_cn": "星法正",
+    "name_en": "Star Fa Zheng",
+    "gender": "Male",
+    "faction": "Shu",
+    "health": 3,
+    "expansion": "Star collection",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp2/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "知机",
+        "name_en": "Know the Moment",
+        "description_cn": "准备阶段，你可以弃置任意张手牌并将手牌数摸至五张，然后若你弃置的牌数与你摸的牌数之差X：大于0，你可以对至多X名其他角色各造成1点伤害；等于0，你本回合使用牌无法被响应；小于0，你本回合手牌上限+2。",
+        "description_en": "During your Preparation Phase, you may discard any number of hand cards, then draw until you have five hand cards. Let X be the number discarded minus the number drawn. If X is positive, you may deal 1 damage each to up to X other characters. If X is zero, your card Uses cannot be responded to this turn. If X is negative, your Hand Limit is increased by 2 this turn."
+      },
+      {
+        "name_cn": "谙计",
+        "name_en": "Master of Plans",
+        "description_cn": "锁定技，一名角色使用牌时，若此花色的牌本轮游戏使用的唯一最少，则你摸一张牌。",
+        "description_en": "Compulsory skill. When a character Uses a card, if that suit is the unique least-Used suit this round, draw one card."
+      }
+    ]
+  },
+  {
+    "id": "REF_star_dongzhuo",
+    "standard_id": "char_dongzhuo",
+    "name_cn": "星董卓",
+    "name_en": "Star Dong Zhuo",
+    "gender": "Male",
+    "faction": "Qun",
+    "health": 5,
+    "expansion": "Star collection",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp2/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "威临",
+        "name_en": "Intimidating Presence",
+        "description_cn": "锁定技。当你于回合内对一名角色造成伤害时，若其本回合未受到过伤害，且你本回合使用的牌数大于等于其体力值，则此伤害+1。",
+        "description_en": "Compulsory skill. When you deal damage during your turn, increase it by 1 if the recipient has not yet taken damage this turn and the number of cards you have Used this turn is at least their HP Value."
+      },
+      {
+        "name_cn": "掌戎",
+        "name_en": "Command the Troops",
+        "description_cn": "准备阶段，你可以选择令至多X名体力值大于等于你的角色各失去1点体力或令至多X名手牌数大于等于你的角色各弃置一张手牌（X为你的体力值）。若如此做，你摸等同于选择角色数的牌，且本回合结束时，若这些角色中存在本回合未受到过伤害的角色，则你失去1点体力。",
+        "description_en": "During your Preparation Phase, you may choose one option: have up to X characters with HP Value at least yours each Lose 1 HP; or have up to X characters with hand size at least yours each discard one hand card. X is your HP Value. If you do, draw cards equal to the number chosen. At this turn’s end, if any chosen character has not taken damage this turn, you Lose 1 HP."
+      },
+      {
+        "name_cn": "豪首",
+        "name_en": "Unbridled Chief",
+        "description_cn": "主公技。其他群势力角色使用【酒】结算完毕后，其可以令你回复1点体力。",
+        "description_en": "Lord skill. After another Qun character’s [Wine] finishes resolving, they may have you recover 1 HP."
+      }
+    ]
+  },
+  {
+    "id": "REF_star_dingfeng",
+    "standard_id": "char_dingfeng",
+    "name_cn": "星丁奉",
+    "name_en": "Star Ding Feng",
+    "gender": "Male",
+    "faction": "Wu",
+    "health": 4,
+    "expansion": "Star collection",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp2/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "荡尘",
+        "name_en": "Sweep Away Dust",
+        "description_cn": "出牌阶段开始时，你可以令一名角色交给你任意张牌，然后你可以弃置X张牌（X为其交给你的牌数）。若你因此弃牌，则当你于本阶段使用【杀】或普通锦囊牌指定其为目标后，可以进行一次判定，若判定的点数为X的倍数，则此牌额外结算一次。",
+        "description_en": "At the start of your Play Phase, you may have one character give you any number of cards. You may then discard X cards, where X is the number they gave you. If you discard this way, after you designate them as a target of a [Kill] or Non-Time-Delayed Tool Card during this phase, you may make a Judgment. If its rank is a multiple of X, that card resolves one additional time."
+      },
+      {
+        "name_cn": "翦羽",
+        "name_en": "Clip the Wings",
+        "description_cn": "锁定技，其他角色在你回合内失去装备区的牌后，你摸一张牌。",
+        "description_en": "Compulsory skill. After another character loses cards from their Equipment Zone during your turn, draw one card."
+      }
+    ]
+  },
+  {
+    "id": "REF_star_caoren",
+    "standard_id": "char_caoren",
+    "name_cn": "星曹仁",
+    "name_en": "Star Cao Ren",
+    "gender": "Male",
+    "faction": "Wei",
+    "health": 4,
+    "expansion": "Star collection",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp2/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "肃军",
+        "name_en": "Discipline the Army",
+        "description_cn": "当你使用一张牌时，若你手牌中的基本牌和非基本牌的牌数相等，你可以摸两张牌。",
+        "description_en": "When you Use a card, if your hand contains equal numbers of Basic and non-Basic Cards, you may draw two cards."
+      },
+      {
+        "name_cn": "砺锋",
+        "name_en": "Hone the Edge",
+        "description_cn": "你可以将一张本回合未有角色使用过的颜色的手牌当做无次数限制且不计入次数的【杀】或【无懈可击】使用。",
+        "description_en": "You may Use a hand card whose color no character has Used this turn as a [Kill] or [Nullification]. This Use has no usage limit and does not count toward usage limits."
+      }
+    ]
+  },
+  {
+    "id": "REF_guansuo",
+    "standard_id": "char_guansuo",
+    "name_cn": "关索",
+    "name_en": "Guan Suo",
+    "gender": "Male",
+    "faction": "Shu",
+    "health": 4,
+    "expansion": "Fortune reference",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "征南",
+        "name_en": "Conquer the South",
+        "description_cn": "其他角色死亡后，你可以摸三张牌并获得下列技能中的任意一个：〖武圣〗、〖当先〗和〖制蛮〗。",
+        "description_en": "After another character dies, you may draw three cards and gain one of these skills: War God, Take the Lead, or Restrain the Barbarians."
+      },
+      {
+        "name_cn": "撷芳",
+        "name_en": "Gathering Fragrance",
+        "description_cn": "锁定技，你计算与其他角色的距离时-X。（X为女性角色数）",
+        "description_en": "Compulsory skill. Reduce your distance to other characters by X, where X is the number of female characters."
+      },
+      {
+        "name_cn": "武圣",
+        "name_en": "War God",
+        "description_cn": "你可以将一张红色牌当做【杀】使用或打出。",
+        "description_en": "You may Use or Play a red card as a [Kill].",
+        "skill_type": "Granted by Conquer the South"
+      },
+      {
+        "name_cn": "当先",
+        "name_en": "Take the Lead",
+        "description_cn": "锁定技，回合开始时，你执行一个额外的出牌阶段。",
+        "description_en": "Compulsory skill. At the start of your turn, perform an additional Play Phase.",
+        "skill_type": "Granted by Conquer the South"
+      },
+      {
+        "name_cn": "制蛮",
+        "name_en": "Restrain the Barbarians",
+        "description_cn": "当你对一名其他角色造成伤害时，你可以防止此伤害，然后获得其装备区或判定区的一张牌。",
+        "description_en": "When you would deal damage to another character, you may prevent that damage, then obtain one card from their Equipment Zone or Judgment Zone.",
+        "skill_type": "Granted by Conquer the South"
+      }
+    ]
+  },
+  {
+    "id": "REF_yuantanyuanshang",
+    "standard_id": "char_yuantanyuanshang",
+    "name_cn": "袁谭袁尚",
+    "name_en": "Yuan Tan & Yuan Shang",
+    "gender": "Male",
+    "faction": "Qun",
+    "health": 4,
+    "expansion": "Fortune reference",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "内伐",
+        "name_en": "Internal Strife",
+        "description_cn": "出牌阶段开始时，你可以摸两张牌或获得场上的一张牌，然后弃置一张牌。若弃置的牌是基本牌，本回合你不能使用锦囊和装备牌，且【杀】的使用次数+X且目标+1；若弃置的不是基本牌，本回合你不能使用基本牌，且使用普通锦囊牌选择目标时可以增加或减少一个目标，前两次使用装备牌时摸X张牌（X为你发动〖内伐〗弃牌后手牌中因〖内伐〗而不能使用的牌的数量且最多为5）。",
+        "description_en": "At the start of your Play Phase, you may draw two cards or obtain one card in play, then discard one card. If you discarded a Basic Card, you cannot Use Tool or Equipment Cards this turn, your [Kill] usage limit increases by X, and your [Kill] may have one additional target. Otherwise, you cannot Use Basic Cards this turn; when choosing targets for a Non-Time-Delayed Tool Card, you may add or remove one target, and the first two times you Use Equipment Cards you draw X cards. X is the number of cards in your hand that Internal Strife prevents you from Using immediately after its discard, capped at 5."
+      }
+    ]
+  },
+  {
+    "id": "REF_ol_dengai",
+    "standard_id": "char_dengai",
+    "name_cn": "界邓艾",
+    "name_en": "Limit Break Deng Ai",
+    "gender": "Male",
+    "faction": "Wei",
+    "health": 4,
+    "expansion": "Limit Break",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/refresh/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "屯田",
+        "name_en": "Cultivate the Fields",
+        "description_cn": "①当你于回合外失去牌后，或于回合内因弃置而失去【杀】后，你可以判定。若判定结果不为♥，则你将此牌置于你的武将牌上，称为“田”。②你计算与其他角色的距离时-X（X为你武将牌上“田”的数目）。",
+        "description_en": "After you lose cards outside your turn, or lose a [Kill] by discarding it during your turn, you may make a Judgment. If the result is not a heart, put the Judgment Card on your General Card as a Field. Reduce your distance to other characters by X, where X is the number of Fields on your General Card."
+      },
+      {
+        "name_cn": "凿险",
+        "name_en": "Open the Frontier",
+        "description_cn": "觉醒技，准备阶段，若你武将牌上至少拥有三张“田”，则你减1点体力上限，并获得技能〖急袭〗。你于当前回合结束后进行一个额外的回合。",
+        "description_en": "Awakening skill. During your Preparation Phase, if you have at least three Fields on your General Card, reduce your Max HP by 1 and gain Surprise Raid. Take an additional turn after the current turn ends."
+      },
+      {
+        "name_cn": "急袭",
+        "name_en": "Surprise Raid",
+        "description_cn": "出牌阶段，你可以将任意一张“田”当作【顺手牵羊】使用。",
+        "description_en": "During your Play Phase, you may Use any one Field as a [Steal].",
+        "skill_type": "Granted by Open the Frontier"
+      }
+    ]
+  },
+  {
+    "id": "REF_xin_handang",
+    "standard_id": "char_handang",
+    "name_cn": "界韩当",
+    "name_en": "Limit Break Han Dang",
+    "gender": "Male",
+    "faction": "Wu",
+    "health": 4,
+    "expansion": "Limit Break",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/refresh/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "弓骑",
+        "name_en": "Mounted Archery",
+        "description_cn": "出牌阶段限一次，你可以弃置一张牌，然后你的攻击范围视为无限且使用与此牌花色相同的【杀】无次数限制直到回合结束。若你以此法弃置的牌为装备牌，则你可以弃置一名其他角色的一张牌。",
+        "description_en": "Once per Play Phase, you may discard one card. Until this turn ends, your Attack Range is treated as unlimited, and your [Kill] Uses of that card’s suit have no usage limit. If you discarded an Equipment Card this way, you may discard one card from another character."
+      },
+      {
+        "name_cn": "解烦",
+        "name_en": "Relieve the Siege",
+        "description_cn": "限定技，出牌阶段，你可以选择一名角色，令攻击范围内含有该角色的所有角色依次选择一项：1.弃置一张武器牌；2.令其摸一张牌。然后若游戏轮数为1，则你于此回合结束时恢复此技能。",
+        "description_en": "Limited skill. During your Play Phase, choose one character. Each character whose Attack Range includes them chooses, in order, to discard a Weapon Card or have the chosen character draw one card. If this is round 1, restore this skill at this turn’s end."
+      }
+    ]
+  },
+  {
+    "id": "REF_ol_gaoshun",
+    "standard_id": "char_gaoshun",
+    "name_cn": "OL界高顺",
+    "name_en": "OL Limit Break Gao Shun",
+    "gender": "Male",
+    "faction": "Qun",
+    "health": 4,
+    "expansion": "Limit Break",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/onlyOL/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "陷阵",
+        "name_en": "Break the Lines",
+        "description_cn": "出牌阶段限一次，你可以与一名角色拼点。若你赢，本回合你无视该角色的防具且对其使用牌没有次数和距离限制，且当你使用【杀】或普通锦囊牌指定目标时，可以令该角色也成为此牌的目标；若你没赢，本回合你不能对其使用【杀】且你的【杀】不计入手牌上限。",
+        "description_en": "Once per Play Phase, you may Point Duel with one character. If you win, for the rest of this turn you Ignore their armor, your card Uses on them have no usage or distance limit, and when a [Kill] or Non-Time-Delayed Tool Card you Use designates targets, you may add them as a target. If you do not win, you cannot Use [Kill] on them this turn, and your [Kill] cards do not count toward your Hand Limit."
+      },
+      {
+        "name_cn": "禁酒",
+        "name_en": "Prohibit Wine",
+        "description_cn": "锁定技。你的【酒】的牌名均视为【杀】且点数视为K；你的回合内，其他角色不能使用【酒】。",
+        "description_en": "Compulsory skill. Your [Wine] cards’ names are treated as [Kill] and their ranks as K. During your turn, other characters cannot Use [Wine]."
+      }
+    ]
+  },
+  {
+    "id": "REF_star_xunyu",
+    "standard_id": "char_xunyu",
+    "name_cn": "星荀彧",
+    "name_en": "Star Xun Yu",
+    "gender": "Male",
+    "faction": "Wei",
+    "health": 3,
+    "expansion": "Star collection",
+    "faq": [],
+    "source_reference": {
+      "label": "Community rules reference",
+      "url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/character/sp2/translate.js",
+      "note": "Translated from the linked community record. Compare the Chinese wording with your physical card; this reference has not been verified against every printed line of the Dark Gold edition."
+    },
+    "skills": [
+      {
+        "name_cn": "安庶",
+        "name_en": "Comfort the People",
+        "description_cn": "①每轮结束时，你可将弃牌堆中不同牌名的基本牌各一张置于牌堆顶，然后视为使用一张【五谷丰登】（从你或一名已受伤角色开始结算）；②一名角色的回合结束时，若有角色本回合失去了上轮因〖安庶〗①获得的牌，你可令其将手牌摸至体力上限（至多摸五张）。",
+        "description_en": "At the end of each round, you may put one Basic Card of each different name from the discard pile on top of the deck, then be treated as Using [Harvest], resolving it starting from you or one injured character. At the end of a character’s turn, if a character lost cards during that turn which they obtained through this skill in the previous round, you may have them draw until their hand size equals their Max HP, drawing at most five cards."
+      },
+      {
+        "name_cn": "匡祚",
+        "name_en": "Sustain the Dynasty",
+        "description_cn": "限定技，出牌阶段，你可以令一名角色A获得〖承奉〗（若其为主公且没有主公技，其额外获得〖统荫〗），然后令另一名角色B将每种花色的牌各一张置于A武将牌上，称为“匡祚”。",
+        "description_en": "Limited skill. During your Play Phase, you may have one character A gain Faithful Service. If A is the Lord and has no Lord skill, they also gain Sheltering Rule. Then have another character B put one card of each suit on A’s General Card as Dynasty cards."
+      },
+      {
+        "name_cn": "承奉",
+        "name_en": "Faithful Service",
+        "description_cn": "每回合限一次，你可以将一张红色/黑色“匡祚”牌当作【闪】/【无懈可击】对即将对你生效的牌使用。此牌结算完成后，若你的“匡祚”牌包含颜色数少于2，你可以将牌堆顶一张牌当作“匡祚”置于武将牌上。",
+        "description_en": "Once per turn, you may Use a red Dynasty card as [Dodge], or a black Dynasty card as [Nullification], against a card about to take effect on you. After that card finishes resolving, if your Dynasty cards contain fewer than two colors, you may put the deck’s top card on your General Card as a Dynasty card.",
+        "skill_type": "Granted to the chosen character by Sustain the Dynasty"
+      },
+      {
+        "name_cn": "统荫",
+        "name_en": "Sheltering Rule",
+        "description_cn": "主公技，你受到其他角色使用牌造成的伤害后，若伤害来源与你势力相同/不同，你可以将此牌/其一张牌当作“匡祚”置于武将牌上。",
+        "description_en": "Lord skill. After you take damage from a card Used by another character, you may put that card on your General Card as a Dynasty card if the damage source shares your faction; if their faction differs, you may put one of their cards there instead.",
+        "skill_type": "Granted to the chosen character by Sustain the Dynasty"
+      }
+    ]
+  }
+]
