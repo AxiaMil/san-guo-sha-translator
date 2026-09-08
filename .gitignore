@@ -51,3 +51,25 @@ CLAUDE.md
 AGENT.md
 .agents/
 tools/skills/
+
+# Web companion
+node_modules/
+dist/
+.vercel/
+.venv/
+__pycache__/
+.pytest_cache/
+site/public/catalog.json
+site/public/rules.json
+site/public/images/
+site/src/traditional.json
+playwright-report/
+test-results/
+.env*
+
+.venv312/
+.vercel
+
+*.tsbuildinfo
+
+.vercel_python_packages/

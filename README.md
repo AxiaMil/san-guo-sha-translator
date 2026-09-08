@@ -1,3 +1,61 @@
+# SHA — phone web companion
+
+**Live app: [sha-card-companion.vercel.app](https://sha-card-companion.vercel.app)**
+
+A camera-first San Guo Sha companion with English translations, built on [Akari-light/san-guo-sha-translator](https://github.com/Akari-light/san-guo-sha-translator). The original Flutter app remains in this repository.
+
+- **Scan:** rear camera or photo upload, crop and rotate, artwork recognition, and Chinese OCR fallback.
+- **Library:** 704 generals and playing cards; search English, simplified/traditional Chinese, skills, or printed IDs.
+- **At the table:** bilingual skills, effects, FAQs, searchable rules, and bookmarks saved on your device.
+- **Recognition:** 729 source artworks (727 unique), including skins. CLAHE lighting correction, ORB local feature retrieval, and RANSAC perspective checks. Identical artwork with different faction rules returns both choices.
+- **Privacy:** photos are resized on the device, processed in memory by the artwork endpoint, and never saved by the application. Text OCR runs in the browser. No account or AI API key is required.
+
+## Run locally
+
+Requires Node.js 22+ and Python 3.14. Use the locked dependencies:
+
+```sh
+npm ci
+npm run build
+uv sync
+uv run python scripts/dev-api.py
+# In a second terminal:
+npm run dev
+```
+
+Open http://localhost:5173. The Vite server proxies `/api` to port 8000. Phone camera access requires HTTPS (or localhost); use the deployed site when testing from a phone. Tesseract downloads Chinese/English language models on the first text scan, then caches them in the browser.
+
+## Verify and refresh data
+
+```sh
+npm test
+uv run --with pytest python -m pytest tests/test_recognition.py tests/test_api.py -q
+# Optional: pure native OCR regression checks, requires Dart:
+scripts/check-native-ocr.sh
+# Rebuild the catalog and artwork index after changing source data:
+node scripts/build-catalog.mjs
+uv run python scripts/build-references.py
+```
+
+`npm run build` regenerates the web catalog, images, rulebook, and Chinese normalization map directly from the Flutter assets. The compressed reference index is committed so Vercel does not need to regenerate it on every deploy. Do not change the OpenCV version without rerunning recognition tests. The selected wheel fits Vercel's Python function size limit.
+
+## Deploy
+
+The root `vercel.json` configures the Vite frontend and `/api/match` Python function. Connect the fork to Vercel and deploy from the repository root:
+
+```sh
+vercel link
+vercel --prod
+```
+
+## Recognition limits
+
+The automated suite covers brightness, warm color casts, uneven shadow, partial glare, rotation, moderate blur, perspective, skins, playing cards, shared artwork, and unrelated inputs. These are synthetic transformations of reference artwork, **not measured accuracy on real phone photographs**. Severe blur, darkness, glare covering the artwork, and unseen artwork can still prevent recognition. The app shows alternatives or asks for a better crop; it never presents a similarity score as a calibrated probability. Compare the edition before choosing a translation.
+
+Native OCR fixes restore spatially separated vertical names and preserve `SKIN`/`BETA` ID suffixes. The pure Dart regression harness is runnable without Flutter; full Android/iOS camera integration still needs testing on devices.
+
+---
+
 # 殺 (SHA) — Stop Hesitating, Attack!
 
 **殺 (SHA)** is the essential translation companion for *San Guo Sha* (SGS). 

@@ -1,4 +1,4 @@
-﻿// lib/core/services/scanner_service.dart
+// lib/core/services/scanner_service.dart
 //
 // Multimodal scanner service.
 //
@@ -18,6 +18,7 @@ import 'fuzzy_matcher.dart';
 import 'image_embedding_matcher.dart';
 import 'recently_viewed_service.dart';
 import 'scanner_text_matcher.dart';
+import 'scanner_ocr_normalizer.dart';
 import 'text_normaliser.dart';
 import '../../features/generals/data/repository/general_loader.dart';
 
@@ -503,7 +504,7 @@ class ScannerService {
     final textW = maxX - minX;
     final tokens = <ZonedToken>[];
     final seen = <String>{};
-    final splitRe = RegExp(r'[\sÂ·â€¢\-â€”\u3000\uff0c\u3001\uff0e]+');
+    final splitRe = RegExp(r'[\s·•\-—\u3000\uff0c\u3001\uff0e]+');
     final cleanRe = RegExp(r'[^\u4e00-\u9fff\u3400-\u4dbfa-zA-Z0-9]');
 
     for (final block in recognised.blocks) {
@@ -537,6 +538,28 @@ class ScannerService {
             }
           }
         }
+      }
+    }
+    // ML Kit can return a vertical name as separate one-character lines,
+    // sometimes in separate blocks. Reassemble spatially adjacent glyphs in
+    // the upper-left name region before the two-character token cutoff.
+    final fragments = <OcrNameFragment>[];
+    for (final block in recognised.blocks) {
+      for (final line in block.lines) {
+        final box = line.boundingBox;
+        if (textW > 0 && textH > 0 &&
+            (box.center.dx - minX) / textW < 0.4 &&
+            (box.center.dy - minY) / textH < 0.65) {
+          fragments.add(OcrNameFragment(
+            TextNormaliser.normalise(line.text.trim()),
+            box.left, box.top, box.width, box.height,
+          ));
+        }
+      }
+    }
+    for (final name in ScannerOcrNormalizer.joinVerticalNames(fragments)) {
+      if (seen.add('${name}_${CardZone.name}')) {
+        tokens.add(ZonedToken(text: name, zone: CardZone.name));
       }
     }
     return tokens;

@@ -1,9 +1,9 @@
 import 'dart:math' as math;
 
 import 'fuzzy_matcher.dart';
+import 'scanner_ocr_normalizer.dart';
 
 abstract final class ScannerTextMatcher {
-  static final RegExp _separatorRe = RegExp(r'[\s._\-:：·•,，]+');
   static final RegExp _idLikeRe = RegExp(
     r'(?:[A-Z]{1,4})?(?:WEI|SHU|WU|QUN|LE|GOD)[A-Z0-9]{2,8}(?:SKIN[0-9]+|BETA)?',
   );
@@ -72,47 +72,8 @@ abstract final class ScannerTextMatcher {
   static String _normaliseEntryId(String value) =>
       value.toUpperCase().replaceAll(RegExp(r'[^A-Z0-9]'), '');
 
-  static String _normaliseOcrIdText(String value) {
-    var out = value.toUpperCase().replaceAll(_separatorRe, '');
-    out = out
-        .replaceAll('Ｓ', 'S')
-        .replaceAll('Ｐ', 'P')
-        .replaceAll('Ｗ', 'W')
-        .replaceAll('Ｅ', 'E')
-        .replaceAll('Ｉ', 'I')
-        .replaceAll('Ｏ', 'O')
-        .replaceAll('Ｑ', 'Q')
-        .replaceAll('Ｕ', 'U')
-        .replaceAll('Ｎ', 'N');
-    out = out.replaceAll(RegExp(r'[^A-Z0-9]'), '');
-
-    final chars = out.split('');
-    final digitStart = _idDigitStart(out);
-    for (var i = 0; i < chars.length; i++) {
-      if (i >= digitStart) {
-        chars[i] = switch (chars[i]) {
-          'O' => '0',
-          'I' || 'L' => '1',
-          'Z' => '2',
-          'S' => '5',
-          'B' => '8',
-          _ => chars[i],
-        };
-      }
-    }
-    return chars.join();
-  }
-
-  static int _idDigitStart(String value) {
-    var best = value.length;
-    for (final faction in const ['WEI', 'SHU', 'QUN', 'GOD', 'WU', 'LE']) {
-      final index = value.lastIndexOf(faction);
-      if (index >= 0) {
-        best = math.min(best, index + faction.length);
-      }
-    }
-    return best;
-  }
+  static String _normaliseOcrIdText(String value) =>
+      ScannerOcrNormalizer.normaliseId(value);
 
   static void _addIdMatches(String text, Set<String> candidates) {
     for (final match in _idLikeRe.allMatches(text)) {
