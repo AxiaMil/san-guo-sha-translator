@@ -1,6 +1,6 @@
 # SHA — phone web companion
 
-**Live app: [sha-card-companion.vercel.app](https://sha-card-companion.vercel.app)**
+**Live app: [shascan.vercel.app](https://shascan.vercel.app)**
 
 A camera-first San Guo Sha companion with English translations, built on [Akari-light/san-guo-sha-translator](https://github.com/Akari-light/san-guo-sha-translator). The original Flutter app remains in this repository.
 
