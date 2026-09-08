@@ -25,6 +25,12 @@ import {
 import VersionCompare from "./VersionCompare";
 import CardArt from "./CardArt";
 import { recognizeCard } from "./recognition";
+import {
+  cameraFrame,
+  matchArtwork,
+  startLiveScan,
+  type LiveStatus,
+} from "./liveScan";
 import { deckCardIds, type Deck } from "./decks";
 export default function Scanner({
   cards,
@@ -41,6 +47,10 @@ export default function Scanner({
     [live, setLive] = useState(false),
     [openingCamera, setOpeningCamera] = useState(false),
     [cameraReady, setCameraReady] = useState(false),
+    [liveStatus, setLiveStatus] = useState<LiveStatus>({
+      message: "Keep one card in view. Scanning automatically…",
+      progress: 0,
+    }),
     [crop, setCrop] = useState<Crop>(),
     [pixelCrop, setPixelCrop] = useState<PixelCrop>(),
     [busy, setBusy] = useState(false),
@@ -71,6 +81,8 @@ export default function Scanner({
     mounted = useRef(true),
     cameraGeneration = useRef(0),
     autoScan = useRef(false);
+  const stopLive = useRef<(() => void) | undefined>(undefined);
+  const autoText = useRef(false);
   const resultsRef = useRef<HTMLElement>(null);
   const versionResultRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -85,6 +97,8 @@ export default function Scanner({
     }
   }, [result]);
   function stopCamera() {
+    stopLive.current?.();
+    stopLive.current = undefined;
     cameraGeneration.current++;
     setOpeningCamera(false);
     setCameraReady(false);
@@ -97,6 +111,7 @@ export default function Scanner({
     return () => {
       mounted.current = false;
       cameraGeneration.current++;
+      stopLive.current?.();
       stream.current?.getTracks().forEach((t) => t.stop());
       request.current?.abort();
     };
@@ -121,8 +136,38 @@ export default function Scanner({
       });
     }
   }, [live]);
+  useEffect(() => {
+    if (!live) return;
+    let frameTime = -1;
+    const stop = startLiveScan({
+      frame: (previous) => {
+        const current = video.current;
+        if (!current || current.currentTime === frameTime) return;
+        frameTime = current.currentTime;
+        return cameraFrame(current, previous);
+      },
+      status: (next) =>
+        setLiveStatus((previous) =>
+          previous.message === next.message &&
+          previous.progress === next.progress &&
+          previous.warning === next.warning
+            ? previous
+            : next,
+        ),
+      found: (match, image) => {
+        if (!mounted.current) return;
+        autoScan.current = false;
+        stopCamera();
+        setPhoto(image);
+        setResult(match);
+      },
+    });
+    stopLive.current = stop;
+    return stop;
+  }, [live]);
   function reset() {
     autoScan.current = false;
+    autoText.current = false;
     request.current?.abort();
     setBusy(false);
     setPhoto("");
@@ -135,7 +180,11 @@ export default function Scanner({
   }
   async function openCamera() {
     if (openingCamera || live) return;
-    setError("");
+    reset();
+    setLiveStatus({
+      message: "Keep one card in view. Scanning automatically…",
+      progress: 0,
+    });
     if (!navigator.mediaDevices?.getUserMedia) {
       camera.current?.click();
       return;
@@ -148,6 +197,7 @@ export default function Scanner({
           facingMode: { ideal: "environment" },
           width: { ideal: 1920 },
           height: { ideal: 1080 },
+          frameRate: { ideal: 24, max: 30 },
         },
         audio: false,
       });
@@ -156,6 +206,31 @@ export default function Scanner({
         return;
       }
       stream.current = media;
+      const track = media.getVideoTracks()[0];
+      track?.addEventListener(
+        "ended",
+        () => {
+          if (stream.current !== media || !mounted.current) return;
+          stopCamera();
+          setError("Camera disconnected. Open it again to resume scanning.");
+        },
+        { once: true },
+      );
+      try {
+        const capabilities = track?.getCapabilities?.() as
+          (MediaTrackCapabilities & { focusMode?: string[] }) | undefined;
+        if (capabilities?.focusMode?.includes("continuous")) {
+          void track
+            .applyConstraints({
+              advanced: [
+                { focusMode: "continuous" } as MediaTrackConstraintSet,
+              ],
+            })
+            .catch(() => {});
+        }
+      } catch {
+        // Optional focus controls must not prevent a usable camera from opening.
+      }
       setLive(true);
     } catch {
       if (mounted.current && generation === cameraGeneration.current)
@@ -193,12 +268,11 @@ export default function Scanner({
   function capture() {
     const v = video.current;
     if (!cameraReady || !v?.videoWidth || !v.videoHeight) return;
-    const c = document.createElement("canvas");
-    c.width = v.videoWidth;
-    c.height = v.videoHeight;
-    c.getContext("2d")!.drawImage(v, 0, 0);
+    const frame = cameraFrame(v);
+    if (!frame) return;
     autoScan.current = true;
-    setPhoto(c.toDataURL("image/jpeg", 0.92));
+    autoText.current = true;
+    setPhoto(frame.image);
     setCrop(undefined);
     setPixelCrop(undefined);
     stopCamera();
@@ -257,19 +331,10 @@ export default function Scanner({
         },
         artwork: async () => {
           setStatus("Matching card artwork…");
-          const response = await fetch("/api/match", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              image: canvas.toDataURL("image/jpeg", 0.88).split(",")[1],
-            }),
-            signal: controller.signal,
-          });
-          if (!response.ok) throw new Error("Artwork matching unavailable.");
-          const data: ScanResult = await response.json();
-          if (!Array.isArray(data.candidates))
-            throw new Error("Invalid match response.");
-          return data;
+          return matchArtwork(
+            canvas.toDataURL("image/jpeg", 0.88),
+            controller.signal,
+          );
         },
       });
       if (!controller.signal.aborted && mounted.current) setResult(next);
@@ -382,10 +447,23 @@ export default function Scanner({
               setError("Camera preview unavailable. Use Take a photo below.");
             }}
           />
-          <div className="viewfinder" />
-          <p>
-            {cameraReady ? "Keep the whole card in frame" : "Starting camera…"}
-          </p>
+          <div
+            className={`viewfinder ${liveStatus.progress ? "has-match" : ""}`}
+          />
+          <span className="live-badge">
+            <ScanLine size={16} /> Auto scan
+          </span>
+          <div
+            className="live-guidance"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            <p>{cameraReady ? liveStatus.message : "Starting camera…"}</p>
+            <div className="live-confirmation" aria-hidden="true">
+              <span style={{ width: `${liveStatus.progress * 100}%` }} />
+            </div>
+          </div>
           <button
             className="icon-btn camera-close"
             aria-label="Close camera"
@@ -394,12 +472,11 @@ export default function Scanner({
             <X />
           </button>
           <button
-            className="shutter"
-            aria-label="Capture and identify card"
+            className="camera-text-fallback"
             disabled={!cameraReady}
             onClick={capture}
           >
-            <span />
+            <TextSearch size={16} /> Read text instead
           </button>
         </div>
       )}
@@ -445,7 +522,9 @@ export default function Scanner({
                 onLoad={() => {
                   if (autoScan.current) {
                     autoScan.current = false;
-                    void scan();
+                    const textOnly = autoText.current;
+                    autoText.current = false;
+                    void scan(textOnly);
                   }
                 }}
                 alt="Your card photo, drag to select a crop"
@@ -478,6 +557,14 @@ export default function Scanner({
               >
                 <TextSearch size={20} /> Read text
               </button>
+              {!result && (
+                <button
+                  className="button secondary scan-next"
+                  onClick={() => void openCamera()}
+                >
+                  <Camera size={20} /> Scan next card
+                </button>
+              )}
             </>
           ) : (
             <>
@@ -487,7 +574,7 @@ export default function Scanner({
                 onClick={() => void openCamera()}
               >
                 <Camera size={21} />{" "}
-                {openingCamera ? "Opening…" : "Open camera"}
+                {openingCamera ? "Opening…" : "Start scanning"}
               </button>
               <button
                 className="button secondary"
@@ -540,11 +627,13 @@ export default function Scanner({
             <h2>
               {result.candidates.length ? "Possible matches" : "No match found"}
             </h2>
-            <span>
-              {result.candidates.length
-                ? `${result.candidates.length} found`
-                : ""}
-            </span>
+            <button
+              className="text-link"
+              aria-label="Scan next card"
+              onClick={() => void openCamera()}
+            >
+              <Camera size={17} /> Scan next
+            </button>
           </div>
           <p>{result.guidance}</p>
           {result.candidates[0]?.card_outline && (

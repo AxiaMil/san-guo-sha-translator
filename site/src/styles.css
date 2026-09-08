@@ -3001,3 +3001,17 @@ footer a {
 .deck-library-link > span { min-width: 0; }
 .scan-deck-picker { display: flex; align-items: center; gap: 12px; margin: 4px 0 18px; color: var(--muted); font-size: 13px; }
 .scan-deck-picker select { flex: 1; min-width: 0; max-width: 100%; padding: 10px 30px 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); font: inherit; min-height: 44px; }
+
+/* Live capture stays in the visible camera region on portrait and landscape phones. */
+.scanner.is-live .camera-stage { height: min(560px, 68svh); min-height: 320px; }
+.scanner.is-live .camera-stage video { object-fit: cover; }
+.scanner.is-live .viewfinder { inset: 12% 12% 22%; border-color: #d7e2ff; }
+.scanner.is-live .viewfinder.has-match { border-color: #8fb1ff; }
+.live-badge { position: absolute; top: 15px; left: 15px; display: flex; align-items: center; gap: 7px; padding: 7px 10px; border-radius: 8px; background: #111d; color: #fff; font-size: 12px; }
+.live-guidance { position: absolute; bottom: 66px; left: 16px; right: 16px; padding: 12px 14px; border-radius: 10px; background: #111e; color: #fff; text-align: center; pointer-events: none; }
+.live-guidance p { margin: 0; font-size: 14px; line-height: 1.4; }
+.live-confirmation { height: 3px; border-radius: 3px; margin-top: 10px; background: #ffffff30; overflow: hidden; }
+.live-confirmation span { display: block; height: 100%; background: #8fb1ff; }
+.camera-text-fallback { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 8px 14px; border-radius: 8px; background: #111d; color: #fff; white-space: nowrap; }
+.camera-text-fallback:disabled { opacity: .5; }
+.scan-next { grid-column: 1 / -1; }
