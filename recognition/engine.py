@@ -7,6 +7,7 @@ import threading
 import json
 import cv2
 import numpy as np
+from recognition.detector import card_crops
 
 cv2.setNumThreads(1)
 LOCK = threading.Lock()
@@ -42,7 +43,7 @@ def database():
     return data, matcher
 
 
-def match_image(image):
+def _match_artwork(image, *, feature_count=1000):
     if image is None or min(image.shape[:2]) < 60:
         raise ValueError("Image is too small. Use a clear photo of the whole card.")
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -57,7 +58,7 @@ def match_image(image):
             "quality": quality,
             "guidance": "No card detail found. Add light and bring the card into focus.",
         }
-    points, descriptors, shape = features(image)
+    points, descriptors, shape = features(image, feature_count)
     if descriptors is None or len(descriptors) < 12:
         return {
             "candidates": [],
@@ -155,3 +156,59 @@ def match_image(image):
         if candidates
         else "No reliable artwork match. Try text recognition or crop closer to the card.",
     }
+
+
+def match_image(image):
+    if image is None or min(image.shape[:2]) < 60:
+        raise ValueError("Image is too small. Use a clear photo of the whole card.")
+    crops = card_crops(image)
+    # Preserve the original view: borderless artwork and damaged/occluded card
+    # outlines must remain recognizable. Rectified views rescue smaller cards.
+    result = _match_artwork(image)
+    candidates = list(result["candidates"])
+    used_outline = False
+    if not result.get("strong"):
+        for crop, quad in crops:
+            proposal = _match_artwork(crop)
+            for candidate in proposal["candidates"]:
+                candidate["card_outline"] = quad
+            candidates.extend(proposal["candidates"])
+            used_outline |= bool(proposal["candidates"])
+    if crops and not any(c["score"] >= 0.72 and c["inliers"] >= 18 for c in candidates):
+        # Printed skill boxes compete for keypoints. Overlapping end windows
+        # retain the illustration in either orientation without reading text.
+        crop, quad = crops[0]
+        cut = round(crop.shape[0] * 0.60)
+        for artwork in (crop[:cut], crop[-cut:]):
+            proposal = _match_artwork(artwork)
+            for candidate in proposal["candidates"]:
+                candidate["card_outline"] = quad
+            candidates.extend(proposal["candidates"])
+            used_outline |= bool(proposal["candidates"])
+            if proposal.get("strong"):
+                break
+    # One bounded higher-budget search for text-heavy cards, after the cheap
+    # outline proposals. It is still artwork retrieval, not OCR.
+    if not candidates:
+        retry = _match_artwork(crops[0][0] if crops else image, feature_count=2400)
+        if crops:
+            for candidate in retry["candidates"]:
+                candidate["card_outline"] = crops[0][1]
+            used_outline |= bool(retry["candidates"])
+        candidates.extend(retry["candidates"])
+        if not candidates and crops:
+            candidates.extend(_match_artwork(image, feature_count=2400)["candidates"])
+    candidates.sort(key=lambda c: (c["score"], c["inliers"]), reverse=True)
+    unique = {}
+    for candidate in candidates:
+        unique.setdefault(candidate["id"], candidate)
+    result["candidates"] = candidates = list(unique.values())[:5]
+    result["strong"] = bool(
+        candidates and candidates[0]["score"] >= 0.72
+        and candidates[0]["inliers"] >= 18
+        and (len(candidates) == 1 or candidates[0]["score"] - candidates[1]["score"] >= 0.08)
+    )
+    result["detection"] = {"outlines": len(crops), "artwork_verified": used_outline}
+    if candidates:
+        result["guidance"] = "Check the artwork and rules version before opening."
+    return result

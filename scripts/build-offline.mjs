@@ -8,6 +8,7 @@ const files = [
   "/",
   "/catalog.json",
   "/rules.json",
+  "/version-sources.json",
   "/icon.svg",
   "/manifest.webmanifest",
   ...assets,

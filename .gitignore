@@ -73,3 +73,5 @@ test-results/
 *.tsbuildinfo
 
 .vercel_python_packages/
+
+site/public/version-sources.json

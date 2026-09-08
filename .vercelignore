@@ -20,3 +20,5 @@ site/public/catalog.json
 site/public/rules.json
 
 .vercel_python_packages
+
+site/public/version-sources.json

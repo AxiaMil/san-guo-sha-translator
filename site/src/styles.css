@@ -2300,3 +2300,236 @@ dialog::backdrop {
   min-height: 44px;
   font-weight: 600;
 }
+
+/* Version selection separates available translations from external references. */
+.version-compare,
+.version-sources {
+  margin: 16px 0;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--surface);
+}
+.version-compare > summary,
+.version-sources > summary {
+  padding: 14px;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 48px;
+}
+.version-compare > summary svg,
+.version-sources > summary svg {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 8px 2px 2px;
+  color: var(--accent);
+}
+.version-explanation,
+.source-content > p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+  padding: 0 14px 14px;
+}
+.version-list {
+  padding: 0 10px;
+}
+.version-list > button {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  gap: 12px;
+  text-align: left;
+  padding: 14px 8px;
+  border-top: 1px solid var(--line);
+}
+.version-list > button > img {
+  width: 45px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+.version-list > button > span {
+  flex: 1;
+  min-width: 0;
+}
+.version-list strong {
+  display: block;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.version-list strong > small {
+  display: block;
+  font:
+    12px/1.6 "DM Sans",
+    sans-serif;
+  color: var(--muted);
+}
+.version-skill-names {
+  display: block;
+  font-size: 13px;
+  margin: 8px 0;
+}
+.version-preview {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+  white-space: pre-line;
+}
+.current-version {
+  background: var(--accent-soft);
+  border-radius: 8px;
+}
+.version-list > button > svg {
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.version-compare > .version-sources {
+  margin: 12px;
+}
+.source-content {
+  padding: 0 14px 16px;
+}
+.source-content > p {
+  padding: 0 0 14px;
+}
+.source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 15px;
+  margin-bottom: 14px;
+}
+.source-links a {
+  font-size: 12px;
+  color: var(--accent);
+  line-height: 1.6;
+  padding: 8px 0;
+  text-underline-offset: 3px;
+}
+.source-pack-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 12px;
+}
+.source-pack-label select {
+  max-width: 75%;
+}
+.source-record {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+}
+.source-record > span {
+  min-width: 0;
+}
+.source-record strong {
+  font-size: 15px;
+  font-weight: 550;
+}
+.source-record small {
+  display: block;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 5px 0;
+}
+.source-record code {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.source-record > svg {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+.version-check {
+  margin: 22px 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  border-radius: 12px;
+}
+.version-check > p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 10px 0 16px;
+}
+.version-check > .button {
+  width: 100%;
+}
+.version-check > .guide-note {
+  font-size: 12px;
+  margin-top: 12px;
+}
+.manual-version > summary {
+  font-size: 13px;
+  cursor: pointer;
+  padding: 15px 0;
+}
+.manual-version textarea {
+  width: 100%;
+  resize: vertical;
+  font:
+    16px/1.6 "DM Sans",
+    sans-serif;
+  padding: 12px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.version-evidence {
+  padding: 16px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.version-evidence > p {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 8px 0 15px;
+}
+.version-evidence > button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  width: 100%;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+.version-evidence small {
+  display: block;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.version-evidence > button > svg {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+@media (max-width: 760px) {
+  .version-check {
+    padding: 15px;
+  }
+  .version-list > button {
+    gap: 9px;
+  }
+  .version-list > button > img {
+    width: 35px;
+    height: 49px;
+  }
+}

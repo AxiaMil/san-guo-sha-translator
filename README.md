@@ -7,6 +7,7 @@ A camera-first San Guo Sha companion with English translations, built on [Akari-
 - **Scan:** rear camera or photo upload, crop and rotate, artwork recognition, and Chinese OCR fallback.
 - **Library:** 704 generals and playing cards; search English, simplified/traditional Chinese, skills, or printed IDs.
 - **At the table:** English/bilingual/Chinese reading, larger text, linked card references, edition selection, searchable rules and examples, and bookmarks saved on your device.
+- **Versions:** compare related translated cards and check printed skill wording after an artwork match. Browse 2,317 additional community version references across 23 packs (metadata and source links; not newly scannable artwork). See [source coverage](docs/card-version-sources.md).
 - **Appearance:** neutral white and charcoal themes with subtle blue accents; Light, Dark, or System preferences persist locally.
 - **Offline reading:** the production app caches card text, rules, and up to 120 viewed artwork images. Photo matching needs a connection.
 - **Translation review:** 18 shared skills and six basic card effects revised; known missing source skills are shown explicitly. See [review notes](docs/translation-review.md).

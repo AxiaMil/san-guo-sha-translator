@@ -68,6 +68,10 @@ fs.mkdirSync("site/public", { recursive: true });
 console.log(`Source gaps displayed explicitly: ${missing.length}`);
 fs.writeFileSync("site/public/catalog.json", JSON.stringify(cards));
 fs.writeFileSync(
+  "site/public/version-sources.json",
+  JSON.stringify(read("assets/data/version-sources.json")),
+);
+fs.writeFileSync(
   "site/public/rules.json",
   JSON.stringify(
     fs

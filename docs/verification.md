@@ -1,3 +1,18 @@
+# Card detection and version selection — 2026-09-08
+
+- Production frontend build and TypeScript passed.
+- 33 JavaScript tests passed, including ten version-ranking and source-collection regressions.
+- 74 Python recognition/API tests passed in 54.61 seconds, including six new detector regressions and a text-heavy full-card fixture. Existing lighting, unknown-image, shared-artwork, skin and API validation checks remain passing.
+- Card detection tests cover a tilted full card, dim exposure, 90° and 180° rotation, a lighting gradient, and rejection of a blank rectangular object. These are synthetic transformations, not a measured real-phone accuracy rate.
+- The expanded source collection passed its browser Axe audit with zero violations and zero incomplete checks.
+- At a 390 × 844 browser viewport, photo upload → production-shaped API request → detected outline → strong Limit Break Liu Bei artwork match → reader worked without OCR. The reader displayed four translated family variants and source references. Source-pack filtering narrowed Liu Bei to one Limit Break reference with a pinned source line; no horizontal overflow was present.
+- Actual browser OCR separately read the full-card fixture and supported Limit Break Liu Bei using distinctive printed skill phrases. Already-read OCR text is reused. Shared titles/IDs and repeated OCR passes cannot establish a version.
+- The metadata collection has 2,317 records from 23 packs. It is included in the offline shell and clearly separated from the 704 translated cards and 727 indexed illustrations. Physical printing coverage is not established.
+
+Screenshots from local verification: `/tmp/sha-artwork-detector-phone.png`, `/tmp/sha-compare-phone.png`. Real camera captures across devices, obscured cards, extreme lighting, and unknown printings remain outside the automated benchmark.
+
+---
+
 # Interface and translation verification — 2026-09-08
 
 - Production build and TypeScript: passed.

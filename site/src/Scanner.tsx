@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Camera,
   ImagePlus,
@@ -18,6 +18,13 @@ import "react-image-crop/dist/ReactCrop.css";
 import type { Card, ScanResult } from "./types";
 import { canvasOf, loadImage } from "./imaging";
 import { matchText } from "./matching";
+import {
+  familyCards,
+  rankVersions,
+  suggestedVersion,
+  versionLabel,
+} from "./versions";
+import VersionCompare from "./VersionCompare";
 export default function Scanner({
   cards,
   onOpen,
@@ -35,7 +42,18 @@ export default function Scanner({
     [status, setStatus] = useState(""),
     [error, setError] = useState(""),
     [result, setResult] = useState<ScanResult | null>(null),
-    [ocrText, setOcrText] = useState("");
+    [ocrText, setOcrText] = useState(""),
+    [versionText, setVersionText] = useState("");
+  const primaryMatch = cards.find((c) => c.id === result?.candidates[0]?.id);
+  const versionPool = useMemo(
+    () => (primaryMatch ? familyCards(cards, primaryMatch) : []),
+    [cards, primaryMatch],
+  );
+  const versionRanks = useMemo(
+    () => rankVersions(versionPool, versionText),
+    [versionPool, versionText],
+  );
+  const suggestion = suggestedVersion(versionRanks);
   const camera = useRef<HTMLInputElement>(null),
     upload = useRef<HTMLInputElement>(null),
     video = useRef<HTMLVideoElement>(null),
@@ -45,6 +63,7 @@ export default function Scanner({
     mounted = useRef(true),
     cameraPending = useRef(false);
   const resultsRef = useRef<HTMLElement>(null);
+  const versionResultRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (result) {
       resultsRef.current?.scrollIntoView({
@@ -98,6 +117,7 @@ export default function Scanner({
     setPixelCrop(undefined);
     setError("");
     setOcrText("");
+    setVersionText("");
   }
   async function openCamera() {
     if (cameraPending.current) return;
@@ -179,6 +199,7 @@ export default function Scanner({
     setError("");
     setResult(null);
     setOcrText("");
+    setVersionText("");
     const controller = new AbortController();
     request.current = controller;
     const canvas = canvasOf(
@@ -208,9 +229,12 @@ export default function Scanner({
           guidance:
             "Text can match several editions. Compare the artwork and skills.",
         };
-        if (!controller.signal.aborted) setOcrText(text);
+        if (!controller.signal.aborted) {
+          setOcrText(text);
+          setVersionText(text);
+        }
       } else {
-        setStatus("Comparing artwork with the card library…");
+        setStatus("Finding the card and matching its artwork…");
         const response = await fetch("/api/match", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -241,6 +265,52 @@ export default function Scanner({
               : "Could not scan this photo. Try text recognition or search.",
           );
       }
+    } finally {
+      window.clearTimeout(timer);
+      if (request.current === controller) {
+        request.current = null;
+        if (mounted.current) setBusy(false);
+      }
+    }
+  }
+  async function checkVersion() {
+    if (!img.current || busy || !primaryMatch) return;
+    setBusy(true);
+    setError("");
+    setVersionText("");
+    const controller = new AbortController();
+    request.current = controller;
+    const timer = window.setTimeout(() => controller.abort("timeout"), 150000);
+    try {
+      const { readCard } = await import("./ocr");
+      // Read the entire photo: an artwork crop can remove the edition's text.
+      const text = await readCard(
+        canvasOf(img.current, undefined, 0, 1800),
+        setStatus,
+        controller.signal,
+      );
+      if (!controller.signal.aborted && mounted.current) {
+        setVersionText(text);
+        window.requestAnimationFrame(() =>
+          versionResultRef.current?.scrollIntoView({
+            block: "start",
+            behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+              ? "instant"
+              : "smooth",
+          }),
+        );
+      }
+    } catch (e) {
+      if (!controller.signal.aborted && mounted.current)
+        setError(
+          e instanceof Error
+            ? e.message
+            : "Couldn’t read the printed version. Compare the skill text below.",
+        );
+      if (controller.signal.reason === "timeout" && mounted.current)
+        setError(
+          "Reading the version took too long. Try a clearer photo of the full card or enter its skill text below.",
+        );
     } finally {
       window.clearTimeout(timer);
       if (request.current === controller) {
@@ -485,6 +555,11 @@ export default function Scanner({
             </span>
           </div>
           <p>{result.guidance}</p>
+          {result.candidates[0]?.card_outline && (
+            <p className="lighting-note">
+              <Focus size={16} /> Card isolated · artwork matched
+            </p>
+          )}
           {result.quality && result.quality.brightness < 45 && (
             <p className="lighting-note">
               <Sun size={16} /> This photo is quite dark. More light may help.
@@ -518,6 +593,84 @@ export default function Scanner({
               </button>
             ) : null;
           })}
+          {primaryMatch && (
+            <div className="version-check">
+              <h3>Which rules version?</h3>
+              <p>
+                Artwork recognition does not confirm a print edition.{" "}
+                {versionPool.length} related{" "}
+                {versionPool.length === 1 ? "version is" : "versions are"}{" "}
+                available here. Compare the name and skills on your card.
+              </p>
+              {versionPool.length > 1 && (
+                <>
+                  <button
+                    className="button secondary"
+                    disabled={busy}
+                    onClick={() => void checkVersion()}
+                  >
+                    <TextSearch size={18} />
+                    {busy ? "Reading…" : "Read text to check version"}
+                  </button>
+                  <p className="guide-note">
+                    Include the whole card with its printed name and skill text.
+                    This check reads the full photo, even if you cropped the
+                    artwork.
+                  </p>
+                  <details className="manual-version">
+                    <summary>Enter or correct the printed text</summary>
+                    <textarea
+                      aria-label="Printed card text"
+                      placeholder="Paste Chinese skill text from your card"
+                      value={versionText}
+                      onChange={(e) => setVersionText(e.target.value)}
+                      rows={4}
+                    />
+                  </details>
+                  {versionText && (
+                    <div
+                      className="version-evidence"
+                      role="status"
+                      ref={versionResultRef}
+                    >
+                      <strong>
+                        {suggestion
+                          ? `Best text-supported match: ${suggestion.card.name_cn} · ${versionLabel(suggestion.card)}`
+                          : "Not enough distinctive text to select a version."}
+                      </strong>
+                      <p>
+                        {suggestion
+                          ? "Compare the wording below before choosing. A physical print year is still unverified."
+                          : "A shared name, skill title, or card number is not enough. Compare the available versions manually."}
+                      </p>
+                      {versionRanks
+                        .filter((r) => r.score > 0)
+                        .slice(0, 3)
+                        .map((r) => (
+                          <button
+                            key={r.card.id}
+                            onClick={() => onOpen(r.card)}
+                          >
+                            <span>
+                              <strong>
+                                {r.card.name_cn} · {versionLabel(r.card)}
+                              </strong>
+                              <small>{r.evidence.join(" · ")}</small>
+                            </span>
+                            <ArrowRight size={17} />
+                          </button>
+                        ))}
+                    </div>
+                  )}
+                </>
+              )}
+              <VersionCompare
+                card={primaryMatch}
+                cards={cards}
+                onOpen={onOpen}
+              />
+            </div>
+          )}
           {!result.candidates.length && (
             <button className="text-link" onClick={onBrowse}>
               Search the library <ArrowRight size={16} />

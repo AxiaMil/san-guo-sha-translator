@@ -22,7 +22,7 @@ class handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         self.reply(
-            200, {"status": "ready", "engine": "ORB + CLAHE + RANSAC", "version": 1}
+            200, {"status": "ready", "engine": "Card outlines + ORB + CLAHE + RANSAC", "version": 2}
         )
 
     def do_POST(self):

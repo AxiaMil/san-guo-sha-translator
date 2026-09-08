@@ -19,6 +19,7 @@ import Scanner from "./Scanner";
 import { useOfflineUpdate } from "./offline";
 import CardReader from "./CardReader";
 import Rulebook from "./Rulebook";
+import VersionSources from "./VersionSources";
 import { searchCards } from "./matching";
 import { preference, savePreference } from "./reading";
 import type { Card } from "./types";
@@ -131,6 +132,7 @@ export default function App() {
     return () => clearTimeout(timer);
   }, [toast]);
   function openCard(card: Card) {
+    if (selected?.id === card.id) return;
     history.pushState(
       { shaCard: true },
       "",
@@ -535,6 +537,7 @@ export default function App() {
                       </label>
                     </div>
                   )}
+                  {tab === "library" && <VersionSources />}
                   <div className="result-line">
                     <p className="result-count" role="status">
                       {filtered.length}{" "}

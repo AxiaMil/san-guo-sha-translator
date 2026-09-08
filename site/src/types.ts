@@ -34,10 +34,12 @@ export type Candidate = {
   reference?: string;
   inliers?: number;
   coverage?: number;
+  card_outline?: [number, number][];
 };
 export type ScanResult = {
   candidates: Candidate[];
   strong?: boolean;
+  detection?: { outlines: number; artwork_verified: boolean };
   quality?: { brightness: number; contrast: number; sharpness: number };
   guidance: string;
 };

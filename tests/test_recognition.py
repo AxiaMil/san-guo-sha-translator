@@ -109,3 +109,15 @@ def test_playing_card_artwork():
     assert (
         match_image(variant(im, "perspective"))["candidates"][0]["id"] == "basic_kill"
     )
+
+
+def test_full_card_with_dense_skill_text():
+    """Synthetic illustration + name + skill box; not a real-phone benchmark."""
+    image = cv2.imread(str(ROOT / "tests/fixtures/limit-break-liu-bei.webp"))
+    # Exercise the same resize/JPEG path as a phone upload.
+    height, width = image.shape[:2]
+    image = cv2.resize(image, (round(width * 1400 / height), 1400))
+    _, encoded = cv2.imencode(".jpg", image, [cv2.IMWRITE_JPEG_QUALITY, 88])
+    result = match_image(cv2.imdecode(encoded, cv2.IMREAD_COLOR))
+    assert result["candidates"], result
+    assert result["candidates"][0]["id"] == "JX_SHU001", result

@@ -9,6 +9,7 @@ import {
   X,
 } from "lucide-react";
 import type { Card } from "./types";
+import VersionCompare from "./VersionCompare";
 import { preference, savePreference, terms, type ReadingMode } from "./reading";
 import { normalize } from "./matching";
 
@@ -161,15 +162,15 @@ export default function CardReader({
                     {card.health} HP
                   </span>
                 )}
-                <span className="printed-id">{card.printed_id}</span>
+                <span className="printed-id">Library ID: {card.printed_id}</span>
               </div>
             </div>
           </div>
           {variants.length > 1 && (
             <label className="variant-select">
-              Card edition
+              Rules version
               <select
-                aria-label="Card edition"
+                aria-label="Rules version"
                 value={card.id}
                 onChange={(e) => {
                   const next = cards.find((c) => c.id === e.target.value);
@@ -185,6 +186,7 @@ export default function CardReader({
               </select>
             </label>
           )}
+          <VersionCompare card={card} cards={cards} onOpen={onOpen} />
           <div className="reader-controls">
             <div
               className="segmented"
