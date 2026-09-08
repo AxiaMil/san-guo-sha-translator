@@ -189,17 +189,47 @@ export default function CardReader({
               </select>
             </label>
           )}
-          {card.source_reference && (
+          {(card.source_reference || card.artwork_source) && (
             <details className="reader-source">
-              <summary>{card.source_reference.label}</summary>
-              <p>{card.source_reference.note}</p>
-              <a
-                href={card.source_reference.url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Chinese source ↗
-              </a>
+              <summary>
+                {card.artwork_source ? "Sources" : card.source_reference?.label}
+              </summary>
+              {card.source_reference && (
+                <>
+                  <p>{card.source_reference.note}</p>
+                  <a
+                    href={card.source_reference.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Chinese source ↗
+                  </a>
+                </>
+              )}
+              {card.artwork_source && (
+                <>
+                  <p>
+                    Artwork · {card.artwork_source.dimensions.join(" × ")} ·
+                    Original resolution
+                  </p>
+                  <a
+                    href={card.artwork_source.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {card.artwork_source.label} ↗
+                  </a>
+                  <p>
+                    <a
+                      href={card.artwork_source.verification_url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      View this card in the deck ↗
+                    </a>
+                  </p>
+                </>
+              )}
             </details>
           )}
           <VersionCompare card={card} cards={cards} onOpen={onOpen} />

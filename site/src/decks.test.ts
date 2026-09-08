@@ -87,14 +87,19 @@ describe("Dark Gold physical deck", () => {
       ),
     ).toEqual([]);
   });
-  it("includes granted and upgraded skills, provenance, and explicit missing artwork", () => {
+  it("includes granted and upgraded skills, provenance, and verified artwork sources", () => {
     const newer = cards.filter((c) => c.id.startsWith("REF_"));
     expect(newer).toHaveLength(21);
     for (const c of newer) {
       expect(c.source_reference?.url).toContain(
         "2e15429571d27ecf108fa51ab8684cff24ff7413",
       );
-      expect(c.image).toBeNull();
+      expect(c.image).toBe(`/images/generals/${c.id}.webp`);
+      expect(c.artwork_source?.deck_id).toBe(deck.id);
+      expect(c.artwork_source?.verification_url).toContain("BV1Ehj36zEny");
+      expect(Math.min(...c.artwork_source!.dimensions)).toBeGreaterThanOrEqual(
+        350,
+      );
       for (const s of c.skills) {
         expect(s.description_en.length).toBeGreaterThan(20);
         expect(s.description_cn).not.toMatch(/undefined|\$\{|get\.poptip/);

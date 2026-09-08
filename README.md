@@ -12,7 +12,7 @@ A camera-first San Guo Sha companion with English translations, built on [Akari-
 - **Appearance:** neutral white and charcoal themes with subtle blue accents; Light, Dark, or System preferences persist locally.
 - **Offline reading:** the production app caches card text, rules, and up to 120 viewed artwork images. Photo matching needs a connection.
 - **Translation review:** 18 shared skills and six basic card effects revised; known missing source skills are shown explicitly. See [review notes](docs/translation-review.md).
-- **Recognition:** 729 source artworks (727 unique), including skins. CLAHE lighting correction, ORB local feature retrieval, and RANSAC perspective checks. Identical artwork with different faction rules returns both choices.
+- **Recognition:** 750 source artworks (748 unique), including skins, with 768 indexed views. The 21 Dark Gold additions use sourced digital originals with deck-video verification and no video-frame references. CLAHE lighting correction, ORB local feature retrieval, and RANSAC perspective checks. Identical artwork with different faction rules returns both choices.
 - **Privacy:** photos are resized on the device, processed in memory by the artwork endpoint, and never saved by the application. Text OCR runs in the browser. No account or AI API key is required.
 
 ## Run locally

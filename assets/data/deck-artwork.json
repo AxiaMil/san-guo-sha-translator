@@ -1,0 +1,546 @@
+{
+  "deck_id": "dark-gold-e-2026",
+  "reviewed_on": "2026-09-08",
+  "note": "Only native digital artwork is imported. Video frames are verification evidence, never recognition references. Illustrations retain their original owners' rights. A matching illustration does not establish the printed rules revision.",
+  "artworks": [
+    {
+      "card_id": "REF_pe_xiahoulan",
+      "source_file": "pe_xiahoulan.jpg",
+      "source_url": "https://raw.githubusercontent.com/libnoname/noname/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/image/character/pe_xiahoulan.jpg",
+      "source_page": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/image/character/pe_xiahoulan.jpg",
+      "source_label": "Noname digital illustration",
+      "source_dimensions": [
+        350,
+        464
+      ],
+      "source_sha256": "5d3dc4b0344a010a4fb068e9bba68f0e048716eaf77917b76616e77384c513e8",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 56,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": []
+    },
+    {
+      "card_id": "REF_pe_shen_zhonghui",
+      "source_file": "REF_pe_shen_zhonghui.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/c/c3/p7t0uv3wn3trgyjuw7wb3jqg2iw7hnx.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E7%A5%9E%E9%92%9F%E4%BC%9A-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        876,
+        632
+      ],
+      "source_sha256": "611ceee228159de8e53bbb18ce9299d7c8d0c1dfffc136e9234acfd9c3c5988f",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 76,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          210,
+          20,
+          480,
+          590
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_star_zhangzhao",
+      "source_file": "REF_star_zhangzhao.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/e/e8/fuoyyn6jrojzqy4taubmxgziwj2dq99.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E6%98%9F%E5%BC%A0%E6%98%AD-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "ebfa4e42cea92ed36692d0ceb628853d75c1e826a9064c962e3f0e0597b856d8",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 189.5,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          171,
+          100,
+          293,
+          389
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_star_zhangrang",
+      "source_file": "REF_star_zhangrang.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/3/38/n99rb664v3vxf3ux2vm780b7qh4duwc.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E6%98%9F%E5%BC%A0%E8%AE%A9-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        706,
+        998
+      ],
+      "source_sha256": "d34abe1880af9347a49ccb4eab23261c4cb058d739791f921fe7f8a7c9831298",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 191.5,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          167,
+          158,
+          239,
+          321
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_star_zhangchunhua",
+      "source_file": "REF_star_zhangchunhua.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/e/e1/t658505yscob6dax6dfrqthc2shv84g.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E6%98%9F%E5%BC%A0%E6%98%A5%E5%8D%8E-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "cd6783d893a3aba2f009d1879d026624ca8f455a3840c163869147f84f57b123",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 195.5,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          98,
+          66,
+          280,
+          371
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_star_yuanshu",
+      "source_file": "REF_star_yuanshu.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/3/30/213vd6ibl0esdkdv6w80sdvidd5b7nv.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E6%98%9F%E8%A2%81%E6%9C%AF-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "6e3cbb9c7b8a7fb6b367a9c063e6fe69fb89383b7bbad18330765759d74a2250",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 199,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          120,
+          83,
+          271,
+          358
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_star_yuanshao",
+      "source_file": "REF_star_yuanshao.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/6/6b/1oc3duthgq408mfiehrmy0wf2xeocq9.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E6%98%9F%E8%A2%81%E7%BB%8D-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "1b52228e7a13c85d9ebbeaac6fdd5f22c3b3c8046f89d43e6e9df1865b0bd4eb",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 196.5,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          167,
+          102,
+          234,
+          311
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_star_wenchou",
+      "source_file": "REF_star_wenchou.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/0/02/m22hzpavaf7zscxu2fdti5308s80zu6.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E6%98%9F%E6%96%87%E4%B8%91-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "c245351383c3f186bb6a3a2bf52ecc644891d2eb445159eeac647ec833a352a7",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 192.5,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          101,
+          70,
+          336,
+          444
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_star_taishici",
+      "source_file": "REF_star_taishici.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/0/07/ef25sw260k5fz7iu9zxhajkv23ddm7g.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E6%98%9F%E5%A4%AA%E5%8F%B2%E6%85%88-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "846ae65e044bba802b7d84374f32d97f385177963ad3dc4784cc7244bc2f3986",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 194.5,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          159,
+          78,
+          223,
+          296
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_star_sunshangxiang",
+      "source_file": "REF_star_sunshangxiang.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/4/4a/f5jk7altfx78x0a3fbh661e4aqbrwnc.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E6%98%9F%E5%AD%99%E5%B0%9A%E9%A6%99-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "2c7f5fa88b1d5f29010e296f3216bdd4f930fce79bfe253ef6060ec23ef2941e",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 186,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          109,
+          65,
+          235,
+          309
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_star_sunjian",
+      "source_file": "REF_star_sunjian.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/4/49/6xv7twc0ssjdvexxueu3saw0dg3wzv6.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E6%98%9F%E5%AD%99%E5%9D%9A-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "03b691705e7cbb8f016396fb5691cddda558827b6f34901fc3621c1cd41b764e",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 185,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          173,
+          93,
+          271,
+          357
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_star_fazheng",
+      "source_file": "REF_star_fazheng.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/3/3d/k14h53fje8az8teyo0896m1t73l3nr1.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E6%98%9F%E6%B3%95%E6%AD%A3-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "c062c37e6c7727f90958787a6fa9547adc1b685e58f16169bc24d2c11cb5d508",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 188.5,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          159,
+          76,
+          293,
+          389
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_star_dongzhuo",
+      "source_file": "REF_star_dongzhuo.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/a/ac/4qfs8eysq3d208kpyawzxt4q38l1292.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E6%98%9F%E8%91%A3%E5%8D%93-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "dcd94ccf2d902d646c4d0a094fb5571727ec8942713408451724978c334874c8",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 200.5,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          122,
+          85,
+          235,
+          311
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_star_dingfeng",
+      "source_file": "REF_star_dingfeng.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/3/30/ry8z5pmgt2692ycwlj15ed9cqfddadu.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E6%98%9F%E4%B8%81%E5%A5%89-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "3cf24a7d8177893aed19cf537a39884ca391c79b9150b0edb51dcc0366c6c6ba",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 190.5,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          173,
+          66,
+          293,
+          388
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_star_caoren",
+      "source_file": "REF_star_caoren.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/e/e6/ixtu8zz94c9ymvnqkj214m3ykgukj1m.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E6%98%9F%E6%9B%B9%E4%BB%81-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "89cd90673a7fe4cc58c0566a679343bfc34a5d366745649993797779815fcf5d",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 198,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          115,
+          146,
+          292,
+          385
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_guansuo",
+      "source_file": "REF_guansuo.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/8/87/43vl2g7ri3p4bfvf9bfefimi8zqz2y6.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E5%85%B3%E7%B4%A2-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "dd3912bfb1d093f11856dd4578f290397ae17177915f5c49e7c423c868b443da",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 234.5,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          15,
+          20,
+          293,
+          388
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_yuantanyuanshang",
+      "source_file": "REF_yuantanyuanshang.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgsol/d/d4/15xtsbil6kvpy586r6w2cw12qiviimq.png",
+      "source_page": "https://wiki.biligame.com/sgsol/%E6%96%87%E4%BB%B6:%E8%A2%81%E8%B0%AD%E8%A2%81%E5%B0%9A-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        876,
+        632
+      ],
+      "source_sha256": "d4e7fe088e33a62b88d09fe1e12a584abc498d708962b4fb5fb3b102e6d0f40d",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 238,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          362,
+          67,
+          272,
+          359
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_ol_dengai",
+      "source_file": "REF_ol_dengai.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgsol/6/6a/n8fdwos40yg2ff08rtsdr7kxcmxws8y.jpg",
+      "source_page": "https://wiki.biligame.com/sgsol/%E6%96%87%E4%BB%B6:%E7%95%8C%E9%82%93%E8%89%BE-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.jpg",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "7795ff1ff3087f927ad2fcd55502224de3bb3d0b672693e6da5a2801147c4c8d",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 229.5,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          140,
+          51,
+          292,
+          388
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_xin_handang",
+      "source_file": "REF_xin_handang.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgsol/8/8d/q4zq42np82gbvpevysy5w1y9kn6kxtp.png",
+      "source_page": "https://wiki.biligame.com/sgsol/%E6%96%87%E4%BB%B6:%E7%95%8C%E9%9F%A9%E5%BD%93-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        815,
+        1080
+      ],
+      "source_sha256": "12b279495f3ec739b02e9e71a31e9b654dc11527b4f945fd4bc06d4501a73830",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 217,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          236,
+          37,
+          375,
+          496
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_ol_gaoshun",
+      "source_file": "REF_ol_gaoshun.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgsol/0/04/9fwr7g1ohxypbzaizkcokoh9c09ypjx.png",
+      "source_page": "https://wiki.biligame.com/sgsol/%E6%96%87%E4%BB%B6:%E7%95%8C%E9%AB%98%E9%A1%BA-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "c5cfbc53802cd4196c67259d6d94bb0be9961de90cf5967856b3f8d92dc8a7f2",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 163.5,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          90,
+          30,
+          390,
+          600
+        ]
+      ]
+    },
+    {
+      "card_id": "REF_star_xunyu",
+      "source_file": "REF_star_xunyu.png",
+      "source_url": "https://patchwiki.biligame.com/images/sgs/f/fc/9czgbivzzi9eyetm2r64vjb69mmnqs5.png",
+      "source_page": "https://wiki.biligame.com/sgs/%E6%96%87%E4%BB%B6:%E6%98%9F%E8%8D%80%E5%BD%A7-%E7%BB%8F%E5%85%B8%E5%BD%A2%E8%B1%A1.png",
+      "source_label": "BWIKI original illustration",
+      "source_dimensions": [
+        574,
+        761
+      ],
+      "source_sha256": "83dbd9d42aad162f8d72142dd49e1c4c77898b67a34cc2ca5c1b422f235472a7",
+      "verification": {
+        "deck_id": "dark-gold-e-2026",
+        "url": "https://www.bilibili.com/video/BV1Ehj36zEny/",
+        "time_seconds": 187,
+        "method": "Visual comparison of the original illustration with the named physical card in the deck presentation; rules wording not verified."
+      },
+      "reference_crops": [
+        [
+          222,
+          68,
+          239,
+          314
+        ]
+      ]
+    }
+  ]
+}

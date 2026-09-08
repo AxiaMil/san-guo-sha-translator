@@ -46,10 +46,8 @@ describe("OCR retrieval regressions", () => {
   });
 });
 
-it("finds every text-only general by its English and Chinese names", () => {
-  const references = cards.filter(
-    (card) => card.kind === "general" && !card.image,
-  );
+it("finds every newly illustrated general by its English and Chinese names", () => {
+  const references = cards.filter((card) => card.id.startsWith("REF_"));
   expect(references.length).toBeGreaterThan(0);
   for (const card of references) {
     for (const name of [card.name_en, card.name_cn]) {

@@ -13,15 +13,22 @@ cards = json.loads((root / "site/public/catalog.json").read_text())
 skins = json.loads((root / "assets/data/generals/skin.json").read_text())
 lookup = {c["id"]: c for c in cards}
 refs = [
-    (c["id"], c["id"], root / "assets" / c["image"].lstrip("/"))
+    (c["id"], c["id"], root / "assets" / c["image"].lstrip("/"), None)
     for c in cards
     if c["image"]
 ]
 refs += [
-    (s["base_id"], s["id"], root / "assets/images/generals" / f"{s['id']}.webp")
+    (s["base_id"], s["id"], root / "assets/images/generals" / f"{s['id']}.webp", None)
     for s in skins
     if s["base_id"] in lookup
 ]
+# Alternate portrait framing is cropped from the same native original. It
+# improves recognition when the printed card shows only part of a full scene.
+artwork = json.loads((root / "assets/data/deck-artwork.json").read_text())
+for art in artwork["artworks"]:
+    for i, crop in enumerate(art["reference_crops"]):
+        refs.append((art["card_id"], f"{art['card_id']}:portrait-{i + 1}",
+                     root / "assets/images/generals" / f"{art['card_id']}.webp", crop))
 ids = []
 names = []
 descriptors = []
@@ -31,10 +38,15 @@ owners = []
 offsets = [0]
 variants = []
 seen = {}
-for logical, name, file in refs:
+for logical, name, file, crop in refs:
     if not file.exists():
         continue
     im = cv2.imread(str(file))
+    if crop:
+        x, y, width, height = crop
+        if x < 0 or y < 0 or width < 60 or height < 60 or x + width > im.shape[1] or y + height > im.shape[0]:
+            raise ValueError(f"Invalid reference crop: {name}")
+        im = im[y:y + height, x:x + width]
     digest = hashlib.sha256(im.tobytes()).hexdigest()
     if digest in seen:
         group = variants[seen[digest]]

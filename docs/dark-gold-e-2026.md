@@ -19,7 +19,7 @@ The publisher's pinned comment contains the [full general checklist](https://i2.
 
 ## Reference coverage and limits
 
-Every entry has at least one bilingual rules reference. Twenty-one missing references were added in `assets/data/generals/deck-references.json`: the two featured E-series generals, 14 Star generals, Guan Suo, Yuan Tan & Yuan Shang, and three Limit Break generals. The catalog now has 725 entries, including 553 generals; 704 existing artwork images remain. No new artwork or recognition descriptors were imported.
+Every entry has at least one bilingual rules reference. Twenty-one missing references were added in `assets/data/generals/deck-references.json`: the two featured E-series generals, 14 Star generals, Guan Suo, Yuan Tan & Yuan Shang, and three Limit Break generals. The catalog now has 725 entries, including 553 generals; all 725 catalog entries now have illustrations. Twenty-one clean digital originals were added and visually checked against the matching physical cards in the deck presentation. The scanner includes both full illustrations and 20 portrait crops from those same original pixels.
 
 Chinese text comes from literal strings in Noname at commit `2e15429571d27ecf108fa51ab8684cff24ff7413`, using the character's named skills plus granted/upgraded skills. English translations were written for this application with the project's terminology guide. Template references were resolved to skill names without evaluating third-party code. Each card links its source and clearly identifies the text as a community reference. Noname's license is retained in `licenses/noname-GPL-3.0.txt`; see `THIRD_PARTY_NOTICES.md`.
 
@@ -35,12 +35,22 @@ The 162 Game Cards contain multiple copies. Their per-name/suit/rank distributio
 - Open an entry, read the bilingual reference, and mark the version that matches the printed card.
 - Deck pin and choices are saved locally; remembered IDs are revalidated against the entry's allowed rules family.
 - Opening a reader retains the deck route. Back returns to the checklist.
-- Missing artwork has an explicit text-reference placeholder.
+- Each new illustration links its source, native dimensions, and the matching point in the deck presentation.
 
 ## Verification
 
-- Production build and TypeScript passed; 42 JavaScript tests passed, including nine deck regressions.
+- Production build and TypeScript passed; 48 JavaScript tests passed, including nine deck regressions.
 - Phone viewport 390 × 844: all 139 entries have references; no horizontal overflow.
 - Xiahou Lan search → reference → English reader with all four skills → Back retained the deck route. Pin and chosen version survived reload.
 - The new reader's Axe audit had zero violations and no incomplete checks.
-- Recognition code and its reference index were unchanged by this task.
+- Updated artwork index: 768 views from 750 source files (748 unique illustrations). Matching thresholds are unchanged.
+
+## Artwork sourcing and quality
+
+`assets/data/deck-artwork.json` pins all 21 source URLs, byte hashes, original dimensions, and per-card verification timestamps. Twenty images are original illustration files from the relevant BWIKI character/file pages, ranging from 574 × 761 to 815 × 1080 for portraits, plus two 876 × 632 landscape scenes and a 706 × 998 portrait. Xiahou Lan uses the clean 350 × 464 digital original from the pinned Noname revision; a larger verified original was not found. It is not upscaled or represented as high resolution.
+
+The physical deck uses the purple God Zhong Hui illustration and the black-armored OL Limit Break Gao Shun. These differ from the same-named community image files, which were rejected. All 14 Star images, the three Limit Break additions, Guan Suo, Yuan Tan & Yuan Shang, and the two featured generals were individually compared with the deck video.
+
+`scripts/import-deck-artwork.py` verifies source bytes and dimensions and encodes lossless WebP at the native size. No promotional screenshots, unboxing frames, invented images, AI enhancement, or sharpening are imported. Portrait descriptors are computed from crops of those originals to accommodate printed-card framing. Illustration correspondence does not certify the wording or year of a rules revision.
+
+The production build and 48 JavaScript tests pass. All 96 Python checks pass, including recognition of every new illustration after JPEG compression, a warm cast and uneven shadow. A separate stress check on 21 uncropped, 360px-wide deck-video frames returned 10 correct top candidates, 11 abstentions, and no incorrect candidates; none was labelled strong. This is a low-resolution video check, not a physical-phone accuracy estimate. The reference database contains no pixels from that video.

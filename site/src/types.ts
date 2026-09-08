@@ -25,6 +25,13 @@ export type Card = {
   faq: { q_en: string; a_en: string; q_cn: string; a_cn: string }[];
   image: string | null;
   aliases?: string[];
+  artwork_source?: {
+    label: string;
+    url: string;
+    dimensions: [number, number];
+    deck_id: string;
+    verification_url: string;
+  };
   source_reference?: { label: string; url: string; note: string };
   translation_reviewed?: boolean;
 };

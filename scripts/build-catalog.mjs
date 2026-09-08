@@ -3,6 +3,9 @@ const read = (p) =>
   JSON.parse(fs.readFileSync(p, "utf8").replace(/^\uFEFF/, ""));
 const skills = read("assets/data/skills.json");
 const review = read("assets/data/translation-review.json");
+const artwork = new Map(
+  read("assets/data/deck-artwork.json").artworks.map((a) => [a.card_id, a]),
+);
 const cards = [];
 const missing = [];
 function resolveSkill(skill, cardId) {
@@ -63,6 +66,15 @@ for (const card of cards) {
   if (ids.has(card.id)) card.id = `${card.id}--${card.faction || ids.size}`;
   ids.add(card.id);
   if (!fs.existsSync(`assets${card.image}`)) card.image = null;
+  const art = artwork.get(card.id);
+  if (art && card.image)
+    card.artwork_source = {
+      label: art.source_label,
+      url: art.source_page,
+      dimensions: art.source_dimensions,
+      deck_id: art.verification.deck_id,
+      verification_url: `${art.verification.url}?t=${art.verification.time_seconds}`,
+    };
 }
 fs.mkdirSync("site/public", { recursive: true });
 console.log(`Source gaps displayed explicitly: ${missing.length}`);

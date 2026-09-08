@@ -1,3 +1,14 @@
+# Sourced Dark Gold artwork — 2026-09-08
+
+- Added 21 clean digital illustrations at native resolution using lossless WebP. All have source URLs/hashes, dimensions and individual visual verification timestamps in `assets/data/deck-artwork.json`. Twenty larger original illustrations and one native 350 × 464 Xiahou Lan portrait; no video-frame references or artificial enlargement.
+- Corrected artwork selection for the purple God Zhong Hui and black-armored OL Limit Break Gao Shun before import. The community files with those IDs depicted different artwork from the deck.
+- 725 catalog images; 750 source files including skins; 768 indexed views including 20 portrait crops of the newly imported originals. Recognition thresholds remain unchanged.
+- Production build and 48 JavaScript tests pass. All 96 Python tests pass in 71.64 seconds, including native-image provenance/index checks and every new card under JPEG compression, a warm cast and uneven shadow, plus existing recognition/detection/API regressions.
+- On 21 separate uncropped 360px deck-video frames, 10 correct candidates, 11 abstentions and zero incorrect candidates; none marked strong. These tiny-artwork frames are a stress check, not a measured phone-camera accuracy rate, and are not shipped as reference artwork.
+- Mobile browser: Star Sun Jian deck lookup opens the new 574 × 761 illustration, with source links and no horizontal overflow. Reader Axe audit: zero violations and zero incomplete checks. Uploading the God Zhong Hui deck-video frame reaches the real local API, returns an artwork match for the new reference, and preserves the distinction between an illustration match and verified printed rules.
+
+---
+
 # Compact interface and camera flow — 2026-09-08
 
 - Removed promotional headings, decorative scan cards, slogans and repeated instructions. Library and rules search now come first; deck details and turn guidance collapse. Neutral white/charcoal themes remain.
