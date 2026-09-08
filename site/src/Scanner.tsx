@@ -128,6 +128,10 @@ export default function Scanner({
   useEffect(() => {
     if (live && video.current && stream.current) {
       video.current.srcObject = stream.current;
+      video.current.parentElement?.scrollIntoView({
+        block: "center",
+        behavior: "instant",
+      });
       const activeStream = stream.current;
       void video.current.play().catch(() => {
         if (stream.current !== activeStream || !mounted.current) return;

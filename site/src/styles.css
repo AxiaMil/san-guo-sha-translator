@@ -3003,7 +3003,7 @@ footer a {
 .scan-deck-picker select { flex: 1; min-width: 0; max-width: 100%; padding: 10px 30px 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); font: inherit; min-height: 44px; }
 
 /* Live capture stays in the visible camera region on portrait and landscape phones. */
-.scanner.is-live .camera-stage { height: min(560px, 68svh); min-height: 320px; }
+.scanner.is-live .camera-stage { height: min(560px, 68svh, calc(100svh - 160px)); min-height: 180px; }
 .scanner.is-live .camera-stage video { object-fit: cover; }
 .scanner.is-live .viewfinder { inset: 12% 12% 22%; border-color: #d7e2ff; }
 .scanner.is-live .viewfinder.has-match { border-color: #8fb1ff; }
