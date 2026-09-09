@@ -7,6 +7,7 @@ export type Skill = {
   skill_type_secondary?: string;
   translation_reviewed?: boolean;
   translation_missing?: boolean;
+  translation_note?: { en: string; cn: string };
 };
 export type Card = {
   id: string;
@@ -37,6 +38,7 @@ export type Card = {
   };
   source_reference?: { label: string; url: string; note: string };
   translation_reviewed?: boolean;
+  translation_note?: { en: string; cn: string };
 };
 export type Candidate = {
   id: string;

@@ -7,7 +7,7 @@
     "gender": "Male",
     "faction": "Shu",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "辅助",
       "主公技",
@@ -59,7 +59,7 @@
     "gender": "Male",
     "faction": "Shu",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "进攻",
       "过牌",
@@ -111,7 +111,7 @@
     "gender": "Male",
     "faction": "Shu",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "防御",
       "辅助",
@@ -163,7 +163,7 @@
     "gender": "Female",
     "faction": "Shu",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "过牌",
       "控制",
@@ -189,7 +189,7 @@
     "gender": "Male",
     "faction": "Shu",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "进攻",
       "简单",
@@ -214,7 +214,7 @@
     "gender": "Male",
     "faction": "Shu",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "进攻",
       "回复",
@@ -240,7 +240,7 @@
     "gender": "Male",
     "faction": "Shu",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "控制",
       "回复",
@@ -266,7 +266,7 @@
     "gender": "Male",
     "faction": "Shu",
     "health": 3,
-    "power_index": 5.0,
+    "power_index": 5,
     "traits_cn": [
       "防御",
       "辅助",
@@ -294,7 +294,7 @@
     "gender": "Male",
     "faction": "Shu",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "进攻",
       "防御",
@@ -321,7 +321,7 @@
     "gender": "Male",
     "faction": "Shu",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "辅助",
       "主公技",
@@ -401,7 +401,7 @@
     "gender": "Male",
     "faction": "Shu",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "进攻",
       "辅助",
@@ -428,7 +428,7 @@
     "gender": "Male",
     "faction": "Shu",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "进攻",
       "控制",
@@ -454,7 +454,7 @@
     "gender": "Male",
     "faction": "Shu",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "防御",
       "辅助",
@@ -480,7 +480,7 @@
     "gender": "Male",
     "faction": "Shu",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "进攻",
       "过牌",
@@ -505,7 +505,7 @@
     "gender": "Male",
     "faction": "Shu",
     "health": 4,
-    "power_index": 4.0,
+    "power_index": 4,
     "traits_cn": [
       "进攻",
       "回复",
@@ -531,7 +531,7 @@
     "gender": "Male",
     "faction": "Shu",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "控制",
       "过牌",
@@ -635,7 +635,7 @@
     "gender": "Male",
     "faction": "Wei",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "防御",
       "辅助",
@@ -661,7 +661,7 @@
     "gender": "Male",
     "faction": "Wei",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "控制",
       "过牌",
@@ -686,7 +686,7 @@
     "gender": "Male",
     "faction": "Wei",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "进攻",
       "过牌",
@@ -727,8 +727,8 @@
       {
         "q_cn": "我可以两张卡都不给别人吗？",
         "a_cn": "可以",
-        "q_en": "",
-        "a_en": ""
+        "q_en": "May I keep both cards instead of giving either to another character?",
+        "a_en": "Yes. Giving cards is optional."
       }
     ],
     "skills": [
@@ -744,7 +744,7 @@
     "gender": "Female",
     "faction": "Wei",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "防御",
       "过牌",
@@ -820,7 +820,7 @@
     "gender": "Male",
     "faction": "Wei",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "控制",
       "辅助",
@@ -846,7 +846,7 @@
     "gender": "Male",
     "faction": "Wei",
     "health": 4,
-    "power_index": 4.0,
+    "power_index": 4,
     "traits_cn": [
       "防御",
       "过牌",
@@ -950,7 +950,7 @@
     "gender": "Male",
     "faction": "Wei",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "过牌",
       "辅助",
@@ -966,26 +966,26 @@
       {
         "q_cn": "李典發動【恂恂】獲得兩張牌後，剩下的兩張牌是否可以放在牌堆頂？",
         "a_cn": "不可以。只能置于牌堆底。",
-        "q_en": "",
-        "a_en": ""
+        "q_en": "After Li Dian activates [Careful Survey] and gains two cards, can the remaining two cards be placed on top of the Draw Pile?",
+        "a_en": "No. They can only be placed on the bottom of the Draw Pile."
       },
       {
         "q_cn": "李典發動【忘隙】時，摸牌的順序是如何？",
         "a_cn": "如果是李典的回合，李典先摸;若不是李典的回合，則按當前回合角色逆時針方向依次摸牌。",
-        "q_en": "",
-        "a_en": ""
+        "q_en": "When Li Dian activates [Set Aside Grudges], what is the order for drawing cards?",
+        "a_en": "If it is Li Dian's turn, Li Dian draws first; otherwise, the characters draw in counterclockwise order starting from the current turn character."
       },
       {
         "q_cn": "李典對一名角色造成傷害，該角色死亡，李典是否可以發動【忘隙】？",
         "a_cn": "不可以，只有目標角色存活，李典才能發動【忘隙】。",
-        "q_en": "",
-        "a_en": ""
+        "q_en": "If Li Dian deals damage to a character and that character dies, can Li Dian activate [Set Aside Grudges]?",
+        "a_en": "No. Li Dian can activate [Set Aside Grudges] only if the target character is still alive."
       },
       {
         "q_cn": "李典對司馬懿造成傷害，如何處理【忘隙】和【反饋】的技能結算？",
         "a_cn": "先發動「造成傷害」的技能，再發動「受到傷害」的技能，李典先發動【忘隙】，司馬懿再發動【反饋】。",
-        "q_en": "",
-        "a_en": ""
+        "q_en": "Li Dian deals damage to Sima Yi. How are [Set Aside Grudges] and [Retribution] resolved?",
+        "a_en": "First resolve skills triggered by dealing damage, then skills triggered by taking damage: Li Dian activates [Set Aside Grudges] first, then Sima Yi activates [Retribution]."
       }
     ],
     "skills": [
@@ -1053,7 +1053,7 @@
     "gender": "Female",
     "faction": "Wei",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "进攻",
       "过牌",
@@ -1080,7 +1080,7 @@
     "gender": "Male",
     "faction": "Wei",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "发育",
       "控制",
@@ -1132,7 +1132,7 @@
     "gender": "Female",
     "faction": "Wei",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "防御",
       "控制",
@@ -1261,7 +1261,7 @@
     "gender": "Male",
     "faction": "Wu",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "控制",
       "进攻",
@@ -1287,7 +1287,7 @@
     "gender": "Male",
     "faction": "Wu",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "防御",
       "控制",
@@ -1314,7 +1314,7 @@
     "gender": "Male",
     "faction": "Wu",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "进攻",
       "过牌",
@@ -1330,8 +1330,8 @@
       {
         "q_cn": "比的角色令我失去体力，我能不能使用【诈降】",
         "a_cn": "可以，只要你是失去体力就能摸三张牌。不过技能的第二个效果只能在你的出牌阶段内使用",
-        "q_en": "",
-        "a_en": ""
+        "q_en": "Can Feigned Surrender trigger when another character causes me to Lose HP?",
+        "a_en": "Yes. Losing HP triggers the draw of 3 cards. The second part of the skill applies only during your own Play Phase."
       }
     ],
     "skills": [
@@ -1532,7 +1532,7 @@
     "gender": "Male",
     "faction": "Wu",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "进攻",
       "控制",
@@ -1558,7 +1558,7 @@
     "gender": "Male",
     "faction": "Wu",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "防御",
       "辅助",
@@ -1584,7 +1584,7 @@
     "gender": "Male",
     "faction": "Wu",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "控制",
       "过牌",
@@ -1610,7 +1610,7 @@
     "gender": "Male",
     "faction": "Wu",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "辅助",
       "过牌",
@@ -1661,7 +1661,7 @@
     "gender": "Male",
     "faction": "Wu",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "控制",
       "强命",
@@ -1686,7 +1686,7 @@
     "gender": "Female",
     "faction": "Wu",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "控制",
       "辅助",
@@ -1738,7 +1738,7 @@
     "gender": "Male",
     "faction": "Wu",
     "health": 4,
-    "power_index": 2.0,
+    "power_index": 2,
     "traits_cn": [
       "进攻",
       "辅助",
@@ -1764,7 +1764,7 @@
     "gender": "Male",
     "faction": "Wu",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "控制",
       "过牌",
@@ -1815,7 +1815,7 @@
     "gender": "Male",
     "faction": "Qun",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "辅助",
       "控制",
@@ -1867,7 +1867,7 @@
     "gender": "Female",
     "faction": "Qun",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "进攻",
       "过牌",
@@ -1999,7 +1999,7 @@
     "gender": "Male",
     "faction": "Qun",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "进攻",
       "控制",
@@ -2051,7 +2051,7 @@
     "gender": "Male",
     "faction": "Qun",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "防御",
       "控制",
@@ -2103,7 +2103,7 @@
     "gender": "Female",
     "faction": "Qun",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "防御",
       "辅助",
@@ -2129,7 +2129,7 @@
     "gender": "Male",
     "faction": "Qun",
     "health": 6,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "防御",
       "强命",
@@ -2181,7 +2181,7 @@
     "gender": "Male",
     "faction": "Qun",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "防御",
       "辅助",
@@ -2207,7 +2207,7 @@
     "gender": "Male",
     "faction": "Qun",
     "health": 4,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "防御",
       "过牌",
@@ -2233,7 +2233,7 @@
     "gender": "Female",
     "faction": "Qun",
     "health": 3,
-    "power_index": 3.0,
+    "power_index": 3,
     "traits_cn": [
       "防御",
       "控制",
@@ -2286,7 +2286,7 @@
     "gender": "Female",
     "faction": "Qun",
     "health": 3,
-    "power_index": 4.0,
+    "power_index": 4,
     "traits_cn": [
       "进攻",
       "控制",
@@ -2331,21 +2331,29 @@
     ]
   },
   {
-  "id": "JX_QUN064",
-  "standard_id": "char_caojie",
-  "name_cn": "界曹节",
-  "name_en": "Cao Jie",
-  "gender": "Female",
-  "faction": "Wei",
-  "health": 3,
-  "power_index": 3.0,
-  "traits_cn": ["防御", "辅助", "困难"],
-  "traits_en": ["Defensive", "Support", "High Difficulty"],
-  "expansion": "Limit Break",
-  "faq": [],
-  "skills": [
-    "skill_jx_guard_the_seal",
-    "skill_jx_benefit_the_people"
-  ]
-}
+    "id": "JX_QUN064",
+    "standard_id": "char_caojie",
+    "name_cn": "界曹节",
+    "name_en": "Cao Jie",
+    "gender": "Female",
+    "faction": "Wei",
+    "health": 3,
+    "power_index": 3,
+    "traits_cn": [
+      "防御",
+      "辅助",
+      "困难"
+    ],
+    "traits_en": [
+      "Defensive",
+      "Support",
+      "High Difficulty"
+    ],
+    "expansion": "Limit Break",
+    "faq": [],
+    "skills": [
+      "skill_jx_guard_the_seal",
+      "skill_jx_benefit_the_people"
+    ]
+  }
 ]

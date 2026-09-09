@@ -1,3 +1,4 @@
+import deckKeywords from "../../assets/data/ruleset/deck-keywords.json";
 import { normalize } from "./matching";
 import type { Rule } from "./types";
 export type ReadingMode = "English" | "Bilingual" | "中文";
@@ -63,6 +64,7 @@ export function searchRules(rules: Rule[], query: string, category = "All") {
   );
 }
 export const terms = [
+  ...deckKeywords.map(rule => ({ name: rule.term_en, cn: rule.term_cn, text: rule.definition_en })),
   {
     name: "Use / Play",
     cn: "使用 / 打出",

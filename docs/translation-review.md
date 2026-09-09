@@ -1,5 +1,7 @@
 # Translation and reading update — 8 September 2026
 
+For the later full audit of both presets, see [10 September preset translation audit](preset-translation-audit-2026-09-10.md).
+
 This pass revises 18 shared skills, six basic card effects, the Dodge FAQ, and the two Wen Yang faction names. The Chinese source is retained. This is a targeted editorial/rules correction, not certification of every entry in the 704-card library.
 
 The terminology guide in `.claude/skills/sgs-ruleset-terminology/` defines the project's English names. Kill/Dodge remain the displayed names; Slash/Jink and sha/shan are search aliases. Use and Play, HP loss and damage, Show and Reveal, and Substitute and Replace and keep remain distinct.

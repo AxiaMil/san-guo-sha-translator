@@ -28,7 +28,7 @@
       {
         "q_cn": "发动【雌雄双股剑】时，被攻击者可以弃置装备区的牌或判定区的延时锦囊牌吗？",
         "a_cn": "不能。只能弃置手牌。",
-        "q_en": "Can the target discard equipment or time-delay Tool Cards when resolving [Twin Swords]?",
+        "q_en": "Can the target discard cards in their Equipment Zone or Time-Delayed Tool Cards in their Judgment Zone when resolving [Twin Swords]?",
         "a_en": "No. Only hand cards can be discarded."
       },
       {
@@ -333,7 +333,7 @@
         "q_cn": "【青釭剑】是否影响【八卦阵】的判定？",
         "a_cn": "是的。【八卦阵】也是防具，被【青釭剑】无效后，目标无法用【八卦阵】进行判定来当【闪】使用。",
         "q_en": "Does [Qing Gang Sword] affect [Eight Trigrams Formation]?",
-        "a_en": "Yes. [Eight Trigrams Formation] is armor. While Nullified by [Qing Gang Sword], the target cannot use its Judgment to produce a [Dodge]."
+        "a_en": "Yes. [Eight Trigrams Formation] is treated as armor. While Nullified by [Qing Gang Sword], the target cannot use its Judgment as a [Dodge]."
       }
     ]
   },
@@ -1215,7 +1215,7 @@
       "你的打出的【杀】可定义为禁技杀，并且额外指定多一名目标角色。 失去此牌后，你对一名角色造成3点体力伤害。"
     ],
     "effect_en": [
-      "[Kill] cards you play may be designated as Skill-Suppressing [Kill]s, and may designate one additional target. When you lose this weapon, deal 3 damage to one character."
+      "[Kill] cards you play may be designated as Skill-Suppressing [Kill] cards, and may designate one additional target. When you lose this weapon, deal 3 damage to one character."
     ],
     "faq": []
   },
@@ -1290,7 +1290,7 @@
       "锁定技，其它角色的准备阶段，若已受伤，需弃置2张牌，或受到1点普通伤害。直到回合结束，不能保留黑色手牌。"
     ],
     "effect_en": [
-      "Locked Skill: During other characters' Preparation Phase, if they are Wounded, they must discard 2 cards or receive 1 normal damage. Until the end of their turn, they cannot retain black hand cards."
+      "Locked Skill: During other characters' Preparation Phase, if they are Wounded, they must discard 2 cards or Take 1 normal damage. Until the end of their turn, they cannot retain black hand cards."
     ],
     "faq": []
   },

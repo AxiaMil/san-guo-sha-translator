@@ -208,7 +208,7 @@
         "name_cn": "冢骨",
         "name_en": "Bones in the Grave",
         "description_cn": "主公技，锁定技。摸牌阶段，若游戏轮数大于等于场上的群势力角色数，则你额外摸两张牌，否则你少摸一张牌。",
-        "description_en": "Lord skill. Compulsory. During your Draw Phase, if the round number is at least the number of Qun characters in play, draw two additional cards; otherwise draw one fewer card."
+        "description_en": "Lord skill. Locked Skill. During your Draw Phase, if the round number is at least the number of Qun characters in play, draw two additional cards; otherwise draw one fewer card."
       }
     ]
   },
@@ -371,7 +371,7 @@
         "name_cn": "锐军",
         "name_en": "Elite Advance",
         "description_cn": "当你于出牌阶段首次使用牌指定其他角色为目标后，你可以选择其中一名目标角色并摸X张牌（X为你已损失的体力值+1）。直到此阶段结束，除其外的其他角色均不在你的攻击范围内，你对其使用牌无距离限制，且当你对其造成非首次伤害时，此伤害值改为Y（Y为你此阶段上次对其造成的伤害值+1，至多为5）。",
-        "description_en": "After the first card you Use during your Play Phase designates another character as a target, you may choose one such target and draw X cards, where X is your lost HP + 1. Until this phase ends, all other characters except that target are outside your Attack Range, and your card Uses on that target ignore distance limits. Each time after the first that you deal damage to that target this phase, change the damage to the previous damage amount you dealt to them this phase + 1, capped at 5."
+        "description_en": "After you designate another character as a target with a card for the first time during your Play Phase, you may choose one such target and draw X cards, where X is your lost HP + 1. Until this phase ends, all other characters except that target are outside your Attack Range, and your card Uses on that target ignore distance limits. Each time after the first that you deal damage to that target this phase, change the damage to the previous damage amount you dealt to them this phase + 1, capped at 5."
       },
       {
         "name_cn": "刚毅",
@@ -578,7 +578,7 @@
         "name_cn": "内伐",
         "name_en": "Internal Strife",
         "description_cn": "出牌阶段开始时，你可以摸两张牌或获得场上的一张牌，然后弃置一张牌。若弃置的牌是基本牌，本回合你不能使用锦囊和装备牌，且【杀】的使用次数+X且目标+1；若弃置的不是基本牌，本回合你不能使用基本牌，且使用普通锦囊牌选择目标时可以增加或减少一个目标，前两次使用装备牌时摸X张牌（X为你发动〖内伐〗弃牌后手牌中因〖内伐〗而不能使用的牌的数量且最多为5）。",
-        "description_en": "At the start of your Play Phase, you may draw two cards or obtain one card in play, then discard one card. If you discarded a Basic Card, you cannot Use Tool or Equipment Cards this turn, your [Kill] usage limit increases by X, and your [Kill] may have one additional target. Otherwise, you cannot Use Basic Cards this turn; when choosing targets for a Non-Time-Delayed Tool Card, you may add or remove one target, and the first two times you Use Equipment Cards you draw X cards. X is the number of cards in your hand that Internal Strife prevents you from Using immediately after its discard, capped at 5."
+        "description_en": "At the start of your Play Phase, you may draw two cards or obtain one card in play, then discard one card. If you discarded a Basic Card, you cannot Use Tool Cards or Equipment Cards this turn, your [Kill] usage limit increases by X, and your [Kill] may have one additional target. Otherwise, you cannot Use Basic Cards this turn; when choosing targets for a Non-Time-Delayed Tool Card, you may add or remove one target, and the first two times you Use Equipment Cards you draw X cards. X is the number of cards in your hand that Internal Strife prevents you from Using immediately after its discard, capped at 5."
       }
     ]
   },
@@ -602,7 +602,7 @@
         "name_cn": "屯田",
         "name_en": "Cultivate the Fields",
         "description_cn": "①当你于回合外失去牌后，或于回合内因弃置而失去【杀】后，你可以判定。若判定结果不为♥，则你将此牌置于你的武将牌上，称为“田”。②你计算与其他角色的距离时-X（X为你武将牌上“田”的数目）。",
-        "description_en": "After you lose cards outside your turn, or lose a [Kill] by discarding it during your turn, you may make a Judgment. If the result is not a heart, put the Judgment Card on your General Card as a Field. Reduce your distance to other characters by X, where X is the number of Fields on your General Card."
+        "description_en": "After you lose cards outside your turn, or lose a [Kill] by discarding it during your turn, you may make a Judgment. If the result is not Hearts, put the Judgment Card on your General Card as a Field. Reduce your Distance to other characters by X, where X is the number of Fields on your General Card."
       },
       {
         "name_cn": "凿险",

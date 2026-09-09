@@ -1,0 +1,22 @@
+[
+  {
+    "id": "glossary_deck_last_resort",
+    "term_en": "Last Resort",
+    "term_cn": "背水",
+    "section_title_en": "Deck skill keywords",
+    "definition_cn": "背水是一种特殊的选项。发动技能时，若无法执行背水的后果，则无法选择背水。选择背水时，可将该技能的其余选项依次执行，再执行背水的后果。",
+    "definition_en": "A special option. You can choose Last Resort only if you can carry out its consequence. Perform the other listed options in order, then carry out the Last Resort consequence.",
+    "rules": [],
+    "source_url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/noname/library/poptip.js"
+  },
+  {
+    "id": "glossary_deck_cooperation",
+    "term_en": "Cooperation",
+    "term_cn": "协力",
+    "section_title_en": "Deck skill keywords",
+    "definition_cn": "技能发动者从同仇、并进、疏财、勠力中选择一项，然后直到技能时机结束，若你与选择的角色均完成了“协力”，根据技能执行协力奖励。\n同仇：你与其造成的伤害值之和不小于4。\n并进：你与其总计摸过至少8张牌。\n疏财：你与其弃置的牌中包含4种花色。\n勠力：你与其使用或打出的牌中包含4种花色。",
+    "definition_en": "When establishing Cooperation with another character, choose one shared objective: together deal at least 4 damage; together draw at least 8 cards; together discard cards covering all four suits; or together Use or Play cards covering all four suits. Track progress from activation until the deadline stated by the skill. If the chosen objective is met, apply that skill’s Cooperation reward.",
+    "rules": [],
+    "source_url": "https://github.com/libnoname/noname/blob/2e15429571d27ecf108fa51ab8684cff24ff7413/apps/core/noname/library/poptip.js"
+  }
+]

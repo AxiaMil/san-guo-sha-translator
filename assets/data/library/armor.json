@@ -166,7 +166,7 @@
         "q_cn": "【藤甲】对雷【杀】和火【杀】是否有效？",
         "a_cn": "无效。【藤甲】只令普通【杀】无效，雷【杀】和火【杀】可以正常命中。此外，受到火焰伤害时伤害还会+1。",
         "q_en": "Does [Rattan Armour] protect against thunder [Kill] or fire [Kill]?",
-        "a_en": "No. [Rattan Armour] only Nullifies normal (non-elemental) [Kill]. Thunder [Kill] and fire [Kill] land normally, and Fire damage additionally increases by 1."
+        "a_en": "No. [Rattan Armour] only Nullifies normal (non-elemental) [Kill]. [Thunder Kill] and fire [Kill] land normally, and Fire damage additionally increases by 1."
       },
       {
         "q_cn": "【青釭剑】可以无效【藤甲】吗？",
@@ -282,7 +282,7 @@
       "出牌阶段，你可以将手牌中的【护心镜】置入其他角色的装备区；当你受到致命伤害或大于1点的伤害时，你可以将装备区里的【护心镜】置入弃牌堆，然后防止此伤害。"
     ],
     "effect_en": [
-      "During your Play Phase, you may place [Sentinel Mirror] from your hand into another character's Equipment Zone. When you take damage that would reduce your HP to 0 or below, or damage exceeding 1, you may place [Sentinel Mirror] from any Equipment Zone into the Discard Pile to prevent that damage."
+      "During your Play Phase, you may place [Sentinel Mirror] from your hand into another character's Equipment Zone. When you take damage that would reduce your HP to 0 or below, or damage exceeding 1, you may place [Sentinel Mirror] from your Equipment Zone into the Discard Pile to prevent that damage."
     ],
     "faq": [
       {
@@ -339,7 +339,11 @@
       "Locked Skill: Whenever you take damage of 2 or more, that damage is reduced by 1.",
       "Locked Skill: Your General Card cannot be flipped."
     ],
-    "faq": []
+    "faq": [],
+    "translation_note": {
+      "en": "Source check needed: the Chinese damage clause contains a typo. Its printed wording has not been verified.",
+      "cn": "源文待核对：伤害条款含错字，尚未核实实体卡牌原文。"
+    }
   },
   {
     "id": "armor_seven_star_robe",

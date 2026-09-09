@@ -124,7 +124,7 @@
       "重铸：出牌阶段，你可以将此牌置入弃牌堆，然后摸一张牌。"
     ],
     "effect_en": [
-      "Play Phase: use this card on one or two characters. Each target is placed into the Chained state or Reset.",
+      "Play Phase: use this card on one or two characters. Each target is Turned sideways or Reset (a target Turned sideways is in the Chained state).",
       "Reforge: During your Play Phase, you may place this card into the Discard Pile to draw 1 card. Reforging is not considered using a Tool Card."
     ],
     "faq": [
@@ -166,9 +166,9 @@
       },
       {
         "q_cn": "【过河拆桥】或【顺手牵羊】能解除连环状态吗？",
-        "a_cn": "不能。连环状态是武将牌的横置状态，不是一张牌，无法被弃置或获取。唯一能切换连环状态的方式是再次对该角色使用【铁索连环】（令其重置）。",
+        "a_cn": "不能。连环状态是武将牌的横置状态，不是一张牌，无法被弃置或获取。【铁索连环】可以令其重置，其他明确写明重置的规则或效果也可以解除连环状态。",
         "q_en": "Can [Dismantle] or [Steal] remove chain status?",
-        "a_en": "No. Chain status is a positional state of the general card (horizontally placed), not a card that can be discarded or taken. The only way to toggle chain status is to use [Iron Shackles] on that character again (which Resets them)."
+        "a_en": "No. Being Chained is a state of the General Card, not a card that can be discarded or gained. [Iron Shackles] can Reset that character; other rules or effects that explicitly Reset the General Card can also end the Chained state."
       },
       {
         "q_cn": "重铸时，黄月英能额外摸一张牌吗？",
@@ -185,8 +185,8 @@
       {
         "q_cn": "若多名连环角色同时死亡，结算顺序是什么？",
         "a_cn": "按从使用者开始逆时针方向的顺序依次结算。",
-        "q_en": "If multiple chained characters die simultaneously, what is the elimination order?",
-        "a_en": "Counter-clockwise from the card's user."
+        "q_en": "If multiple Chained characters die, in what order are their deaths resolved?",
+        "a_en": "Resolve them in counter-clockwise order starting from the card's user."
       },
       {
         "q_cn": "主公通过连环伤害间接杀死忠臣，需要弃置所有手牌和装备牌吗？",
@@ -319,7 +319,7 @@
       "出牌阶段，对一名已受伤的角色使用。该角色回复1点体力，然后可以弃置一张【毒】（防止【毒】的效果）。"
     ],
     "effect_en": [
-      "Play Phase: use this card on a Wounded character. That character recovers 1 HP, then may discard a [Poison] from their hand to prevent that [Poison]'s effect."
+      "Play Phase: use this card on a Wounded character. That character recovers 1 HP, then may discard a [Poison] to prevent that [Poison]'s effect."
     ],
     "faq": [
       {
@@ -410,7 +410,11 @@
       "1. Play Phase: use on a character who has a weapon in their Equipment Zone — place this card beside their weapon. That weapon gains: Attack Range +1 and damage dealt by [Kill] +1.",
       "2. Play Phase: use on yourself — flip cards from the top of the Draw Pile one at a time until an Equipment card is revealed. You gain that Equipment card."
     ],
-    "faq": []
+    "faq": [],
+    "translation_note": {
+      "en": "Source check needed: the reveal/draw instruction in this card’s Chinese source is incomplete. Verify that step on your printed card.",
+      "cn": "源文待核对：此牌的亮牌／摸牌指令不完整，请核对实体卡牌。"
+    }
   },
   {
     "id": "tool_crossing_in_white",

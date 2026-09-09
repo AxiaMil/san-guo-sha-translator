@@ -724,7 +724,7 @@
         "q_cn": "视为使用的【杀】是否有距离限制？",
         "a_cn": "有。视为使用的【杀】需要检测距离。",
         "q_en": "Does the [Kill] used via Repair Armor have a distance restriction?",
-        "a_en": "Yes. The [Kill] used by this method is subject to normal distance checks."
+        "a_en": "Yes. The [Kill] is treated as being used by this method and is subject to normal Distance checks."
       },
       {
         "q_cn": "主动替换装备或被他人弃置装备区里的牌，是否算失去过装备区里的牌？",

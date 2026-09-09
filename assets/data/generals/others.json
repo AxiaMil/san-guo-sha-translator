@@ -4030,7 +4030,7 @@
         "q_cn": "郭缇萦的〖堪舆〗和张角的〖鬼道〗同时作用于同一次判定时，谁拥有最终的判定牌控制权？",
         "a_cn": "张角拥有最终控制权。〖堪舆〗是在判定牌亮出前通过预设牌堆顶的方式影响判定，而〖鬼道〗是在判定牌亮出后进行替换。根据结算顺序，替换技能生效晚于预设技能，因此张角可以替换掉郭缇萦预设的判定牌。",
         "q_en": "When Guo Tiying's 〖Geomancy〗 and Zhang Jue's 〖Ghost Path〗 both affect the same Judgment, who has final control over the Judgment Card?",
-        "a_en": "Zhang Jue has final control. 〖Geomancy〗 operates before the Judgment Card is flipped by presetting the top of the Draw Pile, while 〖Ghost Path〗 operates after the Judgment Card is flipped by substituting it. Since substitution resolves later than presetting, Zhang Jue can replace the card Guo Tiying has preset."
+        "a_en": "Zhang Jue has final control. 〖Geomancy〗 operates before the Judgment Card is Revealed by presetting the top of the Draw Pile, while 〖Ghost Path〗 operates after the Judgment Card is Revealed by substituting it. Since substitution resolves later than presetting, Zhang Jue can replace the card Guo Tiying has preset."
       }
     ],
     "skills": [
@@ -5602,8 +5602,16 @@
     "faction": "Qun",
     "health": 4,
     "power_index": 2.5,
-    "traits_cn": ["控制", "过牌", "困难"],
-    "traits_en": ["Control", "Card Flow", "High Difficulty"],
+    "traits_cn": [
+      "控制",
+      "过牌",
+      "困难"
+    ],
+    "traits_en": [
+      "Control",
+      "Card Flow",
+      "High Difficulty"
+    ],
     "expansion": "Other",
     "faq": [],
     "skills": [
@@ -5619,8 +5627,16 @@
     "faction": "Qun",
     "health": 4,
     "power_index": 2.5,
-    "traits_cn": ["进攻", "控制", "转化大师"],
-    "traits_en": ["Aggressive", "Control", "Converter"],
+    "traits_cn": [
+      "进攻",
+      "控制",
+      "转化大师"
+    ],
+    "traits_en": [
+      "Aggressive",
+      "Control",
+      "Converter"
+    ],
     "expansion": "Other",
     "faq": [],
     "skills": [
@@ -5638,8 +5654,16 @@
     "faction": "Shu",
     "health": 4,
     "power_index": 2.0,
-    "traits_cn": ["辅助", "过牌", "困难"],
-    "traits_en": ["Support", "Card Flow", "High Difficulty"],
+    "traits_cn": [
+      "辅助",
+      "过牌",
+      "困难"
+    ],
+    "traits_en": [
+      "Support",
+      "Card Flow",
+      "High Difficulty"
+    ],
     "expansion": "Other",
     "faq": [],
     "skills": [
@@ -5656,8 +5680,16 @@
     "faction": "Wu",
     "health": 3,
     "power_index": 2.5,
-    "traits_cn": ["控制", "辅助", "困难"],
-    "traits_en": ["Control", "Support", "High Difficulty"],
+    "traits_cn": [
+      "控制",
+      "辅助",
+      "困难"
+    ],
+    "traits_en": [
+      "Control",
+      "Support",
+      "High Difficulty"
+    ],
     "expansion": "Other",
     "faq": [],
     "skills": [
@@ -5674,8 +5706,16 @@
     "faction": "Shu",
     "health": 4,
     "power_index": 2.5,
-    "traits_cn": ["防御", "控制", "困难"],
-    "traits_en": ["Defensive", "Control", "High Difficulty"],
+    "traits_cn": [
+      "防御",
+      "控制",
+      "困难"
+    ],
+    "traits_en": [
+      "Defensive",
+      "Control",
+      "High Difficulty"
+    ],
     "expansion": "Other",
     "faq": [],
     "skills": [

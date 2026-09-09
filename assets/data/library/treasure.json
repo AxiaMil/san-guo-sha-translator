@@ -16,7 +16,7 @@
         "q_cn": "【木牛流马】下的牌算手牌吗？",
         "a_cn": "不算。储备牌不在手牌区，不受针对手牌的技能影响（如弃置、拼点等），只有在可以「使用或打出」手牌的时机才能动用储备牌。",
         "q_en": "Do cards stored under [Wooden Ox] count as hand cards?",
-        "a_en": "No. Stored cards are not in the hand-card area and are unaffected by skills that target hand cards (such as discarding or pitching). They can only be drawn upon at moments that allow you to use or play a hand card."
+        "a_en": "No. Stored cards are not in the hand-card area and are unaffected by skills that target hand cards (such as discarding or Point Duels). They can only be used or played at timings that allow you to use or play a hand card."
       },
       {
         "q_cn": "一张牌最多可以储存几张牌？",
@@ -221,7 +221,7 @@
       "锁定技，出牌阶段结束时，你将手牌摸至手牌上限(至多摸至五张)；此牌离开装备区后移出游戏。"
     ],
     "effect_en": [
-      "Locked Skill: At the end of your Play Phase, draw cards until you reach your Hand Limit (up to a maximum of 5 cards drawn). When this card leaves your Equipment Zone, it is instead Removed from the Game."
+      "Locked Skill: At the end of your Play Phase, draw cards until you reach your Hand Limit (up to 5 hand cards). When this card leaves your Equipment Zone, it is instead Removed from the Game."
     ],
     "faq": []
   },

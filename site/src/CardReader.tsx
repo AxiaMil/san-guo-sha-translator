@@ -282,6 +282,11 @@ export default function CardReader({
               <BookOpen size={16} /> Game terms
             </button>
           </div>
+          {card.translation_note && (
+            <p className="notice" role="note">
+              {mode === "中文" ? card.translation_note.cn : card.translation_note.en}
+            </p>
+          )}
           {glossary && (
             <aside className="reader-glossary" aria-label="Game terms">
               <div className="section-title">
@@ -331,6 +336,11 @@ export default function CardReader({
               {mode !== "English" && (
                 <p className="chinese-text" lang="zh">
                   {s.description_cn}
+                </p>
+              )}
+              {s.translation_note && (
+                <p className="notice" role="note">
+                  {mode === "中文" ? s.translation_note.cn : s.translation_note.en}
                 </p>
               )}
             </section>
